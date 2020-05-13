@@ -1,1 +1,0 @@
-FlowRouter.template('/ex_checkout', 'ex_checkout');

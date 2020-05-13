@@ -1,1 +1,0 @@
-FlowRouter.template('/ex_product', 'ex_product');

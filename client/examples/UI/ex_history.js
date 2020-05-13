@@ -1,1 +1,0 @@
-FlowRouter.template('/ex_history', 'ex_history');

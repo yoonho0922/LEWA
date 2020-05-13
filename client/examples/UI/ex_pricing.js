@@ -1,1 +1,0 @@
-FlowRouter.template('/ex_pricing','ex_pricing');

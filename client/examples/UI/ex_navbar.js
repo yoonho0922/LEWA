@@ -1,1 +1,0 @@
-FlowRouter.template('/ex_navbar', 'ex_navbar');
