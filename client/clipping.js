@@ -1,0 +1,1 @@
+FlowRouter.template('/clipping', 'clipping');

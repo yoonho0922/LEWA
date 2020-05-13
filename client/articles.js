@@ -1,0 +1,1 @@
+FlowRouter.template('/articles', 'articles');
