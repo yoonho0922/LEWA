@@ -7,7 +7,7 @@ Javascript 기반 웹 개발 플랫폼 Meteor를 이용하여 영어기사를 �
 
 ## 페이지
 * 메인 - main.html / main.js
-*  기사 목록 - articles.html / articles.js
+*  기사 목록 - articleList.html / articleList.js
     * 기사 하나 보기 - article.html / article.js
 * 스크랩한 기사 - clipping.html / clipping.js
 * 내가 푼 퀴즈 - myQuiz.html / myQuiz.js
