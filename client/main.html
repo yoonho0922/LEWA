@@ -19,11 +19,10 @@
             {{#each articles}}
             <div class="col-md-3 ">
                 <div class="mb-4">
-                    <a href="/article/_id"><img src="{{image_link}}" alt="" class="card-img-top"></a>
+                    <a href="/article/{{_id}}"><img src="{{image_link}}" alt="" class="card-img-top"></a>
                     <div class="card-body">
-                        <h4>{{title}}</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural
-                            lead-in to additional content. This content is a little bit longer.</p>
+                        <h4><a href="/article/{{_id}}" style="color:black;">{{title}}</a></h4>
+                        <p class="card-text">{{{content}}}</p>
                     </div>
                 </div>
             </div>
