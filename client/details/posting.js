@@ -1,4 +1,4 @@
-FlowRouter.template('/posting', 'posting');
+FlowRouter.template('/posting/', 'posting');
 
 Template.posting.onRendered(function() {
     $('#editor').summernote({
