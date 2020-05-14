@@ -36,7 +36,7 @@ Javascript 기반 웹 개발 플랫폼 Meteor를 이용하여 영어기사를 �
 * DB_ARTICLES
     * _id
     * title : 제목
-    * image : 사진 링크(URL)
+    * image : 사진 uid (DB_IMAGES에 있는 파일의 _id)
     * content : 내용
     * createdAt : 추가된 시간
     * viewCount : 조회수

@@ -1,25 +1,16 @@
 FlowRouter.template('/', 'main');
 
-Template.main.onRendered(function() {
-  // 화면이 그려지고 난 후 제일 먼저 수행
-  Session.set('count', 0);
-});
-
 Template.main.helpers({
-  // 화면에 데이터를 전달
-  count: function() {
-    var count = Session.get('count');
-    if (!count) {
-      return 'Click!';
-    } else {
-      return 'Count: ' + count;
-    }
+  articles: function () {
+    return DB_ARTICLES.findAll({}, {sort: {viewCount: -1}});
+    //기사들을 조회수의 내림차순으로 return
+  },
+  image_link: function() {
+    // 저장 된 이미지 링크를 반환
+    return DB_FILES.findOne({_id: this.image}).link();
   }
 });
 
 Template.main.events({
-  // 화면의 이벤트를 처리
-  'click #btn-count': function() {
-    Session.set('count', Session.get('count')+1);
-  }
+
 });
