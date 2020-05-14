@@ -1,8 +1,79 @@
 <template name="articles">
     <div class="container">
 
-        {{> navbar}}
+        <div>
+            {{> navbar}}
 
-        <h1>articles</h1>
+        </div>
+        <div style="padding-top: 40px">
+            <h1>articles_title</h1>
+        </div>
+        <div class="content" style="float:left;width: 65%">
+            WASHINGTON — Federal agents seized a cellphone belonging to a prominent Republican senator on Wednesday
+            night as part of the Justice Department’s investigation into controversial stock trades he made as the novel
+            coronavirus first struck the U.S., a law enforcement official said.
+            Sen. Richard Burr of North Carolina, the chairman of the Senate Intelligence Committee, turned over his
+            phone to agents after they served a search warrant on the lawmaker at his residence in the Washington area,
+            the official said, speaking on condition of anonymity to discuss a law enforcement action.
+
+            The seizure represents a significant escalation in the investigation into whether Burr violated a law
+            preventing members of Congress from trading on insider information they have gleaned from their official
+            work.
+
+            To obtain a search warrant, federal agents and prosecutors must persuade a judge they have probable cause to
+            believe a crime has been committed. The law enforcement official said the Justice Department is examining
+            Burr’s communications with his broker.
+
+
+            Such a warrant being served on a sitting U.S. senator would require approval from the highest ranks of the
+            Justice Department and is a step that would not be taken lightly. Kerri Kupec, a Justice Department
+            spokeswoman, declined to comment.
+
+            A second law enforcement official said FBI agents served a warrant in recent days on Apple to obtain
+            information from Burr’s iCloud account and said agents used data obtained from the California-based company
+            as part of the evidence used to obtain the warrant for the senator’s phone.
+
+
+        </div>
+        <div class="content_explain" style="float:left;width: 35%;padding-left: 50px">
+            <div class="input-group">
+                <input type="text" id="inp-search" style="border-radius: 0.3em" class="form-control" placeholder="단어 찾기" aria-label="Search">
+                <span class="input-group-btn" >
+                <button id="btn-search" class="btn" type="button" style="background-color: #000000; color: white">검색</button>
+            </span>
+            </div>
+            <div class="word_dictionary" style="border:1px solid lightgray;margin-top: 20px;">
+                <h4>사전 검색결과</h4>
+                1.질병, 병, 질환<br>
+                heart/liver/kidney, etc. disease<br>
+                심장병/간 질환/신장병 등<br>
+                2.병폐<br>
+                Greed is a disease of modern society.<br>
+                탐욕은 현대 사회의 병폐이다.<br>
+            </div>
+            <div class="word_add" style="border:1px solid lightgray;margin-top: 20px;">
+                <h4>추가한 단어 목록</h4>
+                disease x<br>
+                apple x<br>
+                apple x<br>
+                apple x<br>
+                apple x<br>
+<!--                x는 삭제 버튼-->
+            </div>
+            <div class="go_nextpage" style="float:right;margin-top: 150px;">
+                <button id="btn-gohome" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Upload and go home</button>
+                <button id="btn-goquiz" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Upload and Quiz</button>
+
+            </div>
+        </div>
+
+        <div style="background-color: #ffffff">
+            <p>
+                <a href="#">Back to top</a>
+
+            </p>
+        </div>
+
     </div>
+
 </template>
