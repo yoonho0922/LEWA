@@ -12,11 +12,12 @@
                 <h1>{{title}}</h1>
                 <!--            기사 타이틀 가져오기-->
             </div>
-            <div>
-                <p>조회수 {{viewcount}}</p>
-                <p style="float:right">{{createdAt}}</p>
-            </div>
+
             <div class="content" style="float:left;width: 65%">
+                <div>
+                    <p>조회수 {{viewCount}}</p>
+                    <p style="float:right">{{createdAt}}</p>
+                </div>
                 <!--            기사 본문 가져오기-->
                 {{{content}}}
             </div>

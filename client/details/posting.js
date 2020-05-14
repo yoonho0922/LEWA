@@ -52,10 +52,10 @@ Template.posting.events({
 
         //나머지 DB에 저장
         DB_ARTICLES.insert({
-            createdAt: new Date(),
             title: title,
             image: image,   //DB_FILES에 있는 이미지의 _id 저장
             content: html,
+            createdAt: new Date(),
             viewCount: 0
         })
 
@@ -65,6 +65,7 @@ Template.posting.events({
         $('#inp-title').val('');
         $('#inp-file').val('');
         $('#editor').summernote('reset');
+        FlowRouter.go('/');
     }
 
 })

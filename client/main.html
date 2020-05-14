@@ -7,110 +7,28 @@
 
         <div class="today_news_title" style="color: black; width: 35%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
             {{#each articles}}
-            <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br>
+                <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br>
             {{/each}}
         </div>
     </div>
 
-<!--    기사 10개 각각 일단 나타내기-->
+    <!--    기사 10개 각각 일단 나타내기-->
     <div class="container">
         <div class="row">
-<!-- 테두리 넣고싶으면 class에 border rounded 넣기           -->
+            <!-- 테두리 넣고싶으면 class에 border rounded 넣기           -->
             {{#each articles}}
-            <div class="col-md-3 ">
-                <div class="mb-4">
-                    <a href="/article/{{_id}}"><img src="{{image_link}}" alt="" class="card-img-top"></a>
-                    <div class="card-body">
-                        <h4><a href="/article/{{_id}}" style="color:black;">{{title}}</a></h4>
-                        <p class="card-text">{{{content}}}</p>
+                <div class="col-md-3 ">
+                    <div class="mb-4">
+                        <a href="/article/{{_id}}"><img src="{{image_link}}" alt="" class="card-img-top" style="height:170px;"></a>
+                        <div class="card-body" style="height: 300px">
+                            <h4><a href="/article/{{_id}}" style="color:black;">{{title}}</a></h4>
+                            <p class="card-text" style="height:100px;text-overflow: ellipsis;overflow: hidden;">{{{content}}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
             {{/each}}
-
-
-
-
-<!--            가로형식-->
-                    <div class="row mb-2">
-                        <div class="col-md-6">
-                            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
-                                <div class="col p-4 d-flex flex-column position-static" style="text-overflow: ellipsis;overflow: hidden;">
-                                    <h3 class="mb-0">Title</h3>
-                                    <div class="mb-1 text-muted">Nov 12</div>
-                                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.</p>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
-                                <div class="col p-4 d-flex flex-column position-static" style="text-overflow: ellipsis;overflow: hidden;">
-                                    <h3 class="mb-0">Title</h3>
-                                    <div class="mb-1 text-muted">Nov 12</div>
-                                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.</p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-<!--            //가로형식끝-->
-
-
-
-
-            <div class="col-md-3">
-                <div class="mb-4">
-                    <a href="/기사 주소"><img src="/examples/0001.jpeg" alt="" class="card-img-top"></a>
-                    <div class="card-body">
-                        <h4>title</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural
-                            lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="mb-4">
-                    <a href="/examples/0001.jpeg" target="_blank"><img src="/examples/0001.jpeg" alt="" class="card-img-top"></a>
-                    <div class="card-body">
-                        <h4>title</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural
-                            lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="mb-4">
-                    <a href="/examples/0001.jpeg" target="_blank"><img src="/examples/0001.jpeg" alt="" class="card-img-top"></a>
-                    <div class="card-body">
-                        <h4>title</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural
-                            lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="mb-4">
-                    <a href="/examples/0001.jpeg" target="_blank"><img src="/examples/0001.jpeg" alt="" class="card-img-top"></a>
-                    <div class="card-body">
-                        <h4>title</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural
-                            lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
-
-
-
         </div>
     </div>
-
 
     <footer class="blog-footer">
         <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>

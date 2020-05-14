@@ -1,0 +1,40 @@
+<template name="login" >
+    <div id="ex_login_custom" class="text-center" style="background-color: #494949">
+        <div class="form">
+            <a href="/" class="blog-header-logo text-dark">LEWA</a>
+
+            {{#if currentUser}}
+                <button id="btn-home" class="btn btn-lg btn-outline-light btn-block" style="font-weight: bold;">home</button>
+                <button id="btn-fix" class="btn btn-lg btn-outline-light btn-block" style="font-weight: bold">정보수정</button>
+            {{else}}
+                {{#if isSignUpMode}}  <!-- 회원가입모드 일 경우 -->
+                    <h1 class="h3 mb-3" style="font-weight: bold;color: black">WELCOME!</h1>
+                    <input id="inp-email" type="email" class="form-control mb-1" placeholder="Email address" required autofocus>
+                    <input id="inp-password" type="password" class="form-control mb-1" placeholder="Password" required>
+                    <input id="inp-passwordConfirm" type="password" class="form-control mb-1" placeholder="Password" required>
+                    <div class="checkbox mb-3">
+                        <label>
+                            <!--                            <input type="checkbox" value="remember-me"> Remember me-->
+                        </label>
+                    </div>
+                    <button id="btn-signUp" class="btn btn-lg btn-outline-light btn-block" style="font-weight: bold">Sign Up</button>
+                    <button id="btn-back" class="btn btn-lg btn-light btn-block">Back</button>
+                {{else}} <!-- 회원가입모드가 아닐 경우 -->
+                    <h1 class="h3 mb-3" style="font-weight: bold;color: white">Please sign in</h1>
+                    <input id="inp-email" type="email" class="form-control mb-1" placeholder="Email address" required autofocus>
+                    <input id="inp-password" type="password" class="form-control mb-1" placeholder="Password" required>
+                    <div class="checkbox mb-3">
+                        <label>
+                            <!--                            <input type="checkbox" value="remember-me"> Remember me-->
+                        </label>
+                    </div>
+                    <button id="btn-signIn" class="btn btn-lg btn-outline-light btn-block" style="font-weight: bold">Sign in</button>
+                    <button id="btn-signUpMode" class="btn btn-lg btn-light btn-block" style="font-weight: bold">Sign Up</button>
+                {{/if}}
+            {{/if}}
+
+
+            <p class="mt-5 mb-3 text-muted">&copy; Copyright on Codeasy</p>
+        </div>
+    </div>
+</template>
