@@ -5,36 +5,23 @@
             {{> navbar}}
 
         </div>
-        <div style="padding-top: 40px">
-            <h1>articles_title</h1>
+<!--        본문에 가져올거 1.타이틀 2.본문 3. 날짜 4. 조회수 5. 사진-->
+        {{#with board}}
+        <div>
+            <div style="padding-top: 40px; padding-bottom: 40px">
+                <h1>{{title}}</h1>
+                <!--            기사 타이틀 가져오기-->
+            </div>
+            <div>
+                <p>조회수 {{viewcount}}</p>
+                <p style="float:right">{{createdAt}}</p>
+            </div>
+            <div class="content" style="float:left;width: 65%">
+                <!--            기사 본문 가져오기-->
+                {{{content}}}
+            </div>
         </div>
-        <div class="content" style="float:left;width: 65%">
-            WASHINGTON — Federal agents seized a cellphone belonging to a prominent Republican senator on Wednesday
-            night as part of the Justice Department’s investigation into controversial stock trades he made as the novel
-            coronavirus first struck the U.S., a law enforcement official said.
-            Sen. Richard Burr of North Carolina, the chairman of the Senate Intelligence Committee, turned over his
-            phone to agents after they served a search warrant on the lawmaker at his residence in the Washington area,
-            the official said, speaking on condition of anonymity to discuss a law enforcement action.
-
-            The seizure represents a significant escalation in the investigation into whether Burr violated a law
-            preventing members of Congress from trading on insider information they have gleaned from their official
-            work.
-
-            To obtain a search warrant, federal agents and prosecutors must persuade a judge they have probable cause to
-            believe a crime has been committed. The law enforcement official said the Justice Department is examining
-            Burr’s communications with his broker.
-
-
-            Such a warrant being served on a sitting U.S. senator would require approval from the highest ranks of the
-            Justice Department and is a step that would not be taken lightly. Kerri Kupec, a Justice Department
-            spokeswoman, declined to comment.
-
-            A second law enforcement official said FBI agents served a warrant in recent days on Apple to obtain
-            information from Burr’s iCloud account and said agents used data obtained from the California-based company
-            as part of the evidence used to obtain the warrant for the senator’s phone.
-
-
-        </div>
+        {{/with}}
         <div class="content_explain" style="float:left;width: 35%;padding-left: 50px">
             <div class="input-group">
                 <input type="text" id="inp-search" style="border-radius: 0.3em" class="form-control" placeholder="단어 찾기" aria-label="Search">
@@ -73,7 +60,6 @@
 
             </p>
         </div>
-
     </div>
 
 </template>
