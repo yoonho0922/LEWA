@@ -22,15 +22,22 @@
             </div>
         </div>
         {{/with}}
+
+        <!-- 단어 검색-->
         <div class="content_explain" style="float:left;width: 35%;padding-left: 50px">
             <div class="input-group">
-                <input type="text" id="inp-search" style="border-radius: 0.3em" class="form-control" placeholder="단어 찾기" aria-label="Search">
+                <input type="text" id="inp-wordSearch" style="border-radius: 0.3em" class="form-control" placeholder="단어 찾기" aria-label="Search">
                 <span class="input-group-btn" >
-                <button id="btn-search" class="btn" type="button" style="background-color: #000000; color: white">검색</button>
+                <button id="btn-wordSearch" class="btn" type="button" style="background-color: #000000; color: white">검색</button>
             </span>
             </div>
             <div class="word_dictionary" style="border:1px solid lightgray;margin-top: 20px;">
                 <h4>사전 검색결과</h4>
+                <div class="input-group">
+                    <h2>{{{searchWord}}}</h2>
+                    <button id="btn-wordSave" class="btn" type="button" style="background-color: #000000; color: white">{{wordSave}}</button>
+                    <!-- 단어 저장(즐겨찾기) 버튼 -->
+                </div>
                 1.질병, 병, 질환<br>
                 heart/liver/kidney, etc. disease<br>
                 심장병/간 질환/신장병 등<br>
@@ -40,11 +47,9 @@
             </div>
             <div class="word_add" style="border:1px solid lightgray;margin-top: 20px;">
                 <h4>추가한 단어 목록</h4>
-                disease x<br>
-                apple x<br>
-                apple x<br>
-                apple x<br>
-                apple x<br>
+                {{#each wordList}}
+                    {{word}}       {{createdAt}} x<br>
+                {{/each}}
                 <!--                x는 삭제 버튼-->
             </div>
             <div class="go_nextpage" style="float:right;margin-top: 150px;">

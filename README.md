@@ -18,9 +18,9 @@ Javascript 기반 웹 개발 플랫폼 Meteor를 이용하여 영어기사를 �
 #### 공통
 * navbar.html / navbar.js   
 
-## DB
+## DB Collection
+##### 모든 Collection엔 _id(UID : uniqued ID)가 있음
 * users
-    * _id : UID(UniquedID)
     * createdAt
     * services
         * password
@@ -34,7 +34,6 @@ Javascript 기반 웹 개발 플랫폼 Meteor를 이용하여 영어기사를 �
         
 
 * DB_ARTICLES
-    * _id
     * title : 제목
     * image : 사진 uid (DB_IMAGES에 있는 파일의 _id)
     * content : 내용
@@ -42,12 +41,10 @@ Javascript 기반 웹 개발 플랫폼 Meteor를 이용하여 영어기사를 �
     * viewCount : 조회수
     
 * DB_CLIPPING
-    * _id
     * user_id : 스크랩 한 유저 UID
     * article_id : 스크랩 된 기사 UID
 
 * DB_WORDS
-    * _id
     * word : 단어
     * createdAt : 추가된 시간
     * user_id : 추가한 사용자 UID
