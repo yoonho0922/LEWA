@@ -53,4 +53,7 @@ Javascript 기반 웹 개발 플랫폼 Meteor를 이용하여 영어기사를 �
     * user_id : 추가한 사용자 UID
     * article_id: 추가된 기사 UID
     
+* DB_FILES
+    * 이미지 파일이 저장되는 DB
+    
 

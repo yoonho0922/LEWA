@@ -3,6 +3,22 @@
 
         {{> navbar}}
 
-        <h1>posting</h1>
+        <div class="row text-center">
+            <div class="input-group mb-3 col-md-9">
+                <input class="form-control" value="" type="text" id="inp-title" placeholder="제목"/>
+                <!-- 제목 DB_ARTICLES : title -->
+            </div>
+            <div class="input-group mb-3 col-md-3">
+                <input type="file" id="inp-file"/>
+                <!-- 기사사진 DB_ARTICLES : image -->
+            </div>
+        </div>
+        <div id="editor"></div>
+        <!-- 내용 DB_ARTICLES : content -->
+
+        <p>
+            <a id="btn-save" class="btn btn-primary">Add Content</a>
+        </p>
+
     </div>
 </template>
