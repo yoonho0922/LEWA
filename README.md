@@ -13,6 +13,7 @@ Javascript 기반 application 개발 플랫폼 Meteor를 활용하여 영어기�
 
 ### details
 * 기사 하나 보기 - article
+    * 기사별 단어 검색 - articleWord
 
 * 내정보 - myPage
 * 로그인 페이지 - loing
