@@ -30,18 +30,14 @@ mongoDB
 * 로그인 페이지 - loing
 
 ## DB Collection
-##### 모든 Collection엔 _id(UID : uniqued ID)가 있음
+ 모든 Collection엔 _id(UID : uniqued ID)가 있음
 * users
     * createdAt
     * services
         * password
-    * (username)
     * emails
         * address
-        * verified
-    * (profile)
-        * type
-        * name
+        * verified 
         
 
 * DB_ARTICLES
@@ -64,5 +60,3 @@ mongoDB
     * createdAt : 추가된 시간
     * user_id : 추가한 사용자 UID
     * article_id: 추가된 기사 UID
-
-
