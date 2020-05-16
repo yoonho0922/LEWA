@@ -14,5 +14,10 @@ Template.article.helpers({
 });
 
 Template.article.events({
-
+    'click #btn-gohome': function() {
+    location.href="/";
+},
+    'click #btn-goquiz': function() {
+        location.href = "/quiz";
+    },
 });
