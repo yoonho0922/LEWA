@@ -20,7 +20,10 @@
                 </div>
                 <!--            기사 본문 가져오기-->
                 {{{content}}}
+
+
             </div>
+
         </div>
         {{/with}}
 
@@ -28,20 +31,17 @@
         <div class="content_explain" style="float:left;width: 35%;padding-left: 50px">
             <!-- 기사별 단어 검색-->
             {{> articleWord}}
-
-            <div class="go_nextpage" style="float:right;margin-top: 150px;">
-                <button id="btn-gohome" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Upload and go home</button>
-                <button id="btn-goquiz" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Upload and Quiz</button>
-
-            </div>
         </div>
 
-        <div style="background-color: #ffffff">
-            <p>
-                <a href="#">Back to top</a>
 
-            </p>
+
+        <div class="go_nextpage" style="float:right;margin-top: 150px;">
+            <button id="btn-gohome" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Go home</button>
+            <button id="btn-goquiz" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Quiz</button>
+
         </div>
+
     </div>
+
 
 </template>
