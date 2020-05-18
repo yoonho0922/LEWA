@@ -2,7 +2,106 @@
     <div class="container">
 
         {{> navbar}}
+        <div><h1>articles.</h1></div> <!--넓히고 싶음-->
 
-        <h1>articleList</h1>
+        <div class="table-responsive">
+            <table class="table table-hover">  <!--table table-striped table-sm-->
+                <thead class = "thread-light"> <!--조큼더 생각-->
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Publication</th>
+                    <!--...? 신문읽었오 확인용 <th scope="col">신문사</th>-->
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <th scope="row">1</th> <!--순서 어떻게 갖고올건지-->
+                    <td>Korea lamp notebook...</td>
+                    <td>20/07/23</td>
+                    <td>CNN</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th> <!--순서 어떻게 갖고올건지-->
+                    <td>Korea lamp notebook...</td>
+                    <td>20/07/23</td>
+                    <td>CNN</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th> <!--순서 어떻게 갖고올건지-->
+                    <td>Korea lamp notebook...</td>
+                    <td>20/07/23</td>
+                    <td>CNN</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th> <!--순서 어떻게 갖고올건지-->
+                    <td>Korea lamp notebook...</td>
+                    <td>20/07/23</td>
+                    <td>CNN</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th> <!--순서 어떻게 갖고올건지-->
+                    <td>Korea lamp notebook...</td>
+                    <td>20/07/23</td>
+                    <td>CNN</td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th> <!--순서 어떻게 갖고올건지-->
+                    <td>Korea lamp notebook...</td>
+                    <td>20/07/23</td>
+                    <td>CNN</td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th> <!--순서 어떻게 갖고올건지-->
+                    <td>Korea lamp notebook...</td>
+                    <td>20/07/23</td>
+                    <td>CNN</td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th> <!--순서 어떻게 갖고올건지-->
+                    <td>Korea lamp notebook...</td>
+                    <td>20/07/23</td>
+                    <td>CNN</td>
+                </tr>
+                <tr>
+                    <th scope="row">9</th> <!--순서 어떻게 갖고올건지-->
+                    <td>Korea lamp notebook...</td>
+                    <td>20/07/23</td>
+                    <td>CNN</td>
+                </tr>
+                <tr>
+                    <th scope="row">10</th> <!--순서 어떻게 갖고올건지-->
+                    <td>Korea lamp notebook...</td>
+                    <td>20/07/23</td>
+                    <td>CNN</td>
+                </tr>
+
+                </tbody> <!--for each로 받아줬음 좋겠음 -->
+            </table>
+
+        </div>
+
+        <!-- 검색창 https://melonpeach.tistory.com/37
+        <div class = "search row">
+            <div class = "col-xs-2 col-sm-2"
+                <select name = "searchType" class = "form-control">
+                    <option value = "n"
+                </select>
+        </div>
+        -->
+
+
+        <div class = "text-center">
+            <ul class = "pagination">
+                <li><a href = "#">1</a></li>
+                <li><a href = "#">2</a></li>
+                <li><a href = "#">3</a></li>
+                <li><a href = "#">4</a></li>
+                <li><a href = "#">5</a></li>
+            </ul>
+        </div>
+
     </div>
 </template>
