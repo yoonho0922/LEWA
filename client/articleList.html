@@ -3,25 +3,37 @@
 
         {{> navbar}}
         <div><h1>articles.</h1></div> <!--넓히고 싶음-->
-
+        <!--get_i_article()시간만 여기로 뺴고 싶어-->
         <div class="table-responsive">
             <table class="table table-hover">  <!--table table-striped table-sm-->
+
                 <thead class = "thread-light"> <!--조큼더 생각-->
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Publication</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">등록한 날짜</th>
+                    <th scope="col">조회수</th>
+                    <!--단어검색횟수추가?-->
                     <!--...? 신문읽었오 확인용 <th scope="col">신문사</th>-->
                 </tr>
                 </thead>
 
                 <tbody>
+                {{#each articles}}
                 <tr>
                     <th scope="row">1</th> <!--순서 어떻게 갖고올건지-->
-                    <td>Korea lamp notebook...</td>
-                    <td>20/07/23</td>
-                    <td>CNN</td>
+                    <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>
+                    <td>{{createdAt}}</td>
+                    <td>{{viewCount}}</td>
+                </tr>
+                {{/each}}
+
+                <tr>
+                    <th scope="row">1</th> <!--순서 어떻게 갖고올건지-->
+                    <td>{{title}}</td>
+                    <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>
+                    <td>{{createdAt}}</td>
+                    <td>{{viewCount}}</td>
                 </tr>
                 <tr>
                     <th scope="row">2</th> <!--순서 어떻게 갖고올건지-->
@@ -92,6 +104,17 @@
         </div>
         -->
 
+        <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a href="#">1</a>
+            <a class="active" href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">&raquo;</a>
+        </div>
+
 
         <div class = "text-center">
             <ul class = "pagination">
@@ -105,3 +128,41 @@
 
     </div>
 </template>
+<!--
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+        }
+
+        .pagination a.active {
+            background-color: dodgerblue;
+            color: white;
+        }
+
+        .pagination a:hover:not(.active) {background-color: #ddd;}
+    </style>
+</head>
+<body>
+
+<h2>Pagination</h2>
+<p>Responsive pagination with hover effects:</p>
+
+<div class="pagination">
+    <a href="#">&laquo;</a>
+    <a href="#">1</a>
+    <a class="active" href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">6</a>
+    <a href="#">&raquo;</a>
+</div>
+
+</body>
+-->

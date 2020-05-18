@@ -1,6 +1,11 @@
 FlowRouter.template('/article/:_id', 'article');
 
-
+Template.article.onCreated(function() {
+    var _id = FlowRouter.getParam('_id')
+    DB_ARTICLES.update({_id: _id}, {
+        $inc: {viewCount: 1}  //조회수 1 증가 업데이트
+    });
+});
 
 Template.article.helpers({
     //기사 관련
