@@ -10,6 +10,7 @@
             <div class="col-4 d-flex justify-content-end align-items-center">
 
                 {{#if currentUser}}
+                    <a id ="admire_posting" style="margin-right: 30px " class="btn btn-sm btn-outline-secondary" >관리자 기사등록</a>
                     <a id ="sign_out" class="btn btn-sm btn-outline-secondary" href="#">Sign Out</a>
                 {{else}}
                     <a id ="sign_in" class="btn btn-sm btn-outline-secondary" href="#">Sign In</a>
@@ -20,10 +21,10 @@
     </header>
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-            <a class="p-2 text-muted" href="/articleList">기사 목록</a>
-            <a class="p-2 text-muted" href="/clipping">스크랩한 기사</a>
-            <a class="p-2 text-muted" href="/myQuiz">내가 푼 퀴즈</a>
-            <a class="p-2 text-muted" href="/wordBook">단어장</a>
+            <a id="article_list" class="p-2 text-muted" >기사 목록</a>
+            <a id="article_clipping" class="p-2 text-muted" >스크랩한 기사</a>
+            <a id="my_quiz" class="p-2 text-muted" >내가 푼 퀴즈</a>
+            <a id="word_list" class="p-2 text-muted" >단어장</a>
         </nav>
     </div>
 </template>
