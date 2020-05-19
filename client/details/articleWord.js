@@ -72,7 +72,8 @@ Template.articleWord.events({
     },
 
     //단어목록에 삭제버튼에 대한 함수
-    'click #btn-wordRemove': function(){
+    'click #word_delete': function(){
+
 
     }
 });
