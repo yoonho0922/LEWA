@@ -4,6 +4,15 @@
         {{> navbar}}
         <div><h1>articles.</h1></div> <!--넓히고 싶음-->
         <!--get_i_article()시간만 여기로 뺴고 싶어-->
+
+        <div class="input-group">
+            <input type="text" id="inp-wordSearch" style="border-radius: 0.3em" class="form-control" placeholder="날짜 입력" aria-label="Search">
+            <span class="input-group-btn" >
+                <button id="btn-createdAt" class="btn" type="button" style="background-color: #000000; color: white">검색</button>
+            </span>
+        </div>
+
+
         <div class="table-responsive">
             <table class="table table-hover">  <!--table table-striped table-sm-->
 
@@ -19,81 +28,46 @@
                 </thead>
 
                 <tbody>
-                {{#each articles}}
-                <tr>
-                    <th scope="row">1</th> <!--순서 어떻게 갖고올건지-->
-                    <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>
-                    <td>{{createdAt}}</td>
-                    <td>{{viewCount}}</td>
-                </tr>
-                {{/each}}
+                {{#if issearchdate}}
+                    {{#each searchcreatedAt}}
+                        <tr>
+                            <th scope="row">{{math @index "+" 1}} </th> <!--순서 어떻게 갖고올건지-->
+                            <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>
+                            <td>{{createdAt}}</td>
+                            <td>{{viewCount}}</td>
+                        </tr>
 
-                <tr>
-                    <th scope="row">1</th> <!--순서 어떻게 갖고올건지-->
-                    <td>{{title}}</td>
-                    <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>
-                    <td>{{createdAt}}</td>
-                    <td>{{viewCount}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th> <!--순서 어떻게 갖고올건지-->
-                    <td>Korea lamp notebook...</td>
-                    <td>20/07/23</td>
-                    <td>CNN</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th> <!--순서 어떻게 갖고올건지-->
-                    <td>Korea lamp notebook...</td>
-                    <td>20/07/23</td>
-                    <td>CNN</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th> <!--순서 어떻게 갖고올건지-->
-                    <td>Korea lamp notebook...</td>
-                    <td>20/07/23</td>
-                    <td>CNN</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th> <!--순서 어떻게 갖고올건지-->
-                    <td>Korea lamp notebook...</td>
-                    <td>20/07/23</td>
-                    <td>CNN</td>
-                </tr>
-                <tr>
-                    <th scope="row">6</th> <!--순서 어떻게 갖고올건지-->
-                    <td>Korea lamp notebook...</td>
-                    <td>20/07/23</td>
-                    <td>CNN</td>
-                </tr>
-                <tr>
-                    <th scope="row">7</th> <!--순서 어떻게 갖고올건지-->
-                    <td>Korea lamp notebook...</td>
-                    <td>20/07/23</td>
-                    <td>CNN</td>
-                </tr>
-                <tr>
-                    <th scope="row">8</th> <!--순서 어떻게 갖고올건지-->
-                    <td>Korea lamp notebook...</td>
-                    <td>20/07/23</td>
-                    <td>CNN</td>
-                </tr>
-                <tr>
-                    <th scope="row">9</th> <!--순서 어떻게 갖고올건지-->
-                    <td>Korea lamp notebook...</td>
-                    <td>20/07/23</td>
-                    <td>CNN</td>
-                </tr>
-                <tr>
-                    <th scope="row">10</th> <!--순서 어떻게 갖고올건지-->
-                    <td>Korea lamp notebook...</td>
-                    <td>20/07/23</td>
-                    <td>CNN</td>
-                </tr>
+                    {{/each}}
 
-                </tbody> <!--for each로 받아줬음 좋겠음 -->
+                {{/if}}
+
+<!--                {{#each articles10}}-->
+<!--                        <tr>-->
+<!--                            <th scope="row">{{math @index "+" 1}} </th> &lt;!&ndash;순서 어떻게 갖고올건지&ndash;&gt;-->
+<!--                            <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>-->
+<!--                            <td>{{createdAt}}</td>-->
+<!--                            <td>{{viewCount}}</td>-->
+<!--                        </tr>-->
+<!--                {{/each}}-->
+                </tbody>
             </table>
-
         </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+
+
+    </div>
 
         <!-- 검색창 https://melonpeach.tistory.com/37
         <div class = "search row">
@@ -102,31 +76,11 @@
                     <option value = "n"
                 </select>
         </div>
+        https://getbootstrap.com/docs/4.0/components/pagination/
         -->
 
-        <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a href="#">1</a>
-            <a class="active" href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">&raquo;</a>
-        </div>
 
 
-        <div class = "text-center">
-            <ul class = "pagination">
-                <li><a href = "#">1</a></li>
-                <li><a href = "#">2</a></li>
-                <li><a href = "#">3</a></li>
-                <li><a href = "#">4</a></li>
-                <li><a href = "#">5</a></li>
-            </ul>
-        </div>
-
-    </div>
 </template>
 <!--
 <head>
