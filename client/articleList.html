@@ -28,14 +28,27 @@
                 </thead>
 
                 <tbody>
-                {{#each articles10}}
+                {{#if issearchdate}}
+                    {{#each searchcreatedAt}}
                         <tr>
                             <th scope="row">{{math @index "+" 1}} </th> <!--순서 어떻게 갖고올건지-->
                             <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>
                             <td>{{createdAt}}</td>
                             <td>{{viewCount}}</td>
                         </tr>
-                {{/each}}
+
+                    {{/each}}
+
+                {{/if}}
+
+<!--                {{#each articles10}}-->
+<!--                        <tr>-->
+<!--                            <th scope="row">{{math @index "+" 1}} </th> &lt;!&ndash;순서 어떻게 갖고올건지&ndash;&gt;-->
+<!--                            <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>-->
+<!--                            <td>{{createdAt}}</td>-->
+<!--                            <td>{{viewCount}}</td>-->
+<!--                        </tr>-->
+<!--                {{/each}}-->
                 </tbody>
             </table>
         </div>
