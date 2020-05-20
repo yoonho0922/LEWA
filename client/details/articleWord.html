@@ -23,7 +23,7 @@
     <div class="word_add" style="border:1px solid lightgray;margin-top: 20px;">
         <h4>추가한 단어 목록</h4>
         {{#each wordList}}
-            {{word}}       {{createdAt}} <button id="word_delete" style="background-color: #e5e5e5; color: black">x</button>
+            {{word}}       {{date}} <a id="word_delete" style="background-color: #e5e5e5; color: black">x</a><br>
         {{/each}}
         <!--                x는 삭제 버튼-->
     </div>

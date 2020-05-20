@@ -38,14 +38,18 @@ Template.articleList.helpers({
 
 
     searchcreatedAt:function () {
-        var list_articles  = new Array();
-        var searched = DB_ARTICLES({createdAt: searchcreatedAt()});
-        searched.forEach(function (element) {
-            list_articles.push(DB_ARTICLES.findOne({createdAt:element.searchcreatedAt()}))
+
+        var list_articles_create  = new Array();
+        var createsearched = DB_ARTICLES.findAll({createdAt: searchcreatedAt()});
+        createsearched.forEach(function (element) {
+            list_articles_create.push(DB_ARTICLES.findOne({createdAt:element.searchcreatedAt()}))
 
         });
-        return list_articles;
-    }
+        return list_articles_create;
+    },
+    issearchdate: function() {
+        return Session.get('issearchdate'); //
+    },
 
 });
 
@@ -53,7 +57,8 @@ Template.articleList.helpers({
 Template.articleList.events({
     'click #btn-createdAt': function(){
         var searchcreatedAt = $('#btn-createdAt').val();
-        Session.set('searchWord', searchWord);
+        Session.set('issearchdate', true);
     },
+
 
 });
