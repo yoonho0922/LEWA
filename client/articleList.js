@@ -20,7 +20,7 @@ Template.articleList.helpers({
     articles00: function (n) {
         this.articles.forEach(function(i){
             if(i/10 === n)
-                return DB_ARTICLES.findAll({}, {sort: {viewCount: -1}});
+                return DB_ARTICLES.findAll({}, {sort: {viewCount: -1}})[i];
         });
         //기사들을 조회수의 내림차순으로 return
     },
@@ -34,10 +34,26 @@ Template.articleList.helpers({
         rvalue = parseInt(rvalue);
 
         return { "+": lvalue + rvalue, "/": lvalue / rvalue }[operator];
+    },
+
+
+    searchcreatedAt:function () {
+        var list_articles  = new Array();
+        var searched = DB_ARTICLES({createdAt: searchcreatedAt()});
+        searched.forEach(function (element) {
+            list_articles.push(DB_ARTICLES.findOne({createdAt:element.searchcreatedAt()}))
+
+        });
+        return list_articles;
     }
 
 });
 
+
 Template.articleList.events({
+    'click #btn-createdAt': function(){
+        var searchcreatedAt = $('#btn-createdAt').val();
+        Session.set('searchWord', searchWord);
+    },
 
 });
