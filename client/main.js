@@ -1,29 +1,29 @@
 FlowRouter.template('/', 'main');
 
 
-i=0;
 Template.main.helpers({
   articles: function () {
-    return DB_ARTICLES.findAll({}, {sort: {viewCount: -1}});
-    //기사 타이틀은 조회수의 내림차순으로 return
+    return DB_ARTICLES.findAll({}, {sort: {viewCount: -1}, limit: 10});
+    //기사 타이틀은 조회수!!의 내림차순, 10개 return
   },
+
   image_link: function() {
     // 저장 된 이미지 링크를 반환
     return DB_FILES.findOne({_id: this.image}).link();
   },
+
   articles2:function () {
-    return DB_ARTICLES.findAll({}, {sort: {createdAt: -1}});
-    //기사 앨범형은 시간 내림차순으로 return
+    return DB_ARTICLES.findAll({}, {sort: {createdAt: -1}, limit: 10});
+    //기사 앨범형은 시간!! 내림차순, 10개 return
   },
 
-  articles3:function () {
-    i++;
-    if(i==11)
-      i=1;
-    return i;
+  math: function(lvalue, operator, rvalue) { //index 1부터 시작하게 도와주는 함수
+    lvalue = parseInt(lvalue);
+    rvalue = parseInt(rvalue);
 
-  },//조회순위 index 만들기
-
+    return { "+": lvalue + rvalue, "/": lvalue / rvalue }[operator];
+    //index + 1을 return
+  }
 
 });
 
