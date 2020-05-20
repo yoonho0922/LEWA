@@ -3,33 +3,28 @@
 
         <div>
             {{> navbar}}
-
         </div>
 <!--        본문에 가져올거 1.타이틀 ㅇ 2.본문 ㅇ 3. 날짜 ㅇ 4. 조회수 5. 사진 ㅇ  -->
 
         {{#with board}}
         <div>
+            <!--            기사 타이틀 가져오기-->
             <div style="padding-top: 40px; padding-bottom: 40px">
-
                 <h1>{{title}}</h1>
-                <!--            기사 타이틀 가져오기-->
-<!--                <a id="btn-clip"><img src="../img/{{clip_img}}" style="width:50px;height: 50px"></a>-->
-<!--                이미지가 안들어가져,,,-->
+                <a id="btn-clip"><img src="../img/{{clip_img}}" style="width:50px;height: 50px" onerror="this.src='no_image.gif'"></a>
+<!--                -->
+<!--                스크랩(clip) 이미지가 안들어가짐,,,-->
                 <a id="btn-clip" style="font-size: 30px">{{clip_img}}</a>
             </div>
 
             <div class="content" style="float:left;width: 65%;">
                 <div style="padding-bottom: 30px">
                     <div style="float: right" >{{createdAt}}</div>
-
                     <div>조회수 {{viewCount}}</div>
                 </div>
                 <!--            기사 본문 가져오기-->
                 {{{content}}}
-
-
             </div>
-
         </div>
         {{/with}}
 
