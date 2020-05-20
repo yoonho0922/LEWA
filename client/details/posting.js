@@ -59,7 +59,8 @@ Template.posting.events({
             title: title,
             image: image,   //DB_FILES에 있는 이미지의 _id 저장
             content: html,
-            createdAt: getToday().toString(),
+            date: getToday().toString(),
+            createdAt: new Date(),
             viewCount: 0
         })
 

@@ -26,7 +26,9 @@ Template.articleWord.helpers({
     wordList: function(){   //이 기사에 추가된 단어 목록
         var article_id = FlowRouter.getParam('_id');
         return DB_WORDS.findAll({article_id:article_id});
-    }
+    },
+
+
 
 });
 
@@ -55,9 +57,15 @@ Template.articleWord.events({
         // 현재 단어가 DB에 저장되있는지 확인
         // word에는 null 또는 해당 단어의 object가 들어간다 (key, value의 묶음 배열)
 
+        function getToday(){
+            var date = new Date();
+            return (date.getMonth()+1).toString()+"-"+date.getDate().toString();
+        }
+
         if(!word){   //null인 경우 - 단어가 저장되지 않았을경우
             DB_WORDS.insert({
                 word: searchWord,
+                date: getToday().toString(),
                 createdAt : new Date(),
                 user_id : user_id,
                 article_id: article_id,
