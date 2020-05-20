@@ -13,7 +13,7 @@ Template.articleWord.helpers({
     },
     wordSave: function(){   //단어를 단어장에 추가했는지 여부
         var word = Session.get('searchWord');
-        // var user_id =   //유저 _id
+        // var user_id = Meteor.user()._id;   //유저 _id
         var article_id = FlowRouter.getParam('_id'); //기사 _id
 
         // findOne selector : 단어, 유저, 기사
@@ -41,7 +41,7 @@ Template.articleWord.events({
     //즐겨찾기 버튼에 대한 함수
     'click #btn-wordSave': function(){  //단어장에 추가(저장)하는 버튼
         var searchWord = Session.get('searchWord');   //현재 검색된 단어 가져오기
-        var user_id = "";   //유저의 _id 가져오기
+        var user_id = Meteor.user()._id;//유저의 _id 가져오기
         var article_id = FlowRouter.getParam('_id');   //기사의 _id 가져오기
 
         //단어를 아직 검색하지 않았을 경우 예외처리
@@ -59,7 +59,7 @@ Template.articleWord.events({
             DB_WORDS.insert({
                 word: searchWord,
                 createdAt : new Date(),
-                // user_id : user_id,
+                user_id : user_id,
                 article_id: article_id,
             });
             alert("저장");
@@ -72,7 +72,9 @@ Template.articleWord.events({
     },
 
     //단어목록에 삭제버튼에 대한 함수
-    'click #btn-wordRemove': function(){
+    'click #word_delete': function(){
+
+
 
     }
 });

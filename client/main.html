@@ -7,8 +7,12 @@
 
         <div class="today_news_title" style="color: black; width: 35%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
             {{#each articles}}
-                <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br>
+
+                <a href="/article/{{_id}}" style="color:black; margin-left: 10px">{{articles3}}. {{title}}</a><br>
+
+
             {{/each}}
+
         </div>
     </div>
 
@@ -16,7 +20,7 @@
     <div class="container">
         <div class="row">
             <!-- 테두리 넣고싶으면 class에 border rounded 넣기           -->
-            {{#each articles}}
+            {{#each articles2}}
                 <div class="col-md-3 ">
                     <div class="mb-4">
                         <a id="go_article" href="/article/{{_id}}"><img src="{{image_link}}" alt="" class="card-img-top" style="height:170px;"></a>
