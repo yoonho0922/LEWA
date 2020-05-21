@@ -19,19 +19,19 @@ Template.article.helpers({
     clip_img: function () {
 
         if(Meteor.user() == null){
-            return 'pre_scrap.png';
-            //return '☆';
+            // return 'pre_scrap.png';
+            return '☆';
         }
 
         var post_id = FlowRouter.getParam('_id');
         var user_id = Meteor.user()._id;
 
         if(!DB_CLIPS.findOne({post_id : post_id, user_id : user_id})){
-            //return '☆';
-            return 'pre_scrap.png';
+            return '☆';
+            // return 'pre_scrap.png';
         }else{
-            return 'post_scrap.png';
-            //return '★';
+            // return 'post_scrap.png';
+            return '★';
         }
     },
 

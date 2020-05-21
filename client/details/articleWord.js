@@ -59,7 +59,7 @@ Template.articleWord.events({
 
         function getToday(){
             var date = new Date();
-            return (date.getMonth()+1).toString()+"-"+date.getDate().toString();
+            return (date.getMonth()+1).toString()+"."+date.getDate().toString();
         }
 
         if(!word){   //null인 경우 - 단어가 저장되지 않았을경우
