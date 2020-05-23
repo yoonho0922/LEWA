@@ -37,7 +37,41 @@ Template.articleWord.events({
     //단어 검색했을때 단어 띄우는 함수 (임시 사전)
     'click #btn-wordSearch': function(){
         var searchWord = $('#inp-wordSearch').val();
+        var user_id=Meteor.user()._id;
         Session.set('searchWord', searchWord);
+        var count2 = DB_SEARCH_COUNT.findOne({word: searchWord,  user_id:Meteor.user()._id});
+        // var word_id=FlowRouter.getParam('_id');
+        var count=FlowRouter.getParam('count');
+
+        if (!count2) {
+            alert("d");
+            DB_SEARCH_COUNT.insert({
+                word: searchWord,
+                count: 0,
+                user_id: user_id
+            });
+        }else{
+            alert("ddd");
+
+
+            // alert(word_id);
+            DB_SEARCH_COUNT.update({word:searchWord,user_id:user_id},{$inc:{count: 1}});
+            alert("dddddd")
+
+            // // count2.count+=1;
+            // count.count += 1;
+            // // addcount+=1;
+            // alert("aaa");
+            // // alert(addcount);
+            // DB_SEARCH_COUNT.update({word: searchWord, user_id: user_id}, addcount)
+            //
+            // // DB_SEARCH_COUNT.update({count:addcount-1}, addcount);
+            // alert("aasa");
+        }
+
+
+
+        // Session.set('searchWord', searchWord);
 
         // if(searchWord===DB_WORDS.findOne({word: searchWord,  user_id:Meteor.user()._id}))
         // {
