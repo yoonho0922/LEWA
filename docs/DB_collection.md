@@ -20,7 +20,7 @@
 * DB_FILES
     * 이미지 파일이 저장되는 DB
     
-* DB_CLIPPING
+* DB_CLiPS
     * user_id : 스크랩 한 유저 UID
     * article_id : 스크랩 된 기사 UID
 
@@ -29,5 +29,6 @@
     * createdAt : 추가된 시간
     * user_id : 추가한 사용자 UID
     * article_id: 추가된 기사 UID
+    * searchCount: 단어 검색 횟수
 
 

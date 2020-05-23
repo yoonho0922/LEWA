@@ -13,11 +13,11 @@ Template.articleWord.helpers({
     },
     wordSave: function(){   //단어를 단어장에 추가했는지 여부
         var word = Session.get('searchWord');
-        // var user_id = Meteor.user()._id;   //유저 _id
+        var user_id = Meteor.user()._id;   //유저 _id
         var article_id = FlowRouter.getParam('_id'); //기사 _id
 
         // findOne selector : 단어, 유저, 기사
-        if(!DB_WORDS.findOne({word: word, article_id: article_id},)){    //null일 경우 - DB에 저장되지 않은 단어
+        if(!DB_WORDS.findOne({word: word, article_id: article_id,user_id:user_id},)){    //null일 경우 - DB에 저장되지 않은 단어
             return '☆';
         }else{
             return '★';
@@ -25,7 +25,7 @@ Template.articleWord.helpers({
     },
     wordList: function(){   //이 기사에 추가된 단어 목록
         var article_id = FlowRouter.getParam('_id');
-        return DB_WORDS.findAll({article_id:article_id});
+        return DB_WORDS.findAll({article_id:article_id,user_id:Meteor.user()._id});
     },
 
 
@@ -38,6 +38,12 @@ Template.articleWord.events({
     'click #btn-wordSearch': function(){
         var searchWord = $('#inp-wordSearch').val();
         Session.set('searchWord', searchWord);
+
+        // if(searchWord===DB_WORDS.findOne({word: searchWord,  user_id:Meteor.user()._id}))
+        // {
+        //     DB_WORDS.update({_id: _id,word:searchWord}, {
+        //         $inc: {searchCount: 1}  //조회수 1 증가 업데이트
+        //     });
     },
 
     //즐겨찾기 버튼에 대한 함수
@@ -52,8 +58,9 @@ Template.articleWord.events({
             return;
         }
 
+
         // findOne selector : 단어, 유저, 기사
-        var word = DB_WORDS.findOne({word: searchWord, article_id: article_id});
+        var word = DB_WORDS.findOne({word: searchWord, article_id: article_id, user_id:Meteor.user()._id});
         // 현재 단어가 DB에 저장되있는지 확인
         // word에는 null 또는 해당 단어의 object가 들어간다 (key, value의 묶음 배열)
 
@@ -69,6 +76,8 @@ Template.articleWord.events({
                 createdAt : new Date(),
                 user_id : user_id,
                 article_id: article_id,
+                // searchCount: 0
+
             });
             alert("저장");
         }else{  //DB에 이미 있는 경우 - 삭제
