@@ -3,7 +3,6 @@
 
         {{> navbar}}
         <div><h1>articles.</h1></div> <!--넓히고 싶음-->
-        <!--get_i_article()시간만 여기로 뺴고 싶어-->
 
         <div class="input-group">
             <input type="text" id="inp-Search" style="border-radius: 0.3em" class="form-control" placeholder="날짜 입력" aria-label="Search">
@@ -28,6 +27,7 @@
                 </thead>
 
                 <tbody>
+                <!--  시도1. date 검색해서 date별로 쏴주자-->
 <!--                {{#if issearchdate}}-->
                     {{#each searchcreatedAt}}
                         <tr>
@@ -41,15 +41,48 @@
 
 <!--                {{/if}}-->
 
-<!--&lt;!&ndash;                {{#each articles10}}&ndash;&gt;-->
-<!--&lt;!&ndash;                        <tr>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <th scope="row">{{math @index "+" 1}} </th> &lt;!&ndash;순서 어떻게 갖고올건지&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                            <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <td>{{createdAt}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <td>{{viewCount}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </tr>&ndash;&gt;-->
-<!--&lt;!&ndash;                {{/each}}&ndash;&gt;-->
-<!--                </tbody>-->
+                <!--2.  그냥 1클릭하면 1-10, 2클릭하면 11-20 쏴주자 -->
+                {{#each articles}}
+                        <tr>
+                            <th scope="row">{{math @index "+" 1}} </th> <!--순서 어떻게 갖고올건지-->
+                            <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>
+                            <td>{{createdAt}}</td>
+                            <td>{{viewCount}}</td>
+                        </tr>
+                {{/each}}
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</template>
+
+<!--pagination 후보들 (모두 시도2. 에 해당됨)-->
+
+<!--pagination시도하다 fail-->
+
+<!--   0.      <template name="articleList"> -->
+<!--            &lt;!&ndash; existing code ... &ndash;&gt;-->
+<!--            <nav>-->
+<!--                <ul class="pager">-->
+<!--                    <li class="{{prevPageClass}}">-->
+<!--                        <a id="prevPage" href="{{prevPage}}">-->
+<!--                            <span aria-hidden="true">&larr;</span> Previous-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li class="{{nextPageClass}}">-->
+<!--                        <a id="nextPage" href="{{nextPage}}">-->
+<!--                            Next <span aria-hidden="true">&rarr;</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </nav>-->
+<!--        </template>-->
+
+
+<!--         1.       </tbody>-->
 <!--            </table>-->
 <!--        </div>-->
 <!--        <nav aria-label="Page navigation example">-->
@@ -66,16 +99,7 @@
 <!--            </ul>-->
 <!--        </nav>-->
 
-
-                </tbody>
-            </table>
-
-        </div>
-    </div>
-
-</template>
-
-        <!-- 검색창 https://melonpeach.tistory.com/37
+<!-- 3.   검색창 https://melonpeach.tistory.com/37
         <div class = "search row">
             <div class = "col-xs-2 col-sm-2"
                 <select name = "searchType" class = "form-control">
@@ -87,7 +111,7 @@
 
 
 
-<!--
+<!-- 4.
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -107,21 +131,4 @@
         .pagination a:hover:not(.active) {background-color: #ddd;}
     </style>
 </head>
-<body>
-
-<h2>Pagination</h2>
-<p>Responsive pagination with hover effects:</p>
-
-<div class="pagination">
-    <a href="#">&laquo;</a>
-    <a href="#">1</a>
-    <a class="active" href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
-    <a href="#">6</a>
-    <a href="#">&raquo;</a>
-</div>
-
-</body>
--->
+<body>-->
