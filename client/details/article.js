@@ -5,6 +5,9 @@ Template.article.onCreated(function() {
     DB_ARTICLES.update({_id: _id}, {
         $inc: {viewCount: 1}  //조회수 1 증가 업데이트
     });
+    DB_ALL_ARTICLES.update({_id: _id}, {
+        $inc: {viewCount: 1}  //조회수 1 증가 업데이트
+    });
 });
 
 Template.article.helpers({

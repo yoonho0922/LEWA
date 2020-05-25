@@ -29,7 +29,9 @@ Template.articleList.helpers({
         rvalue = parseInt(rvalue);
 
         return { "+": lvalue + rvalue, "/": lvalue / rvalue }[operator];
-    }
+    },
+
+
 
 });
 

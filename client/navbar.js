@@ -5,9 +5,8 @@ Template.navbar.helpers({
         var email = Meteor.user().emails[0].address;
         if(email == 'admire@gmail.com')
             return true;
+    },
 
-
-    }
 })
 
 Template.navbar.events({
@@ -59,10 +58,19 @@ Template.navbar.events({
     },
     'click #admire_remove':function () {
 
-        Meteor.methods(
-            DB_ARTICLES.remove({_id:_id})
-            ///조건 잘 맞춰서 삭제하기
-        );
+        var remove_list = new Array();
+        // var remove_articles=DB_ARTICLES.findAll({date:'5-26'})
+        var today_date=DB_ARTICLES.findOne({}).date;//기사 올라간 날짜 가져오기
+        // alert(today_date);
+        DB_ARTICLES.findAll({date:today_date}).forEach(function (element) {
+            // DB_ARTICLES.remove({_id:remove_articles._id})
+            remove_list.push(DB_ARTICLES.findOne({_id:element._id})._id);
+        })
+        for(i=0; i<10;i++)
+        {
+            DB_ARTICLES.remove({_id:remove_list[i]})
+        }
+        //기사 초기화 기능!
         alert('기사초기화')
 
         // var email = Meteor.user().emails[0].address;

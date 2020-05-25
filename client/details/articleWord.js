@@ -56,26 +56,8 @@ Template.articleWord.events({
             DB_SEARCH_COUNT.update({_id:word_id},{$inc:{count: 1}});
             alert('조회수 증가시킴');
 
-            // // count2.count+=1;
-            // count.count += 1;
-            // // addcount+=1;
-            // alert("aaa");
-            // // alert(addcount);
-            // DB_SEARCH_COUNT.update({word: searchWord, user_id: user_id}, addcount)
-            //
-            // // DB_SEARCH_COUNT.update({count:addcount-1}, addcount);
-            // alert("aasa");
+
         }
-
-
-
-        // Session.set('searchWord', searchWord);
-
-        // if(searchWord===DB_WORDS.findOne({word: searchWord,  user_id:Meteor.user()._id}))
-        // {
-        //     DB_WORDS.update({_id: _id,word:searchWord}, {
-        //         $inc: {searchCount: 1}  //조회수 1 증가 업데이트
-        //     });
     },
 
     //즐겨찾기 버튼에 대한 함수
