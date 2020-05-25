@@ -40,23 +40,21 @@ Template.articleWord.events({
         var user_id=Meteor.user()._id;
         Session.set('searchWord', searchWord);
         var count2 = DB_SEARCH_COUNT.findOne({word: searchWord,  user_id:Meteor.user()._id});
-        // var word_id=FlowRouter.getParam('_id');
-        var count=FlowRouter.getParam('count');
 
         if (!count2) {
-            alert("d");
+            alert('처음검색한 단어');
             DB_SEARCH_COUNT.insert({
                 word: searchWord,
                 count: 0,
                 user_id: user_id
             });
         }else{
-            alert("ddd");
+            var word_id=DB_SEARCH_COUNT.findOne({word:searchWord,user_id:user_id})._id;
 
+            alert('이미 검색한 단어');
 
-            // alert(word_id);
-            DB_SEARCH_COUNT.update({word:searchWord,user_id:user_id},{$inc:{count: 1}});
-            alert("dddddd")
+            DB_SEARCH_COUNT.update({_id:word_id},{$inc:{count: 1}});
+            alert('조회수 증가시킴');
 
             // // count2.count+=1;
             // count.count += 1;
