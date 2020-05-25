@@ -56,6 +56,24 @@ Template.navbar.events({
         else {
             location.href="/wordBook";
         }
+    },
+    'click #admire_remove':function () {
+
+        Meteor.methods(
+            DB_ARTICLES.remove({_id:_id})
+            ///조건 잘 맞춰서 삭제하기
+        );
+        alert('기사초기화')
+
+        // var email = Meteor.user().emails[0].address;
+        // if( email != 'admire@gmail.com'){
+        //     alert('권한이 없습니다.');
+        // }else{
+        //     DB_ARTICLES.remove({});
+        //     alert('기사가 삭제되었습니다.')
+        // }
+
+
     }
 
 

@@ -62,8 +62,15 @@ Template.posting.events({
             date: getToday().toString(),
             createdAt: new Date(),
             viewCount: 0
-        })
-
+        });//이건 전체 DB에 넣는거
+        DB_ALL_ARTICLES.insert({
+            title: title,
+            image: image,   //DB_FILES에 있는 이미지의 _id 저장
+            content: html,
+            date: getToday().toString(),
+            createdAt: new Date(),
+            viewCount: 0
+        });//이건 최근 10개 기사에 넣는거
 
         alert('저장하였습니다.');
         //화면에 입력된 값 초기화
