@@ -7,7 +7,7 @@
         <div class="input-group">
             <input type="text" id="inp-Search" style="border-radius: 0.3em" class="form-control" placeholder="날짜 입력" aria-label="Search">
             <span class="input-group-btn" >
-                <button id="btn-createdAt" class="btn" type="button" style="background-color: #000000; color: white" href="/searchDate/{{_id}}">검색</button>
+                <button id="btn-createdAt" class="btn" type="button" style="background-color: #000000; color: white"  >검색</button>
             </span>
         </div>
 
@@ -28,28 +28,41 @@
 
                 <tbody>
                 <!--  시도1. date 검색해서 date별로 쏴주자-->
-<!--                {{#if issearchdate}}-->
-                    {{#each searchcreatedAt}}
-                        <tr>
-<!--                            <th scope="row">{{math @index "+" 1}} </th> &lt;!&ndash;순서 어떻게 갖고올건지&ndash;&gt;-->
-                            <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>
-                            <td>{{date}}</td>
-                            <td>{{viewCount}}</td>
-                        </tr>
 
-                    {{/each}}
+                            {{#each search_date}}
+                                <tr>
+                                    <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>
+                                    <td>{{date}}</td>
+                                    <td>{{viewCount}}</td>
+                                </tr>
 
-<!--                {{/if}}-->
+                            {{/each}}
 
-                <!--2.  그냥 1클릭하면 1-10, 2클릭하면 11-20 쏴주자 -->
-                {{#each articles}}
-                        <tr>
-                            <th scope="row">{{math @index "+" 1}} </th> <!--순서 어떻게 갖고올건지-->
-                            <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>
-                            <td>{{createdAt}}</td>
-                            <td>{{viewCount}}</td>
-                        </tr>
-                {{/each}}
+
+
+
+        <!--&lt;!&ndash;                {{#if issearchdate}}&ndash;&gt;-->
+        <!--                    {{#each searchcreatedAt}}-->
+        <!--                        <tr>-->
+        <!--&lt;!&ndash;                            <th scope="row">{{math @index "+" 1}} </th> &lt;!&ndash;순서 어떻게 갖고올건지&ndash;&gt;&ndash;&gt;-->
+        <!--                            <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>-->
+        <!--                            <td>{{date}}</td>-->
+        <!--                            <td>{{viewCount}}</td>-->
+        <!--                        </tr>-->
+
+        <!--                    {{/each}}-->
+
+        <!--&lt;!&ndash;                {{/if}}&ndash;&gt;-->
+
+                        <!--2.  그냥 1클릭하면 1-10, 2클릭하면 11-20 쏴주자 -->
+<!--                        {{#each articles}}-->
+<!--                                <tr>-->
+<!--                                    <th scope="row">{{math @index "+" 1}} </th> &lt;!&ndash;순서 어떻게 갖고올건지&ndash;&gt;-->
+<!--                                    <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>-->
+<!--                                    <td>{{createdAt}}</td>-->
+<!--                                    <td>{{viewCount}}</td>-->
+<!--                                </tr>-->
+<!--                        {{/each}}-->
 
                 </tbody>
             </table>
