@@ -3,7 +3,7 @@
         <input type="text" id="inp-wordSearch" style="border-radius: 0.3em" class="form-control" placeholder="단어 찾기" aria-label="Search">
         <span class="input-group-btn" >
                 <button id="btn-wordSearch" class="btn" type="button" style="background-color: #000000; color: white">검색</button>
-            </span>
+        </span>
     </div>
     <div class="word_dictionary" style="border:1px solid lightgray;margin-top: 20px;">
         <h4>사전 검색결과</h4>
@@ -12,18 +12,18 @@
             <button id="btn-wordSave" class="btn" type="button" style="background-color: #ffffff; color: #000000;font-size: 25px">{{wordSave}}</button>
             <!-- 단어 저장(즐겨찾기) 버튼 -->
         </div>
-<!--        1.질병, 병, 질환<br>-->
-<!--        heart/liver/kidney, etc. disease<br>-->
-<!--        심장병/간 질환/신장병 등<br>-->
-<!--        2.병폐<br>-->
-<!--        Greed is a disease of modern society.<br>-->
-<!--        탐욕은 현대 사회의 병폐이다.<br>-->
-<!--        사전 내용 가져와야됨-->
+
+        <div>
+            <h6> {{meaning}} </h6>
+        </div>
+
     </div>
     <div class="word_add" style="border:1px solid lightgray;margin-top: 20px;">
         <h4>추가한 단어 목록</h4>
         {{#each wordList}}
-            {{word}}       {{date}} <a id="word_delete" style="background-color: #ffffff; color: black">x</a><br>
+
+            <span style="background-color: #00b992;">{{wordshowing}}<button id="word_delete" value={{wordshowing}} style="background-color: transparent; border-color: transparent;">X</button></span>
+
         {{/each}}
         <!--                x는 삭제 버튼-->
     </div>
