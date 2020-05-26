@@ -59,12 +59,12 @@ Template.navbar.events({
     'click #admire_remove':function () {
 
         var remove_list = new Array();
-        var today_date=DB_ARTICLES.findOne({}).date;//기사 올라간 날짜 가져오기
+        var today_date=DB_ARTICLES_10.findOne({}).date;//기사 올라간 날짜 가져오기
         // alert(today_date);
-        DB_ARTICLES.findAll({date:today_date}).forEach(function (element) {
+        DB_ARTICLES_10.findAll({date:today_date}).forEach(function (element) {
             // DB_ARTICLES.remove({_id:remove_articles._id})
             //remove_list.push(DB_ARTICLES.findOne({_id:element._id})._id);
-            DB_ARTICLES.remove({_id:element._id});
+            DB_ARTICLES_10.remove({_id:element._id});
         })
 
         // for(i=0; i<10;i++)

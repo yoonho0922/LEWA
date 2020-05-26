@@ -55,7 +55,7 @@ Template.posting.events({
             return (date.getMonth()+1).toString()+"-"+date.getDate().toString();
         }
         //나머지 DB에 저장
-        DB_ARTICLES.insert({
+        DB_ARTICLES_10.insert({
             title: title,
             image: image,   //DB_FILES에 있는 이미지의 _id 저장
             content: html,
