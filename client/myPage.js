@@ -1,1 +1,0 @@
-FlowRouter.template('/myPage', 'myPage');
