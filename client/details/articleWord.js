@@ -26,7 +26,9 @@ Template.articleWord.helpers({
         }
     },
     wordList: function(){   //이 기사에 추가된 단어 목록
-        return Session.get('tag_arr');
+        // return Session.get('tag_arr');
+        var article_id = FlowRouter.getParam('_id');
+        return DB_WORDS.findAll({article_id:article_id});
     },
 
     meaning: function () {
@@ -112,52 +114,52 @@ Template.articleWord.events({
 
     //즐겨찾기 버튼에 대한 함수
     'click #btn-wordSave': function(){  //단어장에 추가(저장)하는 버튼
-        // var searchWord = Session.get('searchWord');   //현재 검색된 단어 가져오기
-        // var user_id = Meteor.user()._id;//유저의 _id 가져오기
-        // var article_id = FlowRouter.getParam('_id');   //기사의 _id 가져오기
-        //
-        // //단어를 아직 검색하지 않았을 경우 예외처리
-        // if(!searchWord){  //단어를 검색하지 않았을때 즐겨찾기 버튼 안보이게하는 작업 필요.
-        //     alert("X")
-        //     return;
-        // }
-        //
-        // // findOne selector : 단어, 유저, 기사
-        // var word = DB_WORDS.findOne({word: searchWord, article_id: article_id});
-        // // 현재 단어가 DB에 저장되있는지 확인
-        // // word에는 null 또는 해당 단어의 object가 들어간다 (key, value의 묶음 배열)
-        //
-        // function getToday(){
-        //     var date = new Date();
-        //     return (date.getMonth()+1).toString()+"."+date.getDate().toString();
-        // }
-        //
-        // if(!word){   //null인 경우 - 단어가 저장되지 않았을경우
-        //     DB_WORDS.insert({
-        //         word: searchWord,
-        //         date: getToday().toString(),
-        //         createdAt : new Date(),
-        //         user_id : user_id,
-        //         article_id: article_id,
-        //     });
-        //     alert("저장");
-        // }else{  //DB에 이미 있는 경우 - 삭제
-        //     DB_WORDS.remove({_id: word._id}); //remove는 selector가 무조건 _id여야 함
-        //     alert("삭제");
-        // }
+        var searchWord = Session.get('searchWord');   //현재 검색된 단어 가져오기
+        var user_id = Meteor.user()._id;//유저의 _id 가져오기
+        var article_id = FlowRouter.getParam('_id');   //기사의 _id 가져오기
 
-        var tag_update = Session.get('tag_arr');
-
-        if($('#inp-wordSearch').val() == '') {
-            alert("단어를 입력하세요.");
-        } else {
-            if(tag_update.indexOf($('#inp-wordSearch').val()) < 0) {
-                tag_update.push($('#inp-wordSearch').val());
-                Session.set('tag_arr', tag_update);
-            } else {
-                alert("저장한 목록에 이미 있는 단어입니다.");
-            }
+        //단어를 아직 검색하지 않았을 경우 예외처리
+        if(!searchWord){  //단어를 검색하지 않았을때 즐겨찾기 버튼 안보이게하는 작업 필요.
+            alert("X")
+            return;
         }
+
+        // findOne selector : 단어, 유저, 기사
+        var word = DB_WORDS.findOne({word: searchWord, article_id: article_id});
+        // 현재 단어가 DB에 저장되있는지 확인
+        // word에는 null 또는 해당 단어의 object가 들어간다 (key, value의 묶음 배열)
+
+        function getToday(){
+            var date = new Date();
+            return (date.getMonth()+1).toString()+"."+date.getDate().toString();
+        }
+
+        if(!word){   //null인 경우 - 단어가 저장되지 않았을경우
+            DB_WORDS.insert({
+                word: searchWord,
+                date: getToday().toString(),
+                createdAt : new Date(),
+                user_id : user_id,
+                article_id: article_id,
+            });
+            alert("저장");
+        }else{  //DB에 이미 있는 경우 - 삭제
+            DB_WORDS.remove({_id: word._id}); //remove는 selector가 무조건 _id여야 함
+            alert("삭제");
+        }
+
+        // var tag_update = Session.get('tag_arr');
+        //
+        // if($('#inp-wordSearch').val() == '') {
+        //     alert("단어를 입력하세요.");
+        // } else {
+        //     if(tag_update.indexOf($('#inp-wordSearch').val()) < 0) {
+        //         tag_update.push($('#inp-wordSearch').val());
+        //         Session.set('tag_arr', tag_update);
+        //     } else {
+        //         alert("저장한 목록에 이미 있는 단어입니다.");
+        //     }
+        // }
 
 
     },

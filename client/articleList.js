@@ -81,8 +81,6 @@ Template.articleList.helpers({
         return date[2];
     }
 
-
-
 });
 
 
