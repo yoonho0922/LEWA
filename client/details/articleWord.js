@@ -1,7 +1,7 @@
 Template.articleWord.onRendered(function() {
     Session.set('searchWord', '');
     Session.set('tag_arr', []); // 저장 단어 배열
-});
+})
 
 Template.articleWord.helpers({
     searchWord: function(){ //검색한 단어 반환
@@ -37,8 +37,16 @@ Template.articleWord.helpers({
         return $('#inp-wordSearch').val();
     },
 
-    example: function () {
-        return Session.get('data2');
+    example1: function () {
+        var word = Session.get('searchWord');
+        var all_example=Session.get('data2');
+        var all_example_array= all_example.split('.',2);
+        return all_example_array[0]+'.';
+    },
+    example2: function () {
+        var all_example=Session.get('data2');
+        var all_example_array= all_example.split('.',2);
+        return all_example_array[1]+'.';
     }
 
 });
