@@ -50,15 +50,27 @@ Template.posting.events({
         var image = DB_FILES.insertFile(file);    //이미지 파일 DB에 저장하고 _id 가져오기
         //DB에 insert하면 _id를 return한다
 
+        function getToday(){
+            var date = new Date();
+            return (date.getMonth()+1).toString()+"-"+date.getDate().toString();
+        }
         //나머지 DB에 저장
         DB_ARTICLES.insert({
             title: title,
             image: image,   //DB_FILES에 있는 이미지의 _id 저장
             content: html,
+            date: getToday().toString(),
             createdAt: new Date(),
             viewCount: 0
-        })
-
+        });//이건 전체 DB에 넣는거
+        DB_ALL_ARTICLES.insert({
+            title: title,
+            image: image,   //DB_FILES에 있는 이미지의 _id 저장
+            content: html,
+            date: getToday().toString(),
+            createdAt: new Date(),
+            viewCount: 0
+        });//이건 최근 10개 기사에 넣는거
 
         alert('저장하였습니다.');
         //화면에 입력된 값 초기화

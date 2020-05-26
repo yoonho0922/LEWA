@@ -12,14 +12,18 @@
             <button id="btn-wordSave" class="btn" type="button" style="background-color: #ffffff; color: #000000;font-size: 25px">{{wordSave}}</button>
             <!-- 단어 저장(즐겨찾기) 버튼 -->
         </div>
+
         <div>
             <h6> {{meaning}} </h6>
         </div>
+
     </div>
     <div class="word_add" style="border:1px solid lightgray;margin-top: 20px;">
         <h4>추가한 단어 목록</h4>
         {{#each wordList}}
+
             <span style="background-color: #00b992;">{{wordshowing}}<button id="word_delete" value={{wordshowing}} style="background-color: transparent; border-color: transparent;">X</button></span>
+
         {{/each}}
         <!--                x는 삭제 버튼-->
     </div>

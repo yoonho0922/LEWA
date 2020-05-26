@@ -14,18 +14,21 @@ Template.articleWord.helpers({
     },
     wordSave: function(){   //단어를 단어장에 추가했는지 여부
         var word = Session.get('searchWord');
-        // var user_id = Meteor.user()._id;   //유저 _id
+        var user_id = Meteor.user()._id;   //유저 _id
         var article_id = FlowRouter.getParam('_id'); //기사 _id
         var tag_update = Session.get('tag_arr');
 
         // findOne selector : 단어, 유저, 기사
+
         if(tag_update.indexOf($('#inp-wordSearch').val()) < 0){    //null일 경우 - DB에 저장되지 않은 단어
+
             return '☆';
         }else{
             return '★';
         }
     },
     wordList: function(){   //이 기사에 추가된 단어 목록
+
         return Session.get('tag_arr');
     },
 
@@ -39,11 +42,13 @@ Template.articleWord.helpers({
 
 
 
+
 });
 
 Template.articleWord.events({
 
     //단어 검색했을때 단어 띄우는 함수 (임시 사전)
+
     // Enter Version
     'keyup #inp-wordSearch': function(evt){
 
@@ -62,6 +67,7 @@ Template.articleWord.events({
                 }
             })
         }
+
 
     },
 
@@ -120,6 +126,7 @@ Template.articleWord.events({
         //     alert("삭제");
         // }
 
+
         var tag_update = Session.get('tag_arr');
 
         if($('#inp-wordSearch').val() == '') {
@@ -131,6 +138,7 @@ Template.articleWord.events({
             } else {
                 alert("저장한 목록에 이미 있는 단어입니다.");
             }
+
         }
 
 
