@@ -63,14 +63,16 @@ Template.navbar.events({
         // alert(today_date);
         DB_ARTICLES.findAll({date:today_date}).forEach(function (element) {
             // DB_ARTICLES.remove({_id:remove_articles._id})
-            remove_list.push(DB_ARTICLES.findOne({_id:element._id})._id);
+            //remove_list.push(DB_ARTICLES.findOne({_id:element._id})._id);
+            DB_ARTICLES.remove({_id:element._id});
         })
-        for(i=0; i<10;i++)
-        {
-            DB_ARTICLES.remove({_id:remove_list[i]})
-        }
+
+        // for(i=0; i<10;i++)
+        // {
+        //     DB_ARTICLES.remove({_id:remove_list[i]})
+        // }
         //기사 초기화 기능!
-        alert('기사초기화')
+        alert('기사초기화');
 
         // var email = Meteor.user().emails[0].address;
         // if( email != 'admire@gmail.com'){

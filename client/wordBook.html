@@ -4,25 +4,30 @@
         {{> navbar}}
 
     </div>
-    <div class="container">
+    <div class="container" style="padding-top: 30px">
         <table border="1" style="width: 100%">
             <th style="width: 2%;">
             </th>
-            <th style="width: 40%;text-align: center">
+            <th style="width: 15%;text-align: center">
                 영단어
             </th>
-            <th style="width: 40%;text-align: center">
+            <th style="width: 15%;text-align: center">
                 사전 뜻
             </th>
+            <th style="width: 15%;text-align: center">
+                등록날짜
+            </th>
+            <th style="width: 30%;text-align: center">
+                기사링크
+            </th>
+
             {{#each words}}
                 <tr>
                     <td style="background-color: aquamarine;border-bottom-color: aquamarine"></td>
-
                     <td style="text-align: center" >{{word}}</td>
-
                     <td style="text-align: center">사전뜻들,,,</td>
-
-
+                    <td style="text-align: center">{{date}}</td>
+                    <td style="text-align: center" ><a href="/article/{{article_id}}">/article/{{article_id}}</a></td>
                 </tr>
             {{/each}}
         </table>

@@ -48,6 +48,10 @@ Template.articleWord.events({
     //단어 검색했을때 단어 띄우는 함수 (임시 사전)
     // Enter Version
     'keyup #inp-wordSearch': function(evt){
+        if(!Meteor.user()) {
+            alert("로그인해주세요.");
+            return;
+        }
 
         if(evt.which === 13) {
             var searchWord = $('#inp-wordSearch').val();
