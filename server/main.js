@@ -14,20 +14,19 @@ Meteor.methods({
       var link = 'http://aha-dic.com/View.asp?word=' + word;
       request.get(link, function (err, response, html) {
         const $ = cheerio.load(html,{decodeEntities: true});
-        const meaning = sanitizeHtml($('ul li').html(), {
-          parser: {
-            decodeEntities: true
-          }
-        });
+        // meaning = sanitizeHtml($('ul li').html(),{ parser: {decodeEntities: true}});
+        const wordmeaning =new Array();
+        wordmeaning[0] = sanitizeHtml($('ul li').html(),{ parser: {decodeEntities: true}});
+        wordmeaning[1] = sanitizeHtml($('fieldset.panel span').html(), { parser: {decodeEntities: true}});
         // console.log(link); // 새로운 링크 잘 연결 되었는가??
         // console.log(word); // 인자 값 잘 가져왔는가??
-        // console.log(meaning); // 뜻이 잘 나오는가??
-        fut.return(meaning); // client로 값 return
+        // console.log(wordmeaning[0]);
+        // console.log(wordmeaning[1]);// 뜻이 잘 나오는가??
+        fut.return(wordmeaning);// client로 값 return
       })
     }, 1000);
     return fut.wait(); // async? sync?
 
   }
-
 });
 

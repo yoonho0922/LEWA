@@ -30,14 +30,16 @@ Template.articleWord.helpers({
     },
 
     meaning: function () {
-        return Session.get('data');
+        return Session.get('data1');
     },
 
     wordshowing: function () {
         return $('#inp-wordSearch').val();
+    },
+
+    example: function () {
+        return Session.get('data2');
     }
-
-
 
 });
 
@@ -51,18 +53,38 @@ Template.articleWord.events({
             var searchWord = $('#inp-wordSearch').val();
             Session.set('searchWord', searchWord);
             // callback 함수를 이용해서 Meteor.call() 호출
-            Meteor.call('word_searching', searchWord, function (error, result) {
-                if(error) {
+            Meteor.call('word_searching', searchWord, function (error, result){
+                if (error) {
                     alert('Error');
-                } else{
+                } else {
+                    result=result[0];
                     result = result.replace(/<b>/g, '');
                     result = result.replace(/<\/b>/g, '');
-                    Session.set('data', result);
+                    Session.set('data1', result);
                     // console.log(Session.get('data'));
                 }
             })
+            var exampleWord = $('#inp-wordSearch').val();
+            Session.set('exampleWord', exampleWord);
+            // callback 함수를 이용해서 Meteor.call() 호출
+            Meteor.call('word_searching', exampleWord, function (error, result) {
+                if (error) {
+                    alert('Error');
+                } else {
+                    result = result[1];
+                    if (result.indexOf('<b>')!=-1) {
+                        result = result.replace(/<b>/g, '');
+                        result = result.replace(/<\/b>/g, '');
+                        result = result.replace(/<br>/g, '');
+                        result = result.replace(/<br \/>/g, '');
+                    }
+                    else{
+                        result="예문이 존재하지 않습니다."
+                    }
+                    Session.set('data2', result);
+                }
+            })
         }
-
     },
 
     //// Click Version
