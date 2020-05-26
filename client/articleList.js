@@ -31,22 +31,26 @@ Template.articleList.helpers({
         return { "+": lvalue + rvalue, "/": lvalue / rvalue }[operator];
     },
 
+    search_date:function () {
+
+        var list_searched  = new Array();
+        var searchingDate = $('#inp-Search').val();//날짜 검색값
+
+        var article_date = DB_ARTICLES.findAll({date: searchingDate});
+        article_date.forEach(function (element) {
+            list_searched.push(DB_ARTICLES.findOne({_id:element._id}))
+
+        });
+
+        return list_searched;
+    },
+
 
 
 });
 
 
-// searchcreatedAt:function () {
-//
-//     var list_articles_create  = new Array();
-//     var searchingDate = $('#btn-createdAt').val();
-//     var searched = DB_ARTICLES.findAll({date: searchingDate});
-//     searched.forEach(function (element) {
-//         list_articles_create.push(DB_ARTICLES.findOne({date:element.date}))
-//
-//     });
-//     return list_articles_create;
-// },
+
 // issearchdate: function() {
 //     return Session.get('issearchdate'); //
 // },
@@ -65,5 +69,6 @@ Template.articleList.events({
         var searchingDate = $('#inp-Search').val();
         // Session.set('issearchdate', true);
         // Session.get('issearchdate');
+        alert(searchingDate);
     }
 });
