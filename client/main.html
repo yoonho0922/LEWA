@@ -1,0 +1,42 @@
+<template name="main">
+    <div class="container" style="padding-bottom: 70px">
+
+        {{> navbar}}
+
+        <h3 style="color: black; padding-top: 30px">Today's news</h3>
+
+        <div class="today_news_title" style="color: black; width: 35%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+            {{#each articles}} <!--articles 조회수 내림차순-->
+                <a href="/article/{{_id}}" style="color:black; margin-left: 10px">{{math @index "+" 1}}. {{title}}</a><br>
+            {{/each}}
+
+        </div>
+
+    </div>
+
+    <!--    기사 10개 각각 일단 나타내기-->
+    <div class="container">
+        <div class="row">
+            <!-- 테두리 넣고싶으면 class에 border rounded 넣기           -->
+            {{#each articles2}}
+                <div class="col-md-3 ">
+                    <div class="mb-4">
+                        <a id="go_article" href="/article/{{_id}}"><img src="{{image_link}}" alt="" class="card-img-top" style="height:170px;"></a>
+                        <div class="card-body" style="height: 300px">
+                            <h4><a href="/article/{{_id}}" style="color:black;">{{title}}</a></h4>
+                            <p class="card-text" style="height:100px;text-overflow: ellipsis;overflow: hidden;">{{{content}}}</p>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <footer class="blog-footer">
+        <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        <p>
+            <a href="#">Back to top</a>
+        </p>
+    </footer>
+
+</template>
