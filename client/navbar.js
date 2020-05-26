@@ -59,6 +59,7 @@ Template.navbar.events({
     'click #admire_remove':function () {
 
         var remove_list = new Array();
+        // var remove_articles=DB_ARTICLES.findAll({date:'5-26'})
         var today_date=DB_ARTICLES.findOne({}).date;//기사 올라간 날짜 가져오기
         // alert(today_date);
         DB_ARTICLES.findAll({date:today_date}).forEach(function (element) {
