@@ -52,14 +52,19 @@ Template.posting.events({
 
         function getToday(){
             var date = new Date();
-            return (date.getMonth()+1).toString()+"-"+date.getDate().toString();
+            // return (date.getMonth()+1).toString()+"-"+date.getDate().toString();
+            var arrDate = new Array();
+            arrDate = [date.getFullYear().toString(), (date.getMonth()+1).toString(), date.getDate().toString()];
+            return arrDate;
+            //return ["2020", "5", "26"]
         }
+
         //나머지 DB에 저장
         DB_ARTICLES_10.insert({
             title: title,
             image: image,   //DB_FILES에 있는 이미지의 _id 저장
             content: html,
-            date: getToday().toString(),
+            date: getToday(),
             createdAt: new Date(),
             viewCount: 0
         });//이건 전체 DB에 넣는거
@@ -67,7 +72,7 @@ Template.posting.events({
             title: title,
             image: image,   //DB_FILES에 있는 이미지의 _id 저장
             content: html,
-            date: getToday().toString(),
+            date: getToday(),
             createdAt: new Date(),
             viewCount: 0
         });//이건 최근 10개 기사에 넣는거
