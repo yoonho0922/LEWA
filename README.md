@@ -11,7 +11,11 @@ mongoDB
 * [페이지 구성(Client)](/docs/client_structure.md)
 * [DB 구조(DB collection)](/docs/DB_collection.md)
 
-## npm install
+## install
+#### 기본
+```
+meteor npm install
+```
 #### 백엔드 관련
 ```
 meteor npm install request
@@ -21,6 +25,10 @@ meteor npm install future
 #### 프론트엔드 관련
 ```
 meteor add kevohagan:sweetalert
+```
+## run
+```
+meteor
 ```
 
 ## Project Structure
