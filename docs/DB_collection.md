@@ -9,7 +9,7 @@
         * verified 
         
 
-* DB_ARTICLES
+* DB_ARTICLES_10
     * title : 제목
     * image : 사진 uid (DB_IMAGES에 있는 파일의 _id)
     * content : 내용
