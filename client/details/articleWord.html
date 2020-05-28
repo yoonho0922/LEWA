@@ -10,6 +10,16 @@
         <div class="input-group">
             <h2>{{{searchWord}}}</h2>
             <button id="btn-wordSave" class="btn" type="button" style="background-color: #ffffff; color: #000000;font-size: 25px">{{wordSave}}</button>
+
+            <!--tts-->
+            <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+            <label for="test"></label><input type="hidden" id="test" style.display='block;' value="{{searchWord}}">
+            <button class="btn" type="button" onclick="responsiveVoice.speak(document.getElementById('test').value,'US English Female');">
+                <span aria-hidden="true">
+                   <i class="fas fa-volume-up"></i>
+                </span>
+            </button>
+
             <!-- 단어 저장(즐겨찾기) 버튼 -->
         </div>
 <!--        1.질병, 병, 질환<br>-->
