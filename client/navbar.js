@@ -56,6 +56,37 @@ Template.navbar.events({
         else {
             location.href="/wordBook";
         }
+<<<<<<< Updated upstream
+=======
+    },
+    'click #admire_remove':function () {
+
+        var remove_list = new Array();
+        var today_date=DB_ARTICLES_10.findOne({}).date;//기사 올라간 날짜 가져오기
+        // alert(today_date);
+        DB_ARTICLES_10.findAll({date:today_date}).forEach(function (element) {
+            // DB_ARTICLES.remove({_id:remove_articles._id})
+            //remove_list.push(DB_ARTICLES.findOne({_id:element._id})._id);
+            DB_ARTICLES_10.remove({_id:element._id});
+        })
+
+        // for(i=0; i<10;i++)
+        // {
+        //     DB_ARTICLES.remove({_id:remove_list[i]})
+        // }
+        //기사 초기화 기능!
+        alert('기사초기화');
+
+        // var email = Meteor.user().emails[0].address;
+        // if( email != 'admire@gmail.com'){
+        //     alert('권한이 없습니다.');
+        // }else{
+        //     DB_ARTICLES.remove({});
+        //     alert('기사가 삭제되었습니다.')
+        // }
+
+
+>>>>>>> Stashed changes
     }
 
 

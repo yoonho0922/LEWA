@@ -2,6 +2,7 @@
     <div class="container">
 
         {{> navbar}}
+<<<<<<< Updated upstream
         <div><h1>articles.</h1></div> <!--넓히고 싶음-->
         <!--get_i_article()시간만 여기로 뺴고 싶어-->
 
@@ -12,6 +13,63 @@
             </span>
         </div>
 
+=======
+        <div><h1>{{searchingDate}}</h1></div> <!--넓히고 싶음-->
+
+
+
+
+        <div class="input-group">
+<!--            <input type="text" id="inp-Search" style="border-radius: 0.3em" class="form-control" placeholder="날짜 입력" aria-label="Search">-->
+<!--            <span class="input-group-btn" >-->
+
+<!--            </span>-->
+
+            <input id="sdy" type="number" min="2000" max="3000" value="{{SD_Year}}" />
+            <input id="sdm" type="number" min="1" max="12" value="{{SD_Month}}" />
+            <input id="sdd" type="number" min="1" max="31" value="{{SD_Day}}" />
+            <button id="btn-createdAt" class="btn" type="button" style="background-color: #000000; color: white"  >검색</button>
+        </div>
+
+
+        <div class="table-responsive">
+            <table class="table table-hover">  <!--table table-striped table-sm-->
+
+                <thead class = "thread-light"> <!--조큼더 생각-->
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">등록한 날짜</th>
+                    <th scope="col">조회수</th>
+                    <!--단어검색횟수추가?-->
+                    <!--...? 신문읽었오 확인용 <th scope="col">신문사</th>-->
+                </tr>
+                </thead>
+
+                <tbody>
+                <!--  시도1. date 검색해서 date별로 쏴주자-->
+
+                {{#each articleDate}}
+                    <tr>
+                        <th scope="row">{{math @index "+" 1}} </th> <!--순서 어떻게 갖고올건지-->
+                        <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>
+                        <td>{{date}}</td>
+                        <td>{{viewCount}}</td>
+                    </tr>
+
+                {{/each}}
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+
+
+</template>
+>>>>>>> Stashed changes
 
         <div class="table-responsive">
             <table class="table table-hover">  <!--table table-striped table-sm-->

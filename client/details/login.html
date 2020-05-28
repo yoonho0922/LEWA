@@ -2,11 +2,6 @@
     <div id="ex_login_custom" class="text-center" style="background-color: #cbcbcb">
         <div class="form">
             <a href="/" class="blog-header-logo text-dark">LEWA</a>
-
-            {{#if currentUser}}
-                <button id="btn-home" class="btn btn-lg btn-outline-light btn-block" style="font-weight: bold;">home</button>
-                <button id="btn-fix" class="btn btn-lg btn-outline-light btn-block" style="font-weight: bold">정보수정</button>
-            {{else}}
                 {{#if isSignUpMode}}  <!-- 회원가입모드 일 경우 -->
                     <h1 class="h3 mb-3" style="font-weight: bold;color: black">WELCOME!</h1>
                     <input id="inp-email" type="email" class="form-control mb-1" placeholder="Email address" required autofocus>
@@ -31,9 +26,6 @@
                     <button id="btn-signIn" class="btn btn-lg btn-outline-light btn-block" style="font-weight: bold">Sign in</button>
                     <button id="btn-signUpMode" class="btn btn-lg btn-light btn-block" style="font-weight: bold">Sign Up</button>
                 {{/if}}
-            {{/if}}
-
-
             <p class="mt-5 mb-3 text-muted">&copy; Copyright on Codeasy</p>
         </div>
     </div>

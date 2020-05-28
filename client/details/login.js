@@ -32,11 +32,12 @@ Template.login.events({
         var password = $('#inp-password').val();
         Meteor.loginWithPassword(email, password, function(err) { //로그 오류 발생 시 처리 콜백 함수
             if (err) {
-                alert(err);
+                alert("가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.");
             }
             else {
-                alert('로그인되었습니다')
-                window.history.back();
+                alert("로그인되었습니다");
+                location.href="/";
+                //window.history.back();
             }
         });
     },
@@ -44,9 +45,9 @@ Template.login.events({
         Meteor.logout();
         alert("로그아웃 되었습니다.");
     },
-    'click #btn-home':function () {
-        location.href="/";
-    },
+    // 'click #btn-home':function () {
+    //     location.href="/";
+    // },제거대상
     'click #btn-fix':function () {
         location.href="/myPage";
 
@@ -68,15 +69,20 @@ Template.login.events({
                 email: email,
                 password: password
             }, function(err) { //사용자 생성 오류 시 처리 콜백 함수
-                if (err) {
+                if (err) { //이메일 이미 exist
                     alert(err);
                 }
+                else {
+                    alert("회원가입에 성공하셨습니다.");
+                    location.href = "/";
+                }
             });
+
         }
         else {
             alert('비밀번호가 일치하지 않습니다. 다시 확인 해 주세요.');
         }
-    },
+    }
     // 'click #btn-update-profile': function() {
     //     var userInfo = Meteor.user();
     //     var name = $('#inp-name').val();
