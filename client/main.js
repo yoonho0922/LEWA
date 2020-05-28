@@ -30,6 +30,9 @@ Template.main.helpers({
 
     return { "+": lvalue + rvalue, "/": lvalue / rvalue }[operator];
     //index + 1을 return
+  },
+  words: function () {
+      return DB_SEARCH_COUNT.findAll({user_id:Meteor.user()._id},{sort:{count:-1},limit:10});
   }
 
 });

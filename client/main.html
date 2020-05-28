@@ -3,13 +3,25 @@
 
         {{> navbar}}
 
-        <h3 style="color: black; padding-top: 30px">Today's news</h3>
+        <div style="float: left;">
+            <h3 style="color: black; padding-top: 30px;">Today's news</h3>
 
-        <div class="today_news_title" style="color: black; width: 35%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
-            {{#each articles}} <!--articles 조회수 내림차순-->
-                <a href="/article/{{_id}}" style="color:black; margin-left: 10px">{{math @index "+" 1}}. {{title}}</a><br>
-            {{/each}}
+            <div class="today_news_title" style="color: black;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+                {{#each articles}} <!--articles 조회수 내림차순-->
+                    <a href="/article/{{_id}}" style="color:black; margin-left: 10px">{{math @index "+" 1}}. {{title}}</a><br>
+                {{/each}}
 
+            </div>
+        </div>
+        <div style="float: right">
+            <h3 style="color: black; padding-top: 30px;">My Words(많이 검색한 단어(유저별))</h3>
+
+            <div class="today_news_title" style="color: black; white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+                {{#each words}} <!--articles 조회수 내림차순-->
+                    <a style="color:black; margin-left: 10px">{{math @index "+" 1}}. {{word}}</a><br>
+                {{/each}}
+
+            </div>
         </div>
 
     </div>
