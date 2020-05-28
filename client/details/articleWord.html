@@ -5,7 +5,6 @@
                 <button id="btn-wordSearch" class="btn" type="button" style="background-color: #000000; color: white">검색</button>
             </span>
     </div>
-    <body>
     <div class="word_dictionary" style="border:1px solid lightgray;margin-top: 20px;">
         <h4>사전 검색결과</h4>
         <div class="input-group">
@@ -21,6 +20,7 @@
                 </span>
             </button>
 
+
             <!-- 단어 저장(즐겨찾기) 버튼 -->
         </div>
         <div>
@@ -30,11 +30,10 @@
             <h6> {{example}} </h6>
         </div>
     </div>
-    </body>
     <div class="word_add" style="border:1px solid lightgray;margin-top: 20px;">
         <h4>추가한 단어 목록</h4>
         {{#each wordList}}
-<!--            {{word}}       {{date}} <a id="word_delete" style="background-color: #ffffff; color: black">x</a><br>-->
+            <!--            {{word}}       {{date}} <a id="word_delete" style="background-color: #ffffff; color: black">x</a><br>-->
             <span style="background-color: #00b992;">{{word}}<button id="word_delete" value={{word}} style="background-color: transparent; border-color: transparent;">X</button></span>
             <br>
         {{/each}}
