@@ -26,6 +26,5 @@ Meteor.methods({
       })
     }, 1000);
     return fut.wait(); // async? sync?
-
   }
 });

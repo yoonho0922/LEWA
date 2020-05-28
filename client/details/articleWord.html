@@ -5,11 +5,22 @@
                 <button id="btn-wordSearch" class="btn" type="button" style="background-color: #000000; color: white">검색</button>
             </span>
     </div>
+    <body>
     <div class="word_dictionary" style="border:1px solid lightgray;margin-top: 20px;">
         <h4>사전 검색결과</h4>
         <div class="input-group">
             <h2>{{{searchWord}}}</h2>
             <button id="btn-wordSave" class="btn" type="button" style="background-color: #ffffff; color: #000000;font-size: 25px">{{wordSave}}</button>
+
+            <!--tts-->
+            <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+            <label for="test"></label><input type="hidden" id="test" style.display='block;' value="{{searchWord}}">
+            <button class="btn" type="button" onclick="responsiveVoice.speak(document.getElementById('test').value,'US English Female');">
+                <span aria-hidden="true">
+                   <i class="fas fa-volume-up"></i>
+                </span>
+            </button>
+
             <!-- 단어 저장(즐겨찾기) 버튼 -->
         </div>
         <div>
@@ -19,6 +30,7 @@
             <h6> {{example}} </h6>
         </div>
     </div>
+    </body>
     <div class="word_add" style="border:1px solid lightgray;margin-top: 20px;">
         <h4>추가한 단어 목록</h4>
         {{#each wordList}}
