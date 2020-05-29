@@ -1,0 +1,23 @@
+<template name="quiz">
+    <div class="container">
+        {{> navbar}}
+        <h1>Quiz</h1>
+    </div>
+    <div class="container">
+        <div class="word_dictionary" style="border:1px solid lightgray;margin-top: 20px;">
+            <div>
+                <h5> 뜻: </h5>
+                <h6 class="cor_meaning"> {{meaning}} </h6>
+                <br>
+            </div>
+            <input type="text" id="inp-word" style="border-radius: 0.3em" class="form-control" placeholder="정답을 입력하고 엔터를 입력하세요" aria-label="Search">
+        </div>
+
+<!--        <center>-->
+<!--            <h5> 뜻 </h5>-->
+<!--            <h6> {{meaning}} </h6>-->
+<!--            <input type="text">-->
+<!--        </center>-->
+    </div>
+    <button id="but-next"> 다음 문제 </button>
+</template>

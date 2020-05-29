@@ -12,7 +12,7 @@ Meteor.methods({
 
     Meteor.setTimeout(function() {
       var link = 'http://aha-dic.com/View.asp?word=' + word;
-      request.get(link1, function (err, response, html) {
+      request.get(link, function (err, response, html) {
         const $ = cheerio.load(html,{decodeEntities: true});
         // meaning = sanitizeHtml($('ul li').html(),{ parser: {decodeEntities: true}});
         const wordmeaning =new Array();
