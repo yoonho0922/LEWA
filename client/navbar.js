@@ -56,23 +56,23 @@ Template.navbar.events({
             location.href="/wordBook";
         }
     },
-    'click #admire_remove':function () {
-
-        var remove_list = new Array();
-        var today_date=DB_ARTICLES_10.findOne({}).date;//기사 올라간 날짜 가져오기
-        // alert(today_date);
-        DB_ARTICLES_10.findAll({date:today_date}).forEach(function (element) {
-            // DB_ARTICLES.remove({_id:remove_articles._id})
-            //remove_list.push(DB_ARTICLES.findOne({_id:element._id})._id);
-            DB_ARTICLES_10.remove({_id:element._id});
-        })
+    // 'click #admire_remove':function () {
+    //
+    //     var remove_list = new Array();
+    //     // var today_date=DB_ARTICLES_10.findOne({}).date;//기사 올라간 날짜 가져오기
+    //     // alert(today_date);
+    //     DB_ARTICLES_10.findAll({date:today_date}).forEach(function (element) {
+    //         // DB_ARTICLES.remove({_id:remove_articles._id})
+    //         //remove_list.push(DB_ARTICLES.findOne({_id:element._id})._id);
+    //         DB_ARTICLES_10.remove({_id:element._id});
+    //     })
 
         // for(i=0; i<10;i++)
         // {
         //     DB_ARTICLES.remove({_id:remove_list[i]})
         // }
         //기사 초기화 기능!
-        alert('기사초기화');
+        // alert('기사초기화');
 
         // var email = Meteor.user().emails[0].address;
         // if( email != 'admire@gmail.com'){
@@ -83,7 +83,7 @@ Template.navbar.events({
         // }
 
 
-    }
+    // }
 
 
 })

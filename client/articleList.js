@@ -26,9 +26,9 @@ Template.articleList.helpers({
         return DB_ALL_ARTICLES.findAll({date: date});
 
     },
-    article_id2:function(){
-        return DB_ARTICLES_10.findOne({article_id:_id})._id;
-    },
+    // article_id2:function(){
+    //     return DB_ARTICLES_10.findOne({article_id:_id})._id;
+    // },
 
 
     // articles: function () {
