@@ -1,23 +1,26 @@
 <template name="quiz">
-    <div class="container">
-        {{> navbar}}
-        <h1>Quiz</h1>
-    </div>
-    <div class="container">
-        <div class="word_dictionary" style="border:1px solid lightgray;margin-top: 20px;">
-            <div>
-                <h5> 뜻: </h5>
-                <h6 class="cor_meaning"> {{meaning}} </h6>
-                <br>
-            </div>
-            <input type="text" id="inp-word" style="border-radius: 0.3em" class="form-control" placeholder="정답을 입력하고 엔터를 입력하세요" aria-label="Search">
+    <div class="form">
+        <div class="container">
+            {{> navbar}}
+            <h1>Quiz</h1>
         </div>
-
-<!--        <center>-->
-<!--            <h5> 뜻 </h5>-->
-<!--            <h6> {{meaning}} </h6>-->
-<!--            <input type="text">-->
-<!--        </center>-->
+        {{#if endCurrentQuiz}}
+            <div class="container">
+                <h2>수고하셨습니다! 퀴즈를 푸니 실력이 더욱 상승하셨을 겁니다!</h2>
+                <button id="btn-main"> 메인으로가기 </button>
+                <button id="btn-gotowordbook"> 단어장으로가기 </button>
+            </div>
+        {{else}}
+            <div class="word_dictionary" style="border:1px solid lightgray;margin-top: 20px;">
+                <div>
+                    <h5> 뜻: </h5>
+                    <h6 class="cor_meaning"> {{meaning}} </h6>
+                    <br>
+                </div>
+                <input type="text" id="inp-word" style="border-radius: 0.3em" class="form-control" placeholder="정답을 입력하고 엔터를 입력하세요" aria-label="Search">
+            </div>
+            <button id="but-next"> 다음 문제 </button>
+        {{/if}}
     </div>
-    <button id="but-next"> 다음 문제 </button>
+
 </template>
