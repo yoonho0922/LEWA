@@ -8,14 +8,6 @@
         * address
         * verified 
         
-
-* DB_ARTICLES_10
-    * title : 제목
-    * image : 사진 uid (DB_IMAGES에 있는 파일의 _id)
-    * content : 내용
-    * createdAt : 추가된 시간
-    * viewCount : 조회수
-    
         
 * DB_FILES
     * 이미지 파일이 저장되는 DB

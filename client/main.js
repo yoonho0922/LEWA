@@ -24,7 +24,7 @@ Template.main.helpers({
   articles2:function () {
     var today_date=DB_ALL_ARTICLES.findOne({},{sort:{createdAt:-1}}).date;
 
-    return DB_ALL_ARTICLES.findAll({date:today_date}, {sort: {createdAt: -1}, limit: 10});
+    return DB_ALL_ARTICLES.findAll({date:today_date}, {sort: {createdAt: -1}});
     //기사 앨범형은 시간!! 내림차순, 10개 return
   },
 

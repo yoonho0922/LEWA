@@ -40,15 +40,15 @@ Template.article.helpers({
             return '★';
         }
     },
-    viewadd:function () {
-        var title=DB_ARTICLES_10.findOne({_id:_id}).title;
-        alert(title);
-        DB_ALL_ARTICLES.update({title:title}, {
-            $inc: {viewCount: 1}  //조회수 1 증가 업데이트
-
-        });
-
-    }
+    // viewadd:function () {
+    //     var title=DB_ARTICLES_10.findOne({_id:_id}).title;
+    //     alert(title);
+    //     DB_ALL_ARTICLES.update({title:title}, {
+    //         $inc: {viewCount: 1}  //조회수 1 증가 업데이트
+    //
+    //     });
+    //
+    // }
 
 });
 
