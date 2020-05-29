@@ -9,38 +9,40 @@
         {{> navbar}}
     </div>
 
-    <div class="container">
-            <h1>My WordBook<small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> <!--그냥 글씨쓴거-->
+    <div class="container" style="padding-top: 50px">
+<!--            <h1>My WordBook<small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> &lt;!&ndash;그냥 글씨쓴거&ndash;&gt;-->
         <div class="row"> <!--표를 행으로 옆에 배치할거야-->
             <div class="col-md-6"> <!--표1-->
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">중요한 단어</h3>
-                        <div class="pull-right">
-							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-								<i class="glyphicon glyphicon-filter"></i>
-							</span>
-                        </div>
-                    </div> <!--클릭하면 밑에 내려오는거 구현-->
-<!--                    <div class="panel-body">-->
-<!--                        <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />-->
-<!--                    </div> &lt;!&ndash;클릭하면 밑에 내려오는거 구현&ndash;&gt;-->
-                    <table class="table table-hover" id="dev-table"> <!-- 본격적 표-->
+<!--                    <div class="panel-heading">-->
+<!--                        <h3 class="panel-title">중요한 단어</h3>-->
+<!--                        <div class="pull-right">-->
+<!--							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">-->
+<!--								<i class="glyphicon glyphicon-filter"></i>-->
+<!--							</span>-->
+<!--                        </div>-->
+<!--                    </div> -->
+                    <table class="table table-hover" id="dev-table" > <!-- 본격적 표-->
+
                         <thead class = "thread-light">
+                        <tr >
+                            <th colspan="5" style="font-size: 18px;background-color: #725ae6;color: white;border-radius: 20px 20px 0px 0px">
+                                Important
+                            </th>
+                        </tr>
+
                         <tr>
-                            <th scope="col" style="width: 3%;"></th>
+                            <th scope="col" style="width: 3%; ">#</th>
                             <th scope="col" style="width: 15%;text-align: center">영단어</th>
-                            <th scope="col" style="width: 15%;text-align: center">사전 뜻</th>
                             <th scope="col" style="width: 15%;text-align: center">등록날짜</th>
                             <th scope="col" style="width: 30%;text-align: center">기사제목</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {{#each words}}
+                        {{#each words1}}
                             <tr>
-                                <td style="background-color: #ffffff;border-bottom-color: #ffffff"></td>
+                                <td style="background-color: #ffffff;border-bottom-color: #ffffff">{{math @index "+" 1}}</td>
                                 <td style="text-align: center" >{{word}}</td>
-                                <td style="text-align: center">사전뜻들,,,</td>
                                 <td style="text-align: center">{{date}}</td>
                                 <td style="text-align: center" ><a href="/article/{{article_id}}" style="color: black">{{titles article_id}}</a></td>
                             </tr>
@@ -51,40 +53,45 @@
             </div>
             <div class="col-md-6"> <!--표2-->
                 <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">모르는 단어</h3>
-                        <div class="pull-right">
-							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-								<i class="glyphicon glyphicon-filter"></i>
-							</span>
-                        </div>
-                    </div>
+<!--                    <div class="panel-heading">-->
+<!--                        <h3 class="panel-title">모르는 단어</h3>-->
+<!--                        <div class="pull-right">-->
+<!--							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">-->
+<!--								<i class="glyphicon glyphicon-filter"></i>-->
+<!--							</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
 <!--                    <div class="panel-body">-->
 <!--                        <input type="text" class="form-control" id="task-table-filter" data-action="filter" data-filters="#task-table" placeholder="Filter Tasks" />-->
 <!--                    </div>-->
-                    <table class="table table-hover" id="task-table">
+                    <table class="table table-hover" id="dev-table"> <!-- 본격적 표-->
+
                         <thead class = "thread-light">
-                        <tr>
-                            <th scope="col" style="width: 3%;"></th>
+                        <tr >
+                            <th colspan="5" style="font-size: 18px;background-color: #8ee69b;color: white;border-radius: 20px 20px 0px 0px">
+                                Difficult
+                            </th>
+                        </tr>
+
+                        <tr style="border-right: 1px gray solid">
+                            <th scope="col" style="width: 3%; ">#</th>
                             <th scope="col" style="width: 15%;text-align: center">영단어</th>
-                            <th scope="col" style="width: 15%;text-align: center">사전 뜻</th>
                             <th scope="col" style="width: 15%;text-align: center">등록날짜</th>
                             <th scope="col" style="width: 30%;text-align: center">기사제목</th>
-
                         </tr>
                         </thead>
                         <tbody>
-                        {{#each words}}
+                        {{#each words2}}
                             <tr>
-                                <td style="background-color: #ffffff;border-bottom-color: #ffffff"></td>
+                                <td style="background-color: #ffffff;border-bottom-color: #ffffff">{{math @index "+" 1}}</td>
                                 <td style="text-align: center" >{{word}}</td>
-                                <td style="text-align: center">사전뜻들,,,</td>
                                 <td style="text-align: center">{{date}}</td>
                                 <td style="text-align: center" ><a href="/article/{{article_id}}" style="color: black">{{titles article_id}}</a></td>
                             </tr>
                         {{/each}}
                         </tbody>
                     </table>
+
                 </div>
             </div>   <!--표2( 위와 동일)-->
         </div>
@@ -101,7 +108,7 @@
 <!--                    <th scope="col" style="width: 15%;text-align: center">등록날짜</th>-->
 <!--                    <th scope="col" style="width: 30%;text-align: center;">기사링크</th>-->
 <!--                </tr>-->
-<!--            </thead>-->
+<!--            /thead>-->
 <!--            <tbody>-->
 <!--            {{#each words}}-->
 <!--                <tr>-->
