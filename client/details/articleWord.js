@@ -11,13 +11,25 @@ Template.articleWord.helpers({
             return searchWord;
         }
     },
-    wordSave: function(){   //단어를 단어장에 추가했는지 여부
+    wordSave1: function(){   //단어를 단어장에 추가했는지 여부
         var word = Session.get('searchWord');
         var user_id = Meteor.user()._id;   //유저 _id
         var article_id = FlowRouter.getParam('_id'); //기사 _id
 
         // findOne selector : 단어, 유저, 기사
-        if(!DB_WORDS.findOne({word: word, article_id: article_id,user_id:user_id},)){    //null일 경우 - DB에 저장되지 않은 단어
+        if(!DB_WORDS.findOne({word: word, article_id: article_id,user_id:user_id,form:1},)){    //null일 경우 - DB에 저장되지 않은 단어
+            return '☆';
+        }else{
+            return '★';
+        }
+    },
+    wordSave2: function(){   //단어를 단어장에 추가했는지 여부
+        var word = Session.get('searchWord');
+        var user_id = Meteor.user()._id;   //유저 _id
+        var article_id = FlowRouter.getParam('_id'); //기사 _id
+
+        // findOne selector : 단어, 유저, 기사
+        if(!DB_WORDS.findOne({word: word, article_id: article_id,user_id:user_id,form:2},)){    //null일 경우 - DB에 저장되지 않은 단어
             return '☆';
         }else{
             return '★';
@@ -114,7 +126,7 @@ Template.articleWord.events({
     },
 
     //즐겨찾기 버튼에 대한 함수
-    'click #btn-wordSave': function(){  //단어장에 추가(저장)하는 버튼
+    'click #btn-wordSave1': function(){  //단어장에 추가(저장)하는 버튼
         var searchWord = Session.get('searchWord');   //현재 검색된 단어 가져오기
         var user_id = Meteor.user()._id;//유저의 _id 가져오기
         var article_id = FlowRouter.getParam('_id');   //기사의 _id 가져오기
@@ -127,7 +139,7 @@ Template.articleWord.events({
 
 
         // findOne selector : 단어, 유저, 기사
-        var word = DB_WORDS.findOne({word: searchWord, article_id: article_id, user_id:Meteor.user()._id});
+        var word = DB_WORDS.findOne({word: searchWord, article_id: article_id, user_id:Meteor.user()._id,form:1});
         // 현재 단어가 DB에 저장되있는지 확인
         // word에는 null 또는 해당 단어의 object가 들어간다 (key, value의 묶음 배열)
 
@@ -143,6 +155,48 @@ Template.articleWord.events({
                 createdAt : new Date(),
                 user_id : user_id,
                 article_id: article_id,
+                form:1,
+                // searchCount: 0
+
+            });
+            alert("저장");
+        }else{  //DB에 이미 있는 경우 - 삭제
+            DB_WORDS.remove({_id: word._id}); //remove는 selector가 무조건 _id여야 함
+            alert("삭제");
+        }
+
+
+    },
+    'click #btn-wordSave2': function(){  //단어장에 추가(저장)하는 버튼
+        var searchWord = Session.get('searchWord');   //현재 검색된 단어 가져오기
+        var user_id = Meteor.user()._id;//유저의 _id 가져오기
+        var article_id = FlowRouter.getParam('_id');   //기사의 _id 가져오기
+
+        //단어를 아직 검색하지 않았을 경우 예외처리
+        if(!searchWord){  //단어를 검색하지 않았을때 즐겨찾기 버튼 안보이게하는 작업 필요.
+            alert("X")
+            return;
+        }
+
+
+        // findOne selector : 단어, 유저, 기사
+        var word = DB_WORDS.findOne({word: searchWord, article_id: article_id, user_id:Meteor.user()._id, form:2});
+        // 현재 단어가 DB에 저장되있는지 확인
+        // word에는 null 또는 해당 단어의 object가 들어간다 (key, value의 묶음 배열)
+
+        function getToday(){
+            var date = new Date();
+            return (date.getMonth()+1).toString()+"."+date.getDate().toString();
+        }
+
+        if(!word){   //null인 경우 - 단어가 저장되지 않았을경우
+            DB_WORDS.insert({
+                word: searchWord,
+                date: getToday().toString(),
+                createdAt : new Date(),
+                user_id : user_id,
+                article_id: article_id,
+                form:2,
                 // searchCount: 0
 
             });
