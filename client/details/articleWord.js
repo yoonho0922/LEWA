@@ -47,9 +47,7 @@ Template.articleWord.helpers({
 
     example: function () {
         return Session.get('data2');
-    }
-
-
+    },
 
 });
 
@@ -107,7 +105,7 @@ Template.articleWord.events({
         var count2 = DB_SEARCH_COUNT.findOne({word: searchWord,  user_id:Meteor.user()._id});
 
         if (!count2) {
-            alert('처음검색한 단어');
+            // alert('처음검색한 단어');
             DB_SEARCH_COUNT.insert({
                 word: searchWord,
                 count: 0,
@@ -116,10 +114,10 @@ Template.articleWord.events({
         }else{
             var word_id=DB_SEARCH_COUNT.findOne({word:searchWord,user_id:user_id})._id;
 
-            alert('이미 검색한 단어');
+            // alert('이미 검색한 단어');
 
             DB_SEARCH_COUNT.update({_id:word_id},{$inc:{count: 1}});
-            alert('조회수 증가시킴');
+            // alert('조회수 증가시킴');
 
 
         }

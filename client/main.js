@@ -5,7 +5,7 @@ Template.main.helpers({
     articles: function () { //하고 싶었던거: 1. dataString에 [0]번째(가장최신)기사 date : dateString
     //2. dateString에 해당되는거, 조회순으로 sort하기
       var today_date=DB_ALL_ARTICLES.findOne({},{sort:{createdAt:-1}}).date;
-      alert(today_date);
+      // alert(today_date);
       return DB_ALL_ARTICLES.findAll({date:today_date}, {sort: {viewCount: -1}});
     // var dateString = DB_ARTICLES.findAll[0].date; //1. 왜 안됨
     // return DB_ARTICLES.find({date : dateString },{ sort: {viewCount: -1}}); //2.
