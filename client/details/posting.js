@@ -60,21 +60,28 @@ Template.posting.events({
         }
 
         //나머지 DB에 저장
-        DB_ARTICLES_10.insert({
-            title: title,
-            image: image,   //DB_FILES에 있는 이미지의 _id 저장
-            content: html,
-            date: getToday(),
-            createdAt: new Date(),
-            viewCount: 0
-        });//이건 전체 DB에 넣는거
+
+        alert(article_id);
         DB_ALL_ARTICLES.insert({
             title: title,
             image: image,   //DB_FILES에 있는 이미지의 _id 저장
             content: html,
             date: getToday(),
             createdAt: new Date(),
-            viewCount: 0
+            viewCount: 0,
+
+        });//이건 전체 DB에 넣는거
+        var article_id=DB_ALL_ARTICLES.findOne({title:title})._id;
+
+        DB_ARTICLES_10.insert({
+            title: title,
+            image: image,   //DB_FILES에 있는 이미지의 _id 저장
+            content: html,
+            date: getToday(),
+            createdAt: new Date(),
+            viewCount: 0,
+            article_id:article_id,
+
         });//이건 최근 10개 기사에 넣는거
 
         alert('저장하였습니다.');

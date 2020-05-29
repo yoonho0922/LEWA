@@ -5,9 +5,12 @@ Template.article.onCreated(function() {
     DB_ARTICLES_10.update({_id: _id}, {
         $inc: {viewCount: 1}  //조회수 1 증가 업데이트
     });
-    DB_ALL_ARTICLES.update({_id: _id}, {
+    var article_id=DB_ARTICLES_10.findOne({_id:_id}).article_id;
+    DB_ALL_ARTICLES.update({_id:article_id}, {
         $inc: {viewCount: 1}  //조회수 1 증가 업데이트
+
     });
+
 });
 
 Template.article.helpers({
@@ -37,6 +40,15 @@ Template.article.helpers({
             return '★';
         }
     },
+    viewadd:function () {
+        var title=DB_ARTICLES_10.findOne({_id:_id}).title;
+        alert(title);
+        DB_ALL_ARTICLES.update({title:title}, {
+            $inc: {viewCount: 1}  //조회수 1 증가 업데이트
+
+        });
+
+    }
 
 });
 
