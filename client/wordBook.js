@@ -13,12 +13,12 @@ Template.wordBook.helpers({
         });
         return words_list;
     },
-    titles:function () {
-        var _id=FlowRouter.getParam('_id');
-        var article_title=DB_ALL_ARTICLES.findOne({_id:article_id});
-        return article_title;
-
-    }
+    // titles:function () {
+    //     var _id=FlowRouter.getParam('_id');
+    //     var article_title=DB_ALL_ARTICLES.findOne({_id:article_id});
+    //     return article_title;
+    //
+    // }
 })
 
 
