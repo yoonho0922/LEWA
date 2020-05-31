@@ -51,14 +51,20 @@ Template.postingAuto.events({
         var title = Session.get('enter_title');
         var content = Session.get('enter_content');
 
-        if(!title || !content){
+        if(!title){
             swal('First step is scraping');
+            return;
+        }
+
+        //내용 없는 기사 예외처리
+        if(!content || content == 'null' ||content=='<br />'){
+            swal('There is no content!');
             return;
         }
 
         var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 이미지 파일 가져오기
 
-        if(!title || !file) {    //제목과 이미지를 반드시 입력해야함
+        if(!file) {    //제목과 이미지를 반드시 입력해야함
             swal('plz upload file');
             return;
         }
