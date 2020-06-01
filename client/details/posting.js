@@ -61,7 +61,6 @@ Template.posting.events({
 
         //나머지 DB에 저장
 
-        alert(article_id);
         DB_ALL_ARTICLES.insert({
             title: title,
             image: image,   //DB_FILES에 있는 이미지의 _id 저장

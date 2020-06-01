@@ -26,34 +26,24 @@ Template.navbar.events({
             location.href="/posting";
         }
     },
-    'click #article_list': function() {
-        location.href="/articleList"
-    },
+
     'click #article_clipping': function() {
         if(!Meteor.user()){
             alert('로그인해주세요.');
             return;
         }
         else {
-            location.href="/clipping";
+
         }
     },
-    'click #my_quiz': function() {
-        if(!Meteor.user()){
-            alert('로그인해주세요.');
-            return;
-        }
-        else {
-            location.href="/myQuiz";
-        }
-    },
+
     'click #word_list': function() {
         if(!Meteor.user()){
             alert('로그인해주세요.');
             return;
         }
         else {
-            location.href="/wordBook";
+
         }
     },
     // 'click #admire_remove':function () {
