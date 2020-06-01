@@ -22,24 +22,23 @@ Template.article.helpers({
     createdAt: function() {
         return this.createdAt.toStringYMDHMS();
     },
-    clip_img: function () {
+    scrap: function () {
 
         if(Meteor.user() == null){
-            // return 'pre_scrap.png';
-            return '☆';
+            return 'pre_scrap.png';
         }
 
         var post_id = FlowRouter.getParam('_id');
         var user_id = Meteor.user()._id;
 
         if(!DB_CLIPS.findOne({post_id : post_id, user_id : user_id})){
-            return '☆';
-            // return 'pre_scrap.png';
-        }else{
-            // return 'post_scrap.png';
-            return '★';
+            return '스크랩 취소';
+        }
+        else {
+            return '스크랩 하기'
         }
     },
+
     // viewadd:function () {
     //     var title=DB_ARTICLES_10.findOne({_id:_id}).title;
     //     alert(title);
@@ -57,7 +56,8 @@ Template.article.events({
     location.href="/";
 },
     'click #btn-goquiz': function() {
-        location.href = "/quiz";
+        var _id = FlowRouter.getParam('_id')
+        location.href = "/quiz/" + _id;
     },
     'click #btn-clip': function() {
         if(!Meteor.user()){
@@ -77,9 +77,6 @@ Template.article.events({
                 user_id : user_id
             });
             DB_ALL_ARTICLES.update({_id: post_id}, articles);
-
-
-
             alert('스크랩');
         }else{
             DB_CLIPS.remove({_id : clip._id});     //스크랩 관계 목록 삭제
