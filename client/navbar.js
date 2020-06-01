@@ -23,7 +23,7 @@ Template.navbar.events({
         if( email != 'admire@gmail.com'){
             alert('권한이 없습니다.');
         }else{
-            location.href="/posting";
+            location.href="/postingAuto";
         }
     },
 
