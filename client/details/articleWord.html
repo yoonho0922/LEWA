@@ -3,28 +3,50 @@
         <input type="text" id="inp-wordSearch" style="border-radius: 0.3em" class="form-control" placeholder="단어 찾기" aria-label="Search">
         <span class="input-group-btn" >
                 <button id="btn-wordSearch" class="btn" type="button" style="background-color: #000000; color: white">검색</button>
-        </span>
+            </span>
     </div>
+    <body>
     <div class="word_dictionary" style="border:1px solid lightgray;margin-top: 20px;">
         <h4>사전 검색결과</h4>
         <div class="input-group">
             <h2>{{{searchWord}}}</h2>
-            <button id="btn-wordSave" class="btn" type="button" style="background-color: #ffffff; color: #000000;font-size: 25px">{{wordSave}}</button>
+            <button id="btn-wordSave1" class="btn" type="button" style="background-color: #ffffff; color: #000000;font-size: 25px;color: #725ae6">{{wordSave1}}</button>
+            <button id="btn-wordSave2" class="btn" type="button" style="background-color: #ffffff; color: #000000;font-size: 25px;color: #7aff6b">{{wordSave2}}</button>
+
+            <!--tts-->
+            <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+            <label for="test"></label><input type="hidden" id="test" style.display='block;' value="{{searchWord}}">
+            <button class="btn" type="button" onclick="responsiveVoice.speak(document.getElementById('test').value,'US English Female');">
+                <span aria-hidden="true">
+                   <i class="fas fa-volume-up"></i>
+                </span>
+            </button>
+
             <!-- 단어 저장(즐겨찾기) 버튼 -->
         </div>
         <div>
-            <h5> 뜻: </h5>
-            <h6> {{meaning}}</h6>
-            <br>
-            <h5> 예문: </h5>
-            <h6> {{example1}} </h6>
-            <h6> {{example2}} </h6>
+<!--<<<<<<< HEAD-->
+<!--            <h5> 뜻: </h5>-->
+<!--            <h6> {{meaning}}</h6>-->
+<!--            <br>-->
+<!--            <h5> 예문: </h5>-->
+<!--            <h6> {{example1}} </h6>-->
+<!--            <h6> {{example2}} </h6>-->
+<!--=======-->
+            <h6> 뜻 </h6>
+            <h6> {{meaning}} </h6>
+            <h6> 예문  </h6>
+            <h6> {{example}} </h6>
+<!-->>>>>>> 1b71b7ca05adc10de95d70db29033124ae9b7c1f-->
         </div>
     </div>
+    </body>
     <div class="word_add" style="border:1px solid lightgray;margin-top: 20px;">
         <h4>추가한 단어 목록</h4>
         {{#each wordList}}
-            <span style="background-color: #00b992;">{{wordshowing}}<button id="word_delete" value={{wordshowing}} style="background-color: transparent; border-color: transparent;">X</button></span>
+            <!--            {{word}}       {{date}} <a id="word_delete" style="background-color: #ffffff; color: black">x</a><br>-->
+            <span style="background-color: #00b992;">{{word}}<button id="word_delete" value={{word}} style="background-color: transparent; border-color: transparent;">X</button></span>
+            <br>
         {{/each}}
         <!--                x는 삭제 버튼-->
     </div>

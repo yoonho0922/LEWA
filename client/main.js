@@ -2,10 +2,24 @@ FlowRouter.template('/', 'main');
 
 
 Template.main.helpers({
-  articles: function () {
-    return DB_ARTICLES.findAll({}, {sort: {viewCount: -1}, limit: 10});
+
+    dateString: function() { //이거 오래 걸림
+      return DB_ALL_ARTICLES.findOne({},{sort:{createdAt:-1}}).date;
+    },
+
+    articles: function () { //하고 싶었던거: 1. dataString에 [0]번째(가장최신)기사 date : dateString
+    //2. dateString에 해당되는거, 조회순으로 sort하기
+      var today_date=DB_ALL_ARTICLES.findOne({},{sort:{createdAt:-1}}).date;
+      // alert(today_date);
+      return DB_ALL_ARTICLES.findAll({date:today_date}, {sort: {viewCount: -1}});
+    // var dateString = DB_ARTICLES.findAll[0].date; //1. 왜 안됨
+    // return DB_ARTICLES.find({date : dateString },{ sort: {viewCount: -1}}); //2.
     //기사 타이틀은 조회수!!의 내림차순, 10개 return
   },
+  //return article10Collection.find({},{sort: {viewCount: -1}}).fetch();
+  //return DB_ARTICLES.findAll({}, {sort: {createdAt: -1, viewCount: -1}, limit: 10});
+  //var arr = new Array(DB_ARTICLES.findAll({}, {sort: {createdAt: -1}, limit: 10}).fetch());
+  //findAll({},{sort: {viewCount: -1}})
 
   image_link: function() {
     // 저장 된 이미지 링크를 반환
@@ -13,7 +27,9 @@ Template.main.helpers({
   },
 
   articles2:function () {
-    return DB_ARTICLES.findAll({}, {sort: {createdAt: -1}, limit: 10});
+    var today_date=DB_ALL_ARTICLES.findOne({},{sort:{createdAt:-1}}).date;
+
+    return DB_ALL_ARTICLES.findAll({date:today_date}, {sort: {createdAt: -1}});
     //기사 앨범형은 시간!! 내림차순, 10개 return
   },
 
@@ -23,6 +39,9 @@ Template.main.helpers({
 
     return { "+": lvalue + rvalue, "/": lvalue / rvalue }[operator];
     //index + 1을 return
+  },
+  words: function () {
+      return DB_SEARCH_COUNT.findAll({user_id:Meteor.user()._id},{sort:{count:-1},limit:10});
   }
 
 });
@@ -31,8 +50,6 @@ Template.main.events({
   // 'click #go_article': function () {
   //   var view = DB_ARTICLES.findOne({_id: _id});
   //   view.viewCount+=1;
-
-
 
   // }
 

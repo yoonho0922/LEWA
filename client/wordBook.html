@@ -1,31 +1,156 @@
+<!--<head>-->
+<!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>-->
+<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
+<!--</head>-->
 <template name="wordBook">
-    <div class="container">
 
+    <div class="container">
         {{> navbar}}
-
     </div>
-    <div class="container">
-        <table border="1" style="width: 100%">
-            <th style="width: 2%;">
-            </th>
-            <th style="width: 40%;text-align: center">
-                영단어
-            </th>
-            <th style="width: 40%;text-align: center">
-                사전 뜻
-            </th>
-            {{#each words}}
-                <tr>
-                    <td style="background-color: aquamarine;border-bottom-color: aquamarine"></td>
 
-                    <td style="text-align: center" >{{word}}</td>
+    <div class="container" style="padding-top: 50px">
+<!--            <h1>My WordBook<small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1> &lt;!&ndash;그냥 글씨쓴거&ndash;&gt;-->
+        <div class="row"> <!--표를 행으로 옆에 배치할거야-->
+            <div class="col-md-6"> <!--표1-->
+                <div class="panel panel-primary">
+<!--                    <div class="panel-heading">-->
+<!--                        <h3 class="panel-title">중요한 단어</h3>-->
+<!--                        <div class="pull-right">-->
+<!--							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">-->
+<!--								<i class="glyphicon glyphicon-filter"></i>-->
+<!--							</span>-->
+<!--                        </div>-->
+<!--                    </div> -->
+                    <table class="table table-hover" id="dev-table" > <!-- 본격적 표-->
 
-                    <td style="text-align: center">사전뜻들,,,</td>
+                        <thead class = "thread-light">
+                        <tr >
+                            <th colspan="5" style="font-size: 18px;background-color: #725ae6;color: white;border-radius: 20px 20px 0px 0px">
+                                Important
+                            </th>
+                        </tr>
 
+                        <tr>
+                            <th scope="col" style="width: 3%; ">#</th>
+                            <th scope="col" style="width: 15%;text-align: center">영단어</th>
+                            <th scope="col" style="width: 15%;text-align: center">등록날짜</th>
+                            <th scope="col" style="width: 30%;text-align: center">기사제목</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each words1}}
+                            <tr>
+                                <td style="background-color: #ffffff;border-bottom-color: #ffffff">{{math @index "+" 1}}</td>
+                                <td style="text-align: center" >{{word}}</td>
+                                <td style="text-align: center">{{date}}</td>
+                                <td style="text-align: center" ><a href="/article/{{article_id}}" style="color: black">{{titles article_id}}</a></td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6"> <!--표2-->
+                <div class="panel panel-success">
+<!--                    <div class="panel-heading">-->
+<!--                        <h3 class="panel-title">모르는 단어</h3>-->
+<!--                        <div class="pull-right">-->
+<!--							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">-->
+<!--								<i class="glyphicon glyphicon-filter"></i>-->
+<!--							</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="panel-body">-->
+<!--                        <input type="text" class="form-control" id="task-table-filter" data-action="filter" data-filters="#task-table" placeholder="Filter Tasks" />-->
+<!--                    </div>-->
+                    <table class="table table-hover" id="dev-table"> <!-- 본격적 표-->
 
-                </tr>
-            {{/each}}
-        </table>
+                        <thead class = "thread-light">
+                        <tr >
+                            <th colspan="5" style="font-size: 18px;background-color: #8ee69b;color: white;border-radius: 20px 20px 0px 0px">
+                                Difficult
+                            </th>
+                        </tr>
 
+                        <tr style="border-right: 1px gray solid">
+                            <th scope="col" style="width: 3%; ">#</th>
+                            <th scope="col" style="width: 15%;text-align: center">영단어</th>
+                            <th scope="col" style="width: 15%;text-align: center">등록날짜</th>
+                            <th scope="col" style="width: 30%;text-align: center">기사제목</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each words2}}
+                            <tr>
+                                <td style="background-color: #ffffff;border-bottom-color: #ffffff">{{math @index "+" 1}}</td>
+                                <td style="text-align: center" >{{word}}</td>
+                                <td style="text-align: center">{{date}}</td>
+                                <td style="text-align: center" ><a href="/article/{{article_id}}" style="color: black">{{titles article_id}}</a></td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>   <!--표2( 위와 동일)-->
+        </div>
     </div>
+
+
+<!--    <div class="container" style="padding-top: 30px">-->
+<!--        <table border="1" style="width: 48%; ">-->
+<!--            <thead class = "thread-light">-->
+<!--                <tr>-->
+<!--                    <th scope="col" style="width: 3%;"></th>-->
+<!--                    <th scope="col" style="width: 15%;text-align: center">영단어</th>-->
+<!--                    <th scope="col" style="width: 15%;text-align: center">사전 뜻</th>-->
+<!--                    <th scope="col" style="width: 15%;text-align: center">등록날짜</th>-->
+<!--                    <th scope="col" style="width: 30%;text-align: center;">기사링크</th>-->
+<!--                </tr>-->
+<!--            /thead>-->
+<!--            <tbody>-->
+<!--            {{#each words}}-->
+<!--                <tr>-->
+<!--                    <td style="background-color: aquamarine;border-bottom-color: aquamarine"></td>-->
+<!--                    <td style="text-align: center" >{{word}}</td>-->
+<!--                    <td style="text-align: center">사전뜻들,,,</td>-->
+<!--                    <td style="text-align: center">{{date}}</td>-->
+<!--                    <td style="text-align: center" ><a href="/article/{{article_id}}" style="color: black">기사제목</a></td>-->
+<!--                </tr>-->
+<!--            {{/each}}-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </div>-->
+
+<!--    <div style="padding-top: 30px;float: right; width: 48%; ">-->
+<!--        <table border="1" style="" >-->
+<!--            <thead class = "thread-light">-->
+<!--                <tr>-->
+<!--                    <th style="width: 3%;"></th>-->
+<!--                    <th style="width: 15%;text-align: center">영단어</th>-->
+<!--                    <th style="width: 15%;text-align: center">사전 뜻</th>-->
+<!--                    <th style="width: 15%;text-align: center">등록날짜</th>-->
+<!--                    <th style="width: 30%;text-align: center;">기사링크</th>-->
+<!--                </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            {{#each words}}-->
+<!--                <tr>-->
+<!--                    <td style="background-color: #88eeff;border-bottom-color: #88eeff"></td>-->
+<!--                    <td style="text-align: center" >{{word}}</td>-->
+<!--                    <td style="text-align: center">사전뜻들,,,</td>-->
+<!--                    <td style="text-align: center">{{date}}</td>-->
+<!--                    <td style="text-align: center" ><a href="/article/{{article_id}}" style="color: black">기사제목</a></td>-->
+<!--                </tr>-->
+<!--            {{/each}}-->
+<!--            </tbody>-->
+<!--        </table>-->
+
+
+
+<!--    </div>-->
+
+
+
 </template>
