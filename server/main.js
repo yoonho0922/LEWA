@@ -28,6 +28,7 @@ Meteor.methods({
     return fut.wait(); // async? sync?
   },
 
+
   // 기사 긁어오는 함수
   'scraping_content':function(link_article) {
 
