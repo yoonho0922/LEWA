@@ -29,23 +29,27 @@ Template.navbar.events({
 
     'click #article_clipping': function() {
         if(!Meteor.user()){
-            alert('로그인해주세요.');
+            var res=confirm('로그인해주세요.');
+            if(res==true)
+                location.href="/login";
             return;
         }
-        else {
+    else {
 
         }
     },
 
     'click #word_list': function() {
         if(!Meteor.user()){
-            alert('로그인해주세요.');
+            var res=confirm('로그인해주세요.');
+            if(res==true)
+                location.href="/login";
             return;
         }
         else {
 
         }
-    },
+    }
     // 'click #admire_remove':function () {
     //
     //     var remove_list = new Array();

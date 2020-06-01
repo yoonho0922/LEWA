@@ -105,4 +105,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
 }
 
+#ex_login_custom{
 
+  background-image:url('/public/login.jpg');
+  background-repeat:no-repeat;
+  background-position:top center;
+  background-size:cover;
+
+}

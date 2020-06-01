@@ -26,6 +26,12 @@ Template.articleList.helpers({
         return DB_ALL_ARTICLES.findAll({date: date});
 
     },
+    image_link: function() {
+        // 저장 된 이미지 링크를 반환
+        var _id = DB_ALL_ARTICLES.findOne({date: date})._id;
+        return DB_FILES.findOne({_id: _id.image}).link();
+    },
+
     // article_id2:function(){
     //     return DB_ARTICLES_10.findOne({article_id:_id})._id;
     // },

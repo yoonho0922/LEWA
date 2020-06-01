@@ -13,22 +13,23 @@
 
 <!--            </span>-->
 
-            <input id="sdy" type="number" min="2000" max="3000" value="{{SD_Year}}" />
-            <input id="sdm" type="number" min="1" max="12" value="{{SD_Month}}" />
-            <input id="sdd" type="number" min="1" max="31" value="{{SD_Day}}" />
-            <button id="btn-createdAt" class="btn" type="button" style="background-color: #000000; color: white"  >검색</button>
+            <input id="sdy" type="number" min="2000" max="3000" value="{{SD_Year}}" style="text-align: center" />
+            <input id="sdm" type="number" min="1" max="12" value="{{SD_Month}}" style="text-align: center;width: 50px"/>
+            <input id="sdd" type="number" min="1" max="31" value="{{SD_Day}}" style="text-align: center; width: 50px"/>
+            <button id="btn-createdAt" class="btn" type="button" style="background-color: #e8e8e8; color: white;color: black" ><b>검색</b></button>
         </div>
 
 
-        <div class="table-responsive">
+        <div class="table-responsive" style="padding-top: 30px">
             <table class="table table-hover">  <!--table table-striped table-sm-->
 
                 <thead class = "thread-light"> <!--조큼더 생각-->
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col" style="text-align: center;">순서</th>
+                    <th scope="col">썸네일</th>
                     <th scope="col">제목</th>
-                    <th scope="col">등록한 날짜</th>
-                    <th scope="col">조회수</th>
+                    <th scope="col" style="text-align: center">등록한 날짜</th>
+                    <th scope="col" style="text-align: center;">조회수</th>
                     <!--단어검색횟수추가?-->
                     <!--...? 신문읽었오 확인용 <th scope="col">신문사</th>-->
                 </tr>
@@ -39,10 +40,11 @@
 
                 {{#each articleDate}}
                     <tr>
-                        <th scope="row">{{math @index "+" 1}} </th> <!--순서 어떻게 갖고올건지-->
+                        <th scope="row" style="text-align: center">{{math @index "+" 1}} </th> <!--순서 어떻게 갖고올건지-->
+                        <td style="">{{image_link}}</td>
                         <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>
-                        <td>{{date}}</td>
-                        <td>{{viewCount}}</td>
+                        <td style="text-align: center;">{{date}}</td>
+                        <td style="text-align: center;">{{viewCount}}</td>
                     </tr>
                 {{/each}}
 
