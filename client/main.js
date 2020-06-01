@@ -2,6 +2,11 @@ FlowRouter.template('/', 'main');
 
 
 Template.main.helpers({
+
+    dateString: function() { //이거 오래 걸림
+      return DB_ALL_ARTICLES.findOne({},{sort:{createdAt:-1}}).date;
+    },
+
     articles: function () { //하고 싶었던거: 1. dataString에 [0]번째(가장최신)기사 date : dateString
     //2. dateString에 해당되는거, 조회순으로 sort하기
       var today_date=DB_ALL_ARTICLES.findOne({},{sort:{createdAt:-1}}).date;

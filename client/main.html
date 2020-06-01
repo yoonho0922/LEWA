@@ -1,34 +1,82 @@
 <template name="main">
-    <div class="container" style="padding-bottom: 70px">
-        {{> navbar}}
-    </div>
+    <div class = "container">
+        <div style="padding-bottom: 20px">
+            {{> navbar}}
+        </div>
 
-    <div class="container">
-        <div class="row"> <!--행으로 옆에 배치할거야-->
-            <div class="col-md-6" style="float: left;">
-                <h3 style="color: black; padding-top: 30px;">Today's news</h3>
-                <div class="today_news_title" style="color: black;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
-                    {{#each articles}} <!--articles 조회수 내림차순-->
-                        <a href="/article/{{_id}}" style="color:black; margin-left: 10px">{{math @index "+" 1}}. {{title}}</a><br>
-                    {{/each}}
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="row no-gutters border rounded flex-md-row mb-4 shadow-sm h-md-500 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-2">Today's news</h3>
+                        <div class="mb-1 text-muted">{{dateString}}</div>
+                        <div class="today_news_title" style="color: black;white-space: nowrap;text-overflow: ellipsis;overflow: hidden">
+                            {{#each articles}} <!--articles 조회수 내림차순-->
+                                <a href="/article/{{_id}}" style="color:black">{{math @index "+" 1}}. {{title}}</a><br>
+                            {{/each}}
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6" style="float: right">
-                <h3 style="color: black; padding-top: 30px;">My Words(많이 검색한 단어(유저별))</h3>
-                <div class="today_news_title" style="color: black; white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
-                    {{#each words}} <!--articles 조회수 내림차순-->
-                        <a style="color:black; margin-left: 10px">{{math @index "+" 1}}. {{word}}</a><br>
-                    {{/each}}
+            <div class="col-md-6">
+                <div class="row no-gutters border rounded flex-md-row mb-4 shadow-sm h-md-500 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-2">My Words</h3> <!--(많이 검색한 단어)-user별별-->
+                        <div class="mb-1 text-muted">{{dateString}}</div> <!--userid갖고오면 좋을듯-->
+                        <div class="today_news_title" style="color: black; white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+                            {{#each words}} <!--word 내림차순-->
+                                <a style="color:black">{{math @index "+" 1}}. {{word}}</a><br>
+                            {{/each}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!--    기사 10개 각각 일단 나타내기-->
+        <!--        <div class="row"> &lt;!&ndash;행으로 옆에 배치할거야&ndash;&gt;-->
+        <!--            <div class="col-md-6 order-md-3">-->
+        <!--                <h4 class="mb-3">Today's news</h4>-->
+        <!--                <div class="today_news_title" style="color: black;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">-->
+            <!--                    {{#each articles}} &lt;!&ndash;articles 조회수 내림차순&ndash;&gt;-->
+        <!--                        <a href="/article/{{_id}}" style="color:black; margin-left: 10px">{{math @index "+" 1}}. {{title}}</a><br>-->
+            <!--                    {{/each}}-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="col-md-6 order-md-3">-->
+        <!--                <h4 class="mb-3">My Words</h4> &lt;!&ndash;(많이 검색한 단어)-user별별&ndash;&gt;-->
+        <!--               <div class="today_news_title" style="color: black; white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">-->
+            <!--                    {{#each words}} &lt;!&ndash;word 내림차순&ndash;&gt;-->
+        <!--                        <a style="color:black; margin-left: 10px">{{math @index "+" 1}}. {{word}}</a><br>-->
+            <!--                    {{/each}}-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+
+
+        <!-- 시도       <div class="col-md-4">-->
+        <!--            <div class="card mb-4 shadow-sm">-->
+        <!--                <a id="go_article" href="/article/{{_id}}"><img src="{{image_link}}" alt="" class="card-img-top" style="height:170px;"></a>-->
+        <!--                -->
+        <!--                    <div class="card-body" style="height: 300px">-->
+        <!--                        <h4><a href="/article/{{_id}}" style="color:black;">{{title}}</a></h4>-->
+        <!--                        <p class="card-text" style="height:100px;text-overflow: ellipsis;overflow: hidden">{{{content}}}</p>-->
+        <!--                        <div class="d-flex justify-content-between align-items-center">-->
+        <!--                            <small class="text-muted">신문사(?)</small>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+
+
+
+
+        <!--    기사 10개 각각 일단 나타내기-->
     <div class="container">
         <div class="row">
             <!-- 테두리 넣고싶으면 class에 border rounded 넣기           -->
             {{#each articles2}}
+
                 <div class="col-md-3 ">
                     <div class="mb-4">
                         <a id="go_article" href="/article/{{_id}}"><img src="{{image_link}}" alt="" class="card-img-top" style="height:170px;"></a>
@@ -38,6 +86,7 @@
                         </div>
                     </div>
                 </div>
+
             {{/each}}
         </div>
     </div>
