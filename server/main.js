@@ -34,6 +34,7 @@ Meteor.methods({
 
     const fut = new Future(); // Future 객체 생성
     const link = link_article; // 받아온 인자 값을 word 변수에 저장
+    //link = http://www.koreaherald.com/view.php?ud=20200601000228
 
     Meteor.setTimeout(function() {
       // var link = 'http://aha-dic.com/View.asp?word=' + word;
@@ -41,21 +42,9 @@ Meteor.methods({
         const $ = cheerio.load(html,{decodeEntities: true});
 
         // article이 기사 가져오는거 -> 성공
-        article = sanitizeHtml($('div.view_article div div div span').html(),{ parser: {decodeEntities: true}});
-        console.log(article)
+        article = sanitizeHtml($('div.view_con_t').eq(1).html(),{ parser: {decodeEntities: true}});
+        // console.log(article)
 
-        // picsrc가 사진 가져오려는거 -> 아직 성공 아님
-        picsrc = sanitizeHtml($('div.view_article div div div table').html(),{ parser: {decodeEntities: true}});
-        console.log("picsrc: " + picsrc)
-
-        // const wordmeaning =new Array();
-        // wordmeaning[0] = sanitizeHtml($('ul li').html(),{ parser: {decodeEntities: true}});
-        // wordmeaning[1] = sanitizeHtml($('fieldset.panel span').html(), { parser: {decodeEntities: true}});
-
-        // console.log(link); // 새로운 링크 잘 연결 되었는가??
-        // console.log(word); // 인자 값 잘 가져왔는가??
-        // console.log(wordmeaning[0]);
-        // console.log(wordmeaning[1]);// 뜻이 잘 나오는가??
         fut.return(article);// client로 값 return
       })
     }, 1000);
@@ -74,8 +63,8 @@ Meteor.methods({
         const $ = cheerio.load(html,{decodeEntities: true});
 
         // 제목 가져오기
-        article = sanitizeHtml($('div.view_headline').html(),{ parser: {decodeEntities: true}});
-        console.log(article)
+        article = sanitizeHtml($('h1.view_tit').html(),{ parser: {decodeEntities: true}});
+        // console.log(article)
 
         fut.return(article);// client로 값 return
       })
