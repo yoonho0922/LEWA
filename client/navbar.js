@@ -29,21 +29,17 @@ Template.navbar.events({
 
     'click #article_clipping': function() {
         if(!Meteor.user()){
-            var res=confirm('로그인해주세요.');
-            if(res==true)
-                location.href="/login";
+            alert('로그인해주세요')
             return;
         }
-    else {
+        else {
 
         }
     },
 
     'click #word_list': function() {
         if(!Meteor.user()){
-            var res=confirm('로그인해주세요.');
-            if(res==true)
-                location.href="/login";
+           alert('로그인해주세요')
             return;
         }
         else {
