@@ -5,6 +5,7 @@ Template.postingAuto.onRendered(function () {
     Session.set('count', 0);
     Session.set('enter_content', []);
     Session.set('enter_title', [])
+    Session.set('enter_img','');
 
 });
 
@@ -32,7 +33,7 @@ Template.postingAuto.events({
             } else {
                 Session.set('enter_title', result);
             }
-        })
+        });
 
         //기사 내용
         Meteor.call('scraping_content', article_link, function (error, result) {
@@ -42,6 +43,16 @@ Template.postingAuto.events({
                 Session.set('enter_content', result);
                 swal('complete scraping!', Session.get('enter_title'));
             }
+        });
+
+        //이미지
+        Meteor.call('scraping_img', article_link, function (error, result) {
+            if (error) {
+                alert('Error');
+            } else {
+                Session.set('enter_img', result);
+                swal('complete img!', Session.get('enter_img'));
+            }
         })
     },
 
@@ -50,6 +61,7 @@ Template.postingAuto.events({
 
         var title = Session.get('enter_title');
         var content = Session.get('enter_content');
+        var image = Session.get('enter_img');
 
         if(!title){
             swal('First step is scraping');
@@ -62,15 +74,11 @@ Template.postingAuto.events({
             return;
         }
 
-        var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 이미지 파일 가져오기
-
-        if(!file) {    //제목과 이미지를 반드시 입력해야함
-            swal('plz upload file');
+        //사진 못 가져올경우
+        if(image=''){
+            swal('There is no Image!');
             return;
         }
-
-        var image = DB_FILES.insertFile(file);    //이미지 파일 DB에 저장하고 _id 가져오기
-        //DB에 insert하면 _id를 return한다
 
         function getToday(){
             var date = new Date();

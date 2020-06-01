@@ -71,6 +71,27 @@ Meteor.methods({
     }, 1000);
     return fut.wait(); // async? sync?
 
+  },
+
+  'scraping_img':function(link_article) {
+
+    const fut = new Future(); // Future 객체 생성
+    const link = link_article; // 받아온 인자 값을 word 변수에 저장
+
+    Meteor.setTimeout(function() {
+      // var link = 'http://aha-dic.com/View.asp?word=' + word;
+      request.get(link, function (err, response, html) {
+        const $ = cheerio.load(html,{decodeEntities: true});
+
+        // 제목 가져오기
+        article = sanitizeHtml($('div.view_con img').attr('src'),{ parser: {decodeEntities: true}});
+        // console.log(article)
+
+        fut.return(article);// client로 값 return
+      })
+    }, 1000);
+    return fut.wait(); // async? sync?
+
   }
 });
 
