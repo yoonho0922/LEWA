@@ -75,7 +75,7 @@ Template.postingAuto.events({
         }
 
         //사진 못 가져올경우
-        if(image=''){
+        if(image==''){
             swal('There is no Image!');
             return;
         }

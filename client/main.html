@@ -34,43 +34,6 @@
         </div>
     </div>
 
-        <!--        <div class="row"> &lt;!&ndash;행으로 옆에 배치할거야&ndash;&gt;-->
-        <!--            <div class="col-md-6 order-md-3">-->
-        <!--                <h4 class="mb-3">Today's news</h4>-->
-        <!--                <div class="today_news_title" style="color: black;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">-->
-            <!--                    {{#each articles}} &lt;!&ndash;articles 조회수 내림차순&ndash;&gt;-->
-        <!--                        <a href="/article/{{_id}}" style="color:black; margin-left: 10px">{{math @index "+" 1}}. {{title}}</a><br>-->
-            <!--                    {{/each}}-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--            <div class="col-md-6 order-md-3">-->
-        <!--                <h4 class="mb-3">My Words</h4> &lt;!&ndash;(많이 검색한 단어)-user별별&ndash;&gt;-->
-        <!--               <div class="today_news_title" style="color: black; white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">-->
-            <!--                    {{#each words}} &lt;!&ndash;word 내림차순&ndash;&gt;-->
-        <!--                        <a style="color:black; margin-left: 10px">{{math @index "+" 1}}. {{word}}</a><br>-->
-            <!--                    {{/each}}-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
-
-
-        <!-- 시도       <div class="col-md-4">-->
-        <!--            <div class="card mb-4 shadow-sm">-->
-        <!--                <a id="go_article" href="/article/{{_id}}"><img src="{{image_link}}" alt="" class="card-img-top" style="height:170px;"></a>-->
-        <!--                -->
-        <!--                    <div class="card-body" style="height: 300px">-->
-        <!--                        <h4><a href="/article/{{_id}}" style="color:black;">{{title}}</a></h4>-->
-        <!--                        <p class="card-text" style="height:100px;text-overflow: ellipsis;overflow: hidden">{{{content}}}</p>-->
-        <!--                        <div class="d-flex justify-content-between align-items-center">-->
-        <!--                            <small class="text-muted">신문사(?)</small>-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
-
-
-
-
         <!--    기사 10개 각각 일단 나타내기-->
     <div class="container">
         <div class="row">
@@ -79,7 +42,7 @@
 
                 <div class="col-md-3 ">
                     <div class="mb-4">
-                        <a id="go_article" href="/article/{{_id}}"><img src="{{image_link}}" alt="" class="card-img-top" style="height:170px;"></a>
+                        <a id="go_article" href="/article/{{_id}}"><img src="{{image}}" alt="" class="card-img-top" style="height:170px;"></a>
                         <div class="card-body" style="height: 300px">
                             <h4><a href="/article/{{_id}}" style="color:black;">{{title}}</a></h4>
                             <p class="card-text" style="height:100px;text-overflow: ellipsis;overflow: hidden;">{{{content}}}</p>
