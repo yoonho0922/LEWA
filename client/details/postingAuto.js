@@ -6,6 +6,7 @@ Template.postingAuto.onRendered(function () {
     Session.set('enter_content', []);
     Session.set('enter_title', [])
     Session.set('enter_img','');
+    Session.set('srcUrl','');
 
 });
 
@@ -25,7 +26,7 @@ Template.postingAuto.events({
     //스크래핑
     'click #btn-scraping': function (event) {
         var article_link = $('#inp-link').val(); // input 창에 입력된 단어 가져오기
-
+        Session.set('srcUrl', article_link);
         //기사 제목
         Meteor.call('scraping_title', article_link, function (error, result) {
             if (error) {
@@ -62,6 +63,7 @@ Template.postingAuto.events({
         var title = Session.get('enter_title');
         var content = Session.get('enter_content');
         var image = Session.get('enter_img');
+        var srcUrl = Session.get('srcUrl');
 
         if(!title){
             swal('First step is scraping');
@@ -98,7 +100,7 @@ Template.postingAuto.events({
             date: getToday(),
             createdAt: new Date(),
             viewCount: 0,
-
+            srcUrl: srcUrl
         });
 
         swal("complete upload!", title, "success");
