@@ -7,12 +7,6 @@ html, css, javascript
 Node.js, npm  
 mongoDB  
 
-
-## Document
-* [페이지 구성](/docs/client_structure.md)
-* [DB 구조](/docs/DB_collection.md)
-* [추가한 package](/docs/npm_install.md)
-
 ## Run Project
 #### install meteor
 * [미티어 설치](https://www.meteor.com/install)
@@ -28,6 +22,11 @@ meteor
 * Sign up 또는 Login. admire@gmail.com으로 signup하면 관리자 계정임
 * localhost:3000/postingAuto에서
 [The Korea Herald](http://www.koreaherald.com/index.php) 기사의 링크를 scraping한 후 upload하여 기사 업로드 가능
+
+## Document
+* [페이지 구성](/docs/client_structure.md)
+* [DB 구조](/docs/DB_collection.md)
+* [추가한 package](/docs/npm_install.md)
 
 ## Project Structure
 * Client : 화면 구성 모음
