@@ -14,21 +14,38 @@ Template.quiz.helpers({
     meaning: function () {
         var _id = FlowRouter.getParam('_id')
         var idx = Session.get('index');
-        var len = DB_WORDS.findAll({article_id: _id, user_id: Meteor.userId(), form: 1}).length;
+        var len = DB_WORDS.findAll({article_id: _id, user_id: Meteor.userId()}).length;
         if(len != 0) {
             var wordArr = new Array();
-            for(var i = 0; i < len; i++) {
-                wordArr[i] = DB_WORDS.findAll({article_id: _id, user_id: Meteor.userId(), form: 1})[i].word;
+            for(var i=0; i < len; i++) {
+                wordArr[i]=DB_WORDS.findAll({article_id: _id, user_id: Meteor.userId()})[i].word;
             }
-
-            if(idx >= wordArr.length) {
+            var wordQuizArr = new Array();
+            var a=0;
+            var temp;
+            for (var i=0; i<wordArr.length; i++) {
+                for (var j=0; j<wordArr.length; j++) {
+                    if (wordArr[i]===wordArr[j]) {
+                        temp=wordArr[i];
+                        wordArr[j]=0;
+                        wordArr[i]=temp;
+                    }
+                }
+            }
+            for (var i=0; i<wordArr.length; i++){
+                if(wordArr[i]!==0){
+                    wordQuizArr[a]=wordArr[i];
+                    a++;
+                }
+            }
+            if(idx >= wordQuizArr.length) {
                 Session.set('endCurrentQuiz', true);
             }
             if(idx == null)
                 console.log(" ")
             else {
-                Session.set('wordArr[idx]', wordArr[idx]);
-                Meteor.call('word_searching',wordArr[idx], function (error, result){
+                Session.set('wordQuizArr[idx]',wordQuizArr[idx]);
+                Meteor.call('word_searching',wordQuizArr[idx], function (error, result){
                     if (error) {
                         alert('Error');
                     } else {
@@ -53,7 +70,7 @@ Template.quiz.events({
             const cor_word = Session.get('wordArr[idx]');
             const inp_word = Session.get('inpWord');
             if (cor_word !== inp_word) {
-                alert("틀렸습니다! 답은 "+cor_word+"입니다!");
+                swal("틀렸습니다! 답은 "+cor_word+"입니다!");
             } else {
                 swal("정답입니다!")
             }
