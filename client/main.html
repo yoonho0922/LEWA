@@ -7,7 +7,7 @@
         <div class="row mb-2">
             <div class="col-md-6">
                 <div class="row no-gutters border rounded flex-md-row mb-4 shadow-sm h-md-500 position-relative">
-                    <div class="col p-4 d-flex flex-column position-static">
+                    <div class="col p-4 d-flex flex-column position-static" style="height: 380px">
                         <h3 class="mb-2">Today's news</h3>
                         <div class="mb-1 text-muted">{{dateString}}</div>
                         <div class="today_news_title" style="color: black;white-space: nowrap;text-overflow: ellipsis;overflow: hidden">
@@ -20,7 +20,7 @@
             </div>
             <div class="col-md-6">
                 <div class="row no-gutters border rounded flex-md-row mb-4 shadow-sm h-md-500 position-relative">
-                    <div class="col p-4 d-flex flex-column position-static">
+                    <div class="col p-4 d-flex flex-column position-static;" style="height: 380px">
                         <h3 class="mb-2">My Words</h3> <!--(많이 검색한 단어)-user별별-->
                         <div class="mb-1 text-muted">{{dateString}}</div> <!--userid갖고오면 좋을듯-->
                         <div class="today_news_title" style="color: black; white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
@@ -28,7 +28,7 @@
                                 <a style="color:black">{{math @index "+" 1}}. {{word}} (+{{count}})</a><br>
                             {{/each}}
                         </div>
-                        <a id="plus_word" href="/wordBook" style="color: #999999;text-align: right">더보기</a>
+                        <a id="plus_word" href="/wordBook" style="color: #999999;text-align: right">단어장 가기</a>
 
                     </div>
 
