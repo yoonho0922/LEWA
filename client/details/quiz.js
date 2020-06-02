@@ -1,5 +1,22 @@
 FlowRouter.template('/quiz/:_id', 'quiz');
 
+$(function(){
+    $('#but-back').click(function(e){
+        e.preventDefault();
+        var stat = $('#numberUpDown').text();
+        var num = parseInt(stat,10);
+        num++;
+        $('#numberUpDown').text(num);
+    });
+    $('#but-next').click(function(e){
+        e.preventDefault();
+        var stat = $('#numberUpDown').text();
+        var num = parseInt(stat,10);
+        num--;
+        $('#numberUpDown').text(num);
+    });
+});
+
 Template.quiz.onRendered(function () {
     var _id = FlowRouter.getParam('_id')
     Session.set('index', 0); // index 초기화
@@ -58,7 +75,6 @@ Template.quiz.helpers({
             }
             return Session.get('meaning');
         }
-
     }
 });
 
@@ -67,19 +83,21 @@ Template.quiz.events({
         if (evt.which === 13) {
             const inpWord = $('#inp-word').val();
             Session.set('inpWord', inpWord);
-            const cor_word = Session.get('wordArr[idx]');
+            const cor_word = Session.get('wordQuizArr[idx]');
             const inp_word = Session.get('inpWord');
             if (cor_word !== inp_word) {
                 swal("틀렸습니다! 답은 "+cor_word+"입니다!");
             } else {
                 swal("정답입니다!")
             }
-
         }
+    },
+
+    'click #but-back':function () {
+        Session.set('index', Session.get('index') - 1);
     },
     'click #but-next':function () {
         Session.set('index',Session.get('index')+1);
-
     },
     'click #btn-main':function () {
         location.href='/';
