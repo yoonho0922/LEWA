@@ -73,7 +73,27 @@ Template.articleWord.events({
 
         if(evt.which === 13) {
             var searchWord = $('#inp-wordSearch').val();
+            var user_id=Meteor.user()._id;
+            var count2 = DB_SEARCH_COUNT.findOne({word: searchWord,  user_id:Meteor.user()._id});
+            ///검색횟수 증가하는 함수
             Session.set('searchWord', searchWord);
+            if (!count2) {
+                // alert('처음검색한 단어');
+                DB_SEARCH_COUNT.insert({
+                    word: searchWord,
+                    count: 1,
+                    user_id: user_id
+                });
+            }else{
+                var word_id=DB_SEARCH_COUNT.findOne({word:searchWord,user_id:user_id})._id;
+
+                alert('이미 검색한 단어');
+
+                DB_SEARCH_COUNT.update({_id:word_id},{$inc:{count: 1}});
+                alert('조회수 증가시킴');
+            }///여기까지 검색횟수 관련 함수
+
+
             // callback 함수를 이용해서 Meteor.call() 호출
             Meteor.call('word_searching', searchWord, function (error, result){
                 if (error) {
@@ -110,30 +130,30 @@ Template.articleWord.events({
     },
 
     //단어 검색했을때 단어 띄우는 함수 (임시 사전)
-    'click #btn-wordSearch': function(){
-        var searchWord = $('#inp-wordSearch').val();
-        var user_id=Meteor.user()._id;
-        Session.set('searchWord', searchWord);
-        var count2 = DB_SEARCH_COUNT.findOne({word: searchWord,  user_id:Meteor.user()._id});
-
-        if (!count2) {
-            // alert('처음검색한 단어');
-            DB_SEARCH_COUNT.insert({
-                word: searchWord,
-                count: 0,
-                user_id: user_id
-            });
-        }else{
-            var word_id=DB_SEARCH_COUNT.findOne({word:searchWord,user_id:user_id})._id;
-
-            // alert('이미 검색한 단어');
-
-            DB_SEARCH_COUNT.update({_id:word_id},{$inc:{count: 1}});
-            // alert('조회수 증가시킴');
-
-
-        }
-    },
+    // 'click #btn-wordSearch': function(){
+    //     var searchWord = $('#inp-wordSearch').val();
+    //     var user_id=Meteor.user()._id;
+    //     Session.set('searchWord', searchWord);
+    //     var count2 = DB_SEARCH_COUNT.findOne({word: searchWord,  user_id:Meteor.user()._id});
+    //
+    //     if (!count2) {
+    //         // alert('처음검색한 단어');
+    //         DB_SEARCH_COUNT.insert({
+    //             word: searchWord,
+    //             count: 0,
+    //             user_id: user_id
+    //         });
+    //     }else{
+    //         var word_id=DB_SEARCH_COUNT.findOne({word:searchWord,user_id:user_id})._id;
+    //
+    //         // alert('이미 검색한 단어');
+    //
+    //         DB_SEARCH_COUNT.update({_id:word_id},{$inc:{count: 1}});
+    //         // alert('조회수 증가시킴');
+    //
+    //
+    //     }
+    // },
 
     //즐겨찾기 버튼에 대한 함수
     'click #btn-wordSave1': function(){  //단어장에 추가(저장)하는 버튼

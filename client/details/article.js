@@ -25,7 +25,7 @@ Template.article.helpers({
     scrap: function () {
 
         if(Meteor.user() == null){
-            return 'pre_scrap.png';
+            return '스크랩';
         }
 
         var post_id = FlowRouter.getParam('_id');
