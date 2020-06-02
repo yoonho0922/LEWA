@@ -1,11 +1,9 @@
-FlowRouter.template('/quiz', 'quiz');
+FlowRouter.template('/quiz/:_id', 'quiz');
 
 Template.quiz.onRendered(function () {
-    console.log("onRendered");
+    var _id = FlowRouter.getParam('_id')
     Session.set('index', 0); // index 초기화
     Session.set('loading', 'Loading...');
-    // Session.set('currentQuiz', true);
-
 });
 
 Template.quiz.helpers({
@@ -14,33 +12,36 @@ Template.quiz.helpers({
     },
     // 단어 뜻 불러오는 것
     meaning: function () {
-        console.log("helpers-meaning");
-        var wordArr = ['apple', 'banana', 'grape', 'melon', 'strawberry'];
+        var _id = FlowRouter.getParam('_id')
         var idx = Session.get('index');
+        var len = DB_WORDS.findAll({article_id: _id, user_id: Meteor.userId(), form: 1}).length;
+        if(len != 0) {
+            var wordArr = new Array();
+            for(var i = 0; i < len; i++) {
+                wordArr[i] = DB_WORDS.findAll({article_id: 'sWbsSAHd5SzAQJomY', user_id: Meteor.userId(), form: 1})[i].word;
+            }
 
-        if(idx >= wordArr.length) {
-            Session.set('endCurrentQuiz', true);
+            if(idx >= wordArr.length) {
+                Session.set('endCurrentQuiz', true);
+            }
+            if(idx == null)
+                console.log(" ")
+            else {
+                Session.set('wordArr[idx]', wordArr[idx]);
+                Meteor.call('word_searching',wordArr[idx], function (error, result){
+                    if (error) {
+                        alert('Error');
+                    } else {
+                        result=result[0];
+                        result = result.replace(/<b>/g, '');
+                        result = result.replace(/<\/b>/g, '');
+                        Session.set('meaning', result);
+                    }
+                })
+            }
+            return Session.get('meaning');
         }
-        if(idx == null)
-            console.log(" ")
-        else {
-            Session.set('wordArr[idx]', wordArr[idx]);
-            Meteor.call('word_searching',wordArr[idx], function (error, result){
-                if (error) {
-                    alert('Error');
-                } else {
-                    console.log("helpers-meaning-meteor.call");
-                    result=result[0];
-                    result = result.replace(/<b>/g, '');
-                    result = result.replace(/<\/b>/g, '');
-                    Session.set('meaning', result);
-                    // return Session.get('meaning');
-                }
-            })
-        }
 
-
-        return Session.get('meaning');
     }
 });
 
