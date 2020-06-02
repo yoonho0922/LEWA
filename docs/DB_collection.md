@@ -23,6 +23,10 @@
     * article_id: 추가된 기사 UID
     * searchCount: 단어 검색 횟수
     
+    * DB_WORDS.findAll(): user_id와 article_id를 토대로 저장된 word를 index로 접근해 꺼내고 wordArr 생성
+    * wordArr배열에는 중요한 단어와 어려운 단어가 저장순서대로 배열되어 있음
+    * 중요한 단어와 어려운 단어를 중복되지 않게 새로운 배열로 알고리즘을 만들어 퀴즈를 생성
+    
  * DB_SEARCH_COUNT
     * word : 단어
     * count : 검색 횟수
@@ -35,12 +39,7 @@
     * content : 내용
     * createdAt : 추가된 시간
     * viewCount : 조회수
-    
-    
-* quiz.js 
-    * DB_WORDS.findAll()을 통해 알아낸 user_id와 article_id를 토대로 저장된 word를 꺼내고 wordArr배열을 만듬
-    * wordArr배열에는 중요한 단어와 어려운 단어가 저장순서대로 배열되어 있음
-    * 중요한 단어와 어려운 단어를 중복되지 않게 새로운 배열로 만들어 퀴즈를 생성
+
 
     
  
