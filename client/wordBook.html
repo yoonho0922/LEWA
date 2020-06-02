@@ -32,7 +32,7 @@
                                 <td  id="eachWord1" style="background-color: #ffffff;border-bottom-color: #ffffff;text-align: center">{{math @index "+" 1}}</td>
                                 <td  id="eachWord1" style="text-align: center;text-align: center" >{{word}}</td>
                                 <td  id="eachWord1" style="text-align: center;text-align: center">{{date}}</td>
-                                <td style="text-align: center;text-align: center" ><a href="/article/{{article_id}}" style="color: black;">{{titles article_id}}</a></td>
+                                <td style= "text-align: start ; white-space:nowrap;  text-overflow:ellipsis; overflow:hidden"><a href="/article/{{article_id}}" style="color: black;">{{titles article_id}}</a></td>
                                 <th scope="col" style="width: 5%;text-align: center;"><a id="remove_word1">x</a></th>
                             </tr>
                         {{/each}}
@@ -67,7 +67,7 @@
                                 <td  id="eachWord2" style="background-color: #ffffff;border-bottom-color: #ffffff;text-align: center">{{math @index "+" 1}}</td>
                                 <td  id="eachWord2" style="text-align: center" >{{word}}</td>
                                 <td  id="eachWord2" style="text-align: center">{{date}}</td>
-                                <td style="text-align: center" ><a href="/article/{{article_id}}" style="color: black">{{titles article_id}}</a></td>
+                                <td style="text-align: start ; white-space:nowrap;  text-overflow:ellipsis; overflow:hidden" ><a href="/article/{{article_id}}" style="color: black">{{titles article_id}}</a></td>
                                 <th scope="col" style="width: 5%;text-align: center;"><a id="remove_word2">x</a></th>
                             </tr>
                         {{/each}}

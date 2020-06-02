@@ -22,15 +22,20 @@ Template.wordBook.helpers({
         });
         return words_list2;
     },
-    titles:function (title) {
-        return DB_ALL_ARTICLES.findOne({_id:title}).title;
+    titles:function (titleid) {
+        s = DB_ALL_ARTICLES.findOne({_id:titleid}).title;
+
+        if(s.length > 31){
+            return s.substr(0,30) + "...";
+        }
+        return s;
     },
     math: function(lvalue, operator, rvalue) { //index 1부터 시작하게 도와주는 함수
         lvalue = parseInt(lvalue);
         rvalue = parseInt(rvalue);
 
         return { "+": lvalue + rvalue, "/": lvalue / rvalue }[operator];
-    },
+    }
 });
 
 Template.wordBook.events({
