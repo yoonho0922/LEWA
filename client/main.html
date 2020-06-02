@@ -25,10 +25,13 @@
                         <div class="mb-1 text-muted">{{dateString}}</div> <!--userid갖고오면 좋을듯-->
                         <div class="today_news_title" style="color: black; white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
                             {{#each words}} <!--word 내림차순-->
-                                <a style="color:black">{{math @index "+" 1}}. {{word}}</a><br>
+                                <a style="color:black">{{math @index "+" 1}}. {{word}} (+{{count}})</a><br>
                             {{/each}}
                         </div>
+                        <a id="plus_word" href="/wordBook" style="color: #999999;text-align: right">더보기</a>
+
                     </div>
+
                 </div>
             </div>
         </div>
