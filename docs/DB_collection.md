@@ -18,6 +18,7 @@
     * user_id : 추가한 사용자 UID
     * article_id: 추가된 기사 UID
     * searchCount: 단어 검색 횟수
+    * form : 중요한 단어(1), 어려운 단어(2)로 형식 지정
     
     * DB_WORDS.findAll(): user_id와 article_id를 토대로 저장된 word를 index로 접근해 꺼내고 wordArr 생성
     * wordArr배열에는 중요한 단어와 어려운 단어가 저장순서대로 배열되어 있음
@@ -33,6 +34,7 @@
     * title : 기사 제목
     * image : 사진 link
     * content : 내용
+    * date : 날짜 정리된 값
     * createdAt : 추가된 시간
     * viewCount : 조회수
 

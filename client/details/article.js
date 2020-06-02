@@ -32,10 +32,10 @@ Template.article.helpers({
         var user_id = Meteor.user()._id;
 
         if(!DB_CLIPS.findOne({post_id : post_id, user_id : user_id})){
-            return '스크랩 취소';
+            return '스크랩';
         }
         else {
-            return '스크랩 하기'
+            return '스크랩 취소'
         }
     },
 
