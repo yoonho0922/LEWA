@@ -16,7 +16,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="myModalLabel">Quiz</h2>
-                        <span id="numberUpDown">1</span>
+                        <span id="numberUpDown">{{number}}</span>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
@@ -40,8 +40,8 @@
                                     <input type="text" id="inp-word" style="border-radius: 0.3em" class="form-control" placeholder="정답을 입력한 후 엔터를 눌러주세요" aria-label="Search">
                                 </div>
                                 <br>
-                            <button type="button" id="but-next" class="btn btn-default" style="background-color: #c1c1c1 ; color: #3c3c3c; margin-left: 150px"><b>이전 문제</b></button>
-                            <button type="button" id="but-back" class="btn btn-default" style="background-color: #c1c1c1 ; color: #3c3c3c; margin-left: 10px"><b>다음 문제</b></button>
+                            <button type="button" id="but-back" class="btn btn-default" style="background-color: #c1c1c1 ; color: #3c3c3c; margin-left: 150px"><b>이전 문제</b></button>
+                            <button type="button" id="but-next" class="btn btn-default" style="background-color: #c1c1c1 ; color: #3c3c3c; margin-left: 10px"><b>다음 문제</b></button>
                         {{/if}}
                     </div>
                 </div>

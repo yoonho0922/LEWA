@@ -1,29 +1,18 @@
 FlowRouter.template('/quiz/:_id', 'quiz');
 
-$(function(){
-    $('#but-back').click(function(e){
-        e.preventDefault();
-        var stat = $('#numberUpDown').text();
-        var num = parseInt(stat,10);
-        num++;
-        $('#numberUpDown').text(num);
-    });
-    $('#but-next').click(function(e){
-        e.preventDefault();
-        var stat = $('#numberUpDown').text();
-        var num = parseInt(stat,10);
-        num--;
-        $('#numberUpDown').text(num);
-    });
-});
-
 Template.quiz.onRendered(function () {
     var _id = FlowRouter.getParam('_id')
     Session.set('index', 0); // index 초기화
-    Session.set('loading', 'Loading...');
 });
 
 Template.quiz.helpers({
+    number : function(){
+        if(Session.get('index')!==Session.get('wordQuizArrlen')){
+            return Session.get('index')+1;
+        } else{
+            return ' ';
+        }
+    },
     endCurrentQuiz: function () {
         return Session.get('endCurrentQuiz');
     },
@@ -55,6 +44,7 @@ Template.quiz.helpers({
                     a++;
                 }
             }
+            Session.set('wordQuizArrlen',wordQuizArr.length);
             if(idx >= wordQuizArr.length) {
                 Session.set('endCurrentQuiz', true);
             }
@@ -94,10 +84,14 @@ Template.quiz.events({
     },
 
     'click #but-back':function () {
-        Session.set('index', Session.get('index') - 1);
+        if (Session.get('index')>0){
+            Session.set('index', Session.get('index') - 1);
+        }
+        $('#inp-word').val('');
     },
     'click #but-next':function () {
         Session.set('index',Session.get('index')+1);
+        $('#inp-word').val('');
     },
     'click #btn-main':function () {
         location.href='/';
