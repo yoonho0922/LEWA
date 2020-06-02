@@ -2,19 +2,15 @@
     <div class="input-group">
         <input type="text" id="inp-wordSearch" style="border-radius: 0.3em; border:none" class="form-control" placeholder="단어 찾기" aria-label="Search">
         <svg style="margin-top: 7px; color: #999999" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24" focusable="false"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
-<!--        검색 아이콘-->
-
-<!--        <span class="input-group-btn" >-->
-<!--            <button id="btn-wordSearch" class="btn" type="button" style="background-color: #c1c1c1; color: #3c3c3c"><b>검색</b></button>-->
-<!--        </span>-->
     </div>
+
     <hr color="black">
 
+    <div class="container" id="invisible">
     <div class="word_save" style="padding-bottom: 30px; padding-top: 15px">
         <!--단어 저장 버튼(중요한 단어, 어려운 단어)-->
         <button type="button" id="btn-wordSave1" class="btn btn-default" style="background-color: #725ae6; float:left; width: 48%; color:#313131"><b>중요한 단어</b></button>
         <button type="button" id="btn-wordSave2" class="btn btn-default" style="background-color: #8de59a; float:right; width: 48%; color:#323232"><b>어려운 단어</b></button>
-
     </div>
 
     <body>
@@ -22,10 +18,7 @@
     <div style = "font-size:25px; padding-top: 10px; margin-bottom: -15px;">사전 검색결과</div>
     <div class="word_dictionary" style="border:1px solid lightgray;margin-top: 20px;">
         <div class="input-group">
-            <h2>{{{searchWord}}}</h2>
-            <!--<button id="btn-wordSave1" class="btn" type="button" style="background-color: #ffffff; color: #000000;font-size: 25px;color: #725ae6">{{wordSave1}}</button>
-            <button id="btn-wordSave2" class="btn" type="button" style="background-color: #ffffff; color: #000000;font-size: 25px;color: #7aff6b">{{wordSave2}}</button>-->
-
+            <div style = "font-size:30px;"><b>{{{searchWord}}}</b></div>
             <!--tts-->
             <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
             <label for="test"></label><input type="hidden" id="test" style.display='block;' value="{{searchWord}}">
@@ -37,14 +30,16 @@
 
             <!-- 단어 저장(즐겨찾기) 버튼 -->
         </div>
-        <div>
-            <h5> 뜻: </h5>
-            <h6> {{meaning}}</h6>
-            <br>
-            <h5> 예문: </h5>
-            <h6> {{example1}} </h6>
-            <h6> {{example2}} </h6>
-       </div>
+            <div style = "font-size:18px;">◈ 뜻</div>
+            <div class = "container">
+                <div style = "font-size:15px;">{{meaning}}</div>
+            </div>
+        <hr color="gray" width="300px">
+            <div style = "font-size:18px;">◈ 예문</div>
+            <div class = "container">
+                <div style = "font-size:15px;">{{example1}}</div>
+                <div style = "font-size:15px;">{{example2}}</div>
+            </div>
     </div>
     </body>
 
@@ -55,6 +50,6 @@
             <span style="background-color: #c1c1c1;">{{word}}<button id="word_delete" value={{word}} style="background-color: transparent; border-color: transparent;">X</button></span>
             <br>
         {{/each}}
-        <!--                x는 삭제 버튼-->
+    </div>
     </div>
 </template>

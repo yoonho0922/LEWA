@@ -163,10 +163,9 @@ Template.articleWord.events({
 
         //단어를 아직 검색하지 않았을 경우 예외처리
         if(!searchWord){  //단어를 검색하지 않았을때 즐겨찾기 버튼 안보이게하는 작업 필요.
-            alert("X")
+            alert("잘못된 접근 : 단어를 먼저 검색해주세요.")
             return;
         }
-
 
         // findOne selector : 단어, 유저, 기사
         var word = DB_WORDS.findOne({word: searchWord, article_id: article_id, user_id:Meteor.user()._id,form:1});
@@ -189,10 +188,10 @@ Template.articleWord.events({
                 // searchCount: 0
 
             });
-            alert("저장");
+            alert("중요한 단어장에 저장");
         }else{  //DB에 이미 있는 경우 - 삭제
             DB_WORDS.remove({_id: word._id}); //remove는 selector가 무조건 _id여야 함
-            alert("삭제");
+            alert("중요한 단어장에서 삭제");
         }
 
 
@@ -204,7 +203,7 @@ Template.articleWord.events({
 
         //단어를 아직 검색하지 않았을 경우 예외처리
         if(!searchWord){  //단어를 검색하지 않았을때 즐겨찾기 버튼 안보이게하는 작업 필요.
-            alert("X")
+            alert("잘못된 접근 : 단어를 먼저 검색해주세요.")
             return;
         }
 
@@ -230,10 +229,10 @@ Template.articleWord.events({
                 // searchCount: 0
 
             });
-            alert("저장");
+            alert("어려운 단어장에 저장");
         }else{  //DB에 이미 있는 경우 - 삭제
             DB_WORDS.remove({_id: word._id}); //remove는 selector가 무조건 _id여야 함
-            alert("삭제");
+            alert("어려운 단어장에서 삭제");
         }
 
 
