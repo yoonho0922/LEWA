@@ -18,7 +18,7 @@ Template.quiz.helpers({
         if(len != 0) {
             var wordArr = new Array();
             for(var i = 0; i < len; i++) {
-                wordArr[i] = DB_WORDS.findAll({article_id: 'sWbsSAHd5SzAQJomY', user_id: Meteor.userId(), form: 1})[i].word;
+                wordArr[i] = DB_WORDS.findAll({article_id: _id, user_id: Meteor.userId(), form: 1})[i].word;
             }
 
             if(idx >= wordArr.length) {
