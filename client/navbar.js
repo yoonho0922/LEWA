@@ -11,7 +11,7 @@ Template.navbar.helpers({
 
 Template.navbar.events({
     'click #sign_in': function() {
-        location.href="/login";
+        location.href="/";
     },
     'click #sign_out': function() {
         Meteor.logout();
