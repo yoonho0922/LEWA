@@ -1,7 +1,7 @@
 <template name = "articleWord">
     <div class="input-group">
-        <input type="text" id="inp-wordSearch" style="border-radius: 0.3em; border:none" class="form-control" placeholder="단어 찾기" aria-label="Search">
-        <svg style="margin-top: 7px; color: #999999" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24" focusable="false"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+        <input type="text" id="inp-wordSearch" style="border-radius: 0.3em; border:none; " class="form-control" placeholder="단어 찾기" aria-label="Search">
+        <svg style="margin-top: 7px; color: #999999;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24" focusable="false"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
     </div>
 
     <div id="articleWord_show">
@@ -15,10 +15,10 @@
 
     <body>
     <br>
-    <div style = "font-size:25px; padding-top: 10px; margin-bottom: -15px;">사전 검색결과</div>
+    <div style = "font-size:20px; padding-top: 10px; margin-bottom: -15px;">사전 검색결과</div>
     <div class="word_dictionary" style="border:1px solid lightgray;margin-top: 20px;">
         <div class="input-group">
-            <div style = "font-size:30px;"><b>{{{searchWord}}}</b></div>
+            <div style = "font-size:25px;"><b>{{{searchWord}}}</b></div>
             <!--tts-->
             <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
             <label for="test"></label><input type="hidden" id="test" style.display='block;' value="{{searchWord}}">
@@ -30,20 +30,20 @@
 
             <!-- 단어 저장(즐겨찾기) 버튼 -->
         </div>
-            <div style = "font-size:18px;">◈ 뜻</div>
+            <div style = "font-size:13px;">◈ 뜻</div>
             <div class = "container">
-                <div style = "font-size:15px;">{{meaning}}</div>
+                <div style = "font-size:12px;">{{meaning}}</div>
             </div>
 <!--        <hr color="gray" width="300px">-->
-            <div style = "font-size:18px;">◈ 예문</div>
+            <div style = "font-size:13px;">◈ 예문</div>
             <div class = "container">
-                <div style = "font-size:15px;">{{example1}}</div>
-                <div style = "font-size:15px;">{{example2}}</div>
+                <div style = "font-size:12px;">{{example1}}</div>
+                <div style = "font-size:12px;">{{example2}}</div>
             </div>
     </div>
     </body>
 
-    <div style = "font-size:25px; padding-top: 30px; margin-bottom: -15px;">추가한 단어 목록</div>
+    <div style = "font-size:20px; padding-top: 30px; margin-bottom: -15px;">추가한 단어 목록</div>
     <div class="word_add" style="border:1px solid lightgray;margin-top: 20px;">
         {{#each wordList}}
             <!--            {{word}}       {{date}} <a id="word_delete" style="background-color: #ffffff; color: black">x</a><br>-->

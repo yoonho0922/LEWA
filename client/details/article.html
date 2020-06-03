@@ -22,37 +22,47 @@
                <br><br>
                 <!--기사 본문-->
                 {{{content}}}
+                <br><br>
             </div>
         </div>
         {{/with}}
 
+        <script type="text/javascript">
+            $(window).scroll(function(event){
+                if(jQuery(window).scrollTop() > jQuery(".banner").offset().top) {
+                    jQuery("#chase").css("position", "fixed");
+                }
+                else if((jQuery(window).scrollTop() < jQuery(".banner").offset().top)) {
+                    jQuery("#chase").css("position", "static");
+                }
+            });
+        </script>
+
         <!-- 우측 부분-->
-        <div id="side_article_word" style="position: relative" >
+        <div id="side_article_word">
             <div class="content_explain" style="float:left;width: 35%;padding-left: 50px;">
                 <br><br><br>
                 <!-- 기사별 단어 검색-->
-                <div style="">
-                    {{> articleWord}}
-                </div>
-                {{#if admire}}
-                    <div class="go_nextpage" style="float:right;margin-top: 150px;">
-                        <button id="btn-gohome" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Go home</button>
-                        <button id="btn-remove-article" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">기사 삭제</button>
+                <s_sidebar_element>
+                    <div class="banner" style="margin-right: -50px; margin-bottom: 50px">
+                        <div id="chase" style="bottom: 50px; margin-right: 50px;">
+                            {{> articleWord}}
+                            <br>
+                            {{#if admire}}
+                                <div class="go_nextpage" style="float:right; margin-right: 5px;">
+                                    <button id="btn-gohome" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Go home</button>
+                                    <button id="btn-remove-article" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">기사 삭제</button>
+                                </div>
+                            {{else}}
+                                <div class="go_nextpage" style="float:right; margin-right: 5px;">
+                                    <button id="btn-gohome" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Go home</button>
+                                    <button id="btn-goquiz" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Quiz</button>
+                                </div>
+                            {{/if}}
+                        </div>
                     </div>
-                {{else}}
-                    <div class="go_nextpage" style="float:right;margin-top: 150px;">
-                        <button id="btn-gohome" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Go home</button>
-                        <button id="btn-goquiz" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Quiz</button>
-
-                    </div>
-                {{/if}}
+                </s_sidebar_element>
             </div>
-
-
-
         </div>
-<!--        관리자일때는 퀴즈 버튼 빼고 대신에 기사 삭제하는 버튼 추가-->
-
-
     </div>
 </template>
