@@ -1,4 +1,4 @@
-FlowRouter.template('/login', 'login');
+FlowRouter.template('/', 'login');
 
 Template.login.onRendered(function() {
     // 화면 로드 시 스크린 사이즈 전체를 활용하기 위한 설정
@@ -36,7 +36,7 @@ Template.login.events({
             }
             else {
                 alert("로그인되었습니다");
-                location.href="/";
+                location.href="/main";
                 //window.history.back();
             }
         });
@@ -74,7 +74,7 @@ Template.login.events({
                 }
                 else {
                     alert("회원가입에 성공하셨습니다.");
-                    location.href = "/";
+                    location.href = "/main";
                 }
             });
 
@@ -82,6 +82,10 @@ Template.login.events({
         else {
             alert('비밀번호가 일치하지 않습니다. 다시 확인 해 주세요.');
         }
+    },
+    'click #title':function () {
+        alert('로그인 해주세요.');
+
     }
     // 'click #btn-update-profile': function() {
     //     var userInfo = Meteor.user();

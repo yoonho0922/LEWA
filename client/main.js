@@ -1,4 +1,4 @@
-FlowRouter.template('/', 'main');
+FlowRouter.template('/main', 'main');
 
 
 Template.main.helpers({
@@ -16,6 +16,11 @@ Template.main.helpers({
 
     //기사 타이틀은 조회수!!의 내림차순, 10개 return
   },
+    warn:function(){
+        alert('로그인 후 이용가능합니다.')
+        location.href="/";
+
+    },
 
 
   // image_link: function() {
