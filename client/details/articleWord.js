@@ -87,10 +87,10 @@ Template.articleWord.events({
             }else{
                 var word_id=DB_SEARCH_COUNT.findOne({word:searchWord,user_id:user_id})._id;
 
-                alert('이미 검색한 단어');
+                // alert('이미 검색한 단어');
 
                 DB_SEARCH_COUNT.update({_id:word_id},{$inc:{count: 1}});
-                alert('조회수 증가시킴');
+                // alert('조회수 증가시킴');
             }///여기까지 검색횟수 관련 함수
 
 
@@ -169,30 +169,73 @@ Template.articleWord.events({
 
         // findOne selector : 단어, 유저, 기사
         var word = DB_WORDS.findOne({word: searchWord, article_id: article_id, user_id:Meteor.user()._id,form:1});
+        var conect_word=DB_WORDS.findOne({word:searchWord,user_id:user_id,form:1});
         // 현재 단어가 DB에 저장되있는지 확인
         // word에는 null 또는 해당 단어의 object가 들어간다 (key, value의 묶음 배열)
-
+        // var word_id=DB_WORDS.findOne()
         function getToday(){
             var date = new Date();
             return (date.getMonth()+1).toString()+"."+date.getDate().toString();
         }
+        // function get_article_id() {
+        //     var arti_id=new Array();
+        //     arti_id=[article_id.toString()];
+        //     return arti_id;
+        //
+        // }
 
-        if(!word){   //null인 경우 - 단어가 저장되지 않았을경우
+        if(!conect_word){   //null인 경우 - 단어가 저장되지 않았을경우
             DB_WORDS.insert({
                 word: searchWord,
                 date: getToday().toString(),
                 createdAt : new Date(),
                 user_id : user_id,
-                article_id: article_id,
+                article_id: [article_id],
                 form:1,
+                findCount:1,
                 // searchCount: 0
 
             });
             alert("중요한 단어장에 저장");
         }else{  //DB에 이미 있는 경우 - 삭제
-            DB_WORDS.remove({_id: word._id}); //remove는 selector가 무조건 _id여야 함
-            alert("중요한 단어장에서 삭제");
+            // alert(conect_word.article_id)
+            // alert(article_id)
+            if(conect_word.article_id===article_id) {
+                DB_WORDS.remove({_id: conect_word._id});
+                alert('삭제')
+            }
+            else{
+                alert("중요한 단어장에 저장");
+                DB_WORDS.update({_id: conect_word._id},{$push:{article_id:article_id}})
+                alert('업데이트')
+                DB_WORDS.update({_id:conect_word._id},{$inc:{findCount: 1}});
+                alert('findcount증가')
+                DB_WORDS.update({_id:conect_word._id},{$set:{date:getToday().toString()}});
+                alert('최신 등록날짜로 변경')
+
+            }//remove는 selector가 무조건 _id여야 함
+            // alert("중요한 단어장에서 삭제");
         }
+
+
+
+        ///원상복구
+        // if(!word){   //null인 경우 - 단어가 저장되지 않았을경우
+        //     DB_WORDS.insert({
+        //         word: searchWord,
+        //         date: getToday().toString(),
+        //         createdAt : new Date(),
+        //         user_id : user_id,
+        //         article_id: article_id,
+        //         form:1,
+        //         // searchCount: 0
+        //
+        //     });
+        //     alert("중요한 단어장에 저장");
+        // }else{  //DB에 이미 있는 경우 - 삭제
+        //     DB_WORDS.remove({_id: word._id}); //remove는 selector가 무조건 _id여야 함
+        //     alert("중요한 단어장에서 삭제");
+        // }
 
 
     },

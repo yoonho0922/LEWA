@@ -27,22 +27,31 @@
         {{/with}}
 
         <!-- 우측 부분-->
-        <div class="content_explain" style="float:left;width: 35%;padding-left: 50px">
-            <br><br><br>
-            <!-- 기사별 단어 검색-->
-            {{> articleWord}}
-        </div>
+        <div id="side_article_word" style="position: relative" >
+            <div class="content_explain" style="float:left;width: 35%;padding-left: 50px;">
+                <br><br><br>
+                <!-- 기사별 단어 검색-->
+                <div style="">
+                    {{> articleWord}}
+                </div>
+                {{#if admire}}
+                    <div class="go_nextpage" style="float:right;margin-top: 150px;">
+                        <button id="btn-gohome" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Go home</button>
+                        <button id="btn-remove-article" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">기사 삭제</button>
+                    </div>
+                {{else}}
+                    <div class="go_nextpage" style="float:right;margin-top: 150px;">
+                        <button id="btn-gohome" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Go home</button>
+                        <button id="btn-goquiz" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Quiz</button>
 
-
-        {{#if admire}}
-            <button id="btn-remove-article" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">기사 삭제</button>
-        {{else}}
-            <div class="go_nextpage" style="float:right;margin-top: 150px;">
-                <button id="btn-gohome" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Go home</button>
-                <button id="btn-goquiz" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Quiz</button>
-
+                    </div>
+                {{/if}}
             </div>
-        {{/if}}
+
+
+
+        </div>
+<!--        관리자일때는 퀴즈 버튼 빼고 대신에 기사 삭제하는 버튼 추가-->
 
 
     </div>

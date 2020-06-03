@@ -82,11 +82,11 @@ Template.article.events({
                 user_id : user_id
             });
             DB_ALL_ARTICLES.update({_id: post_id}, articles);
-            alert('스크랩');
+            alert('스크랩되었습니다.');
         }else{
             DB_CLIPS.remove({_id : clip._id});     //스크랩 관계 목록 삭제
             DB_ALL_ARTICLES.update({_id: post_id}, articles);
-            alert('스크랩 취소');
+            alert('스크랩이 취소되었습니다.');
         }
     },
     'click #btn-remove-article':function () {
@@ -94,5 +94,6 @@ Template.article.events({
         DB_ALL_ARTICLES.remove({_id:_id});
         location.href="/";
 
-    }
+    },
+
 });
