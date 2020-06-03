@@ -22,8 +22,20 @@ Template.wordBook.helpers({
         // });
         // return words_list2;
     },
-    titles:function (titleid) {
-        s = DB_ALL_ARTICLES.findOne({_id:titleid}).title;
+    titles1:function (titleid) {
+        // s = DB_ALL_ARTICLES.findOne({_id:titleid}).title;
+        var a = DB_WORDS.findOne({user_id:Meteor.user()._id,word:this.word,form:1});
+        var s =  DB_ALL_ARTICLES.findOne({_id:a.article_id[a.article_id.length-1]}).title;
+
+        if(s.length > 31){
+            return s.substr(0,30) + "...";
+        }
+        return s;
+    },
+    titles2:function (titleid) {
+        // s = DB_ALL_ARTICLES.findOne({_id:titleid}).title;
+        var a = DB_WORDS.findOne({user_id:Meteor.user()._id,word:this.word,form:2});
+        var s =  DB_ALL_ARTICLES.findOne({_id:a.article_id[a.article_id.length-1]}).title;
 
         if(s.length > 31){
             return s.substr(0,30) + "...";
@@ -36,6 +48,14 @@ Template.wordBook.helpers({
 
         return { "+": lvalue + rvalue, "/": lvalue / rvalue }[operator];
     },
+    article_title:function () {
+        var a = DB_WORDS.findOne({user_id:Meteor.user()._id,word:this.word,form:2});
+        return DB_ALL_ARTICLES.findOne({_id:a.article_id[a.article_id.length-1]}).title;
+
+
+
+
+    }
     // article_location:function () {
     //     // var listlist=new Array();
     //     return  DB_WORDS.findAll({word:this.word,user_id: Meteor.user()._id,form:1}).article_id[0];
