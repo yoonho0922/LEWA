@@ -9,8 +9,8 @@
     <div class="container" id="invisible">
     <div class="word_save" style="padding-bottom: 30px; padding-top: 15px">
         <!--단어 저장 버튼(중요한 단어, 어려운 단어)-->
-        <button type="button" id="btn-wordSave1" class="btn btn-default" style="background-color: #725ae6; float:left; width: 48%; color:#313131"><b>중요한 단어</b></button>
-        <button type="button" id="btn-wordSave2" class="btn btn-default" style="background-color: #8de59a; float:right; width: 48%; color:#323232"><b>어려운 단어</b></button>
+        <button type="button" id="btn-wordSave1" class="btn btn-default" style="background-color: #725ae6; float:left; width: 48%; color:#313131"><b>{{wordSave1}}</b></button>
+        <button type="button" id="btn-wordSave2" class="btn btn-default" style="background-color: #8de59a; float:right; width: 48%; color:#323232"><b>{{wordSave2}}</b></button>
     </div>
 
     <body>
@@ -47,7 +47,12 @@
     <div class="word_add" style="border:1px solid lightgray;margin-top: 20px;">
         {{#each wordList}}
             <!--            {{word}}       {{date}} <a id="word_delete" style="background-color: #ffffff; color: black">x</a><br>-->
-            <span style="background-color: #c1c1c1;">{{word}}<button id="word_delete" value={{word}} style="background-color: transparent; border-color: transparent;">X</button></span>
+            <span style="background-color: #7759ff;">{{word}}<button id="word_delete" value={{word}} style="background-color: transparent; border-color: transparent;">X</button></span>
+            <br>
+        {{/each}}
+        {{#each wordList2}}
+            <!--            {{word}}       {{date}} <a id="word_delete" style="background-color: #ffffff; color: black">x</a><br>-->
+            <span style="background-color: #8ee69b;">{{word}}<button id="word_delete" value={{word}} style="background-color: transparent; border-color: transparent;">X</button></span>
             <br>
         {{/each}}
     </div>

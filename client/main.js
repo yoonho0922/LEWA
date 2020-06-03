@@ -12,7 +12,7 @@ Template.main.helpers({
     //2. dateString에 해당되는거, 조회순으로 sort하기
       var today_date=DB_ALL_ARTICLES.findOne({},{sort:{createdAt:-1}}).date;
 
-      return DB_ALL_ARTICLES.findAll({date:today_date}, {sort: {viewCount: -1}});
+      return DB_ALL_ARTICLES.findAll({date:today_date}, {sort: {viewCount: -1},limit: 10});
 
     //기사 타이틀은 조회수!!의 내림차순, 10개 return
   },

@@ -13,14 +13,14 @@ Template.wordBook.helpers({
         // return words_list1;
     },
     words2: function () {
-
-        var words_list2 = new Array();
-
-        var listed2 = DB_WORDS.findAll({user_id: Meteor.user()._id,form:2});
-        listed2.forEach(function (element) {
-            words_list2.push(DB_WORDS.findOne({word: element.word}));
-        });
-        return words_list2;
+        return DB_WORDS.findAll({user_id: Meteor.user()._id,form:2},{sort:{findCount:-1}});
+        // var words_list2 = new Array();
+        //
+        // var listed2 = DB_WORDS.findAll({user_id: Meteor.user()._id,form:2});
+        // listed2.forEach(function (element) {
+        //     words_list2.push(DB_WORDS.findOne({word: element.word}));
+        // });
+        // return words_list2;
     },
     titles:function (titleid) {
         s = DB_ALL_ARTICLES.findOne({_id:titleid}).title;
