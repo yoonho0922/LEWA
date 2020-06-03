@@ -1,8 +1,3 @@
-<!--<head>-->
-<!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
-<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>-->
-<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
-<!--</head>-->
 <template name="wordBook">
 
     <div class="container">
@@ -32,9 +27,8 @@
                                 <td  id="eachWord1" style="background-color: #ffffff;border-bottom-color: #ffffff;text-align: center">{{findCount}}</td>
                                 <td  id="eachWord1" style="text-align: center;text-align: center" >{{word}}</td>
                                 <td  id="eachWord1" style="text-align: center;text-align: center">{{date}}</td>
-                                <td style="text-align: start ; white-space:nowrap;  text-overflow:ellipsis; overflow:hidden" ><a href="/article/{{article_id}}" style="color: black">{{titles1}}</a></td>
+                                <td style="text-align: start ; white-space:nowrap;  text-overflow:ellipsis; overflow:hidden" ><a href="/article/{{article_id1}}" style="color: black">{{titles1}}</a></td>
 
-                                <!--                                <td style= "text-align: start ; white-space:nowrap;  text-overflow:ellipsis; overflow:hidden"><a href="/article/{{article_id}}" style="color: black;">{{titles article_id}}</a></td>-->
                                 <th scope="col" style="width: 5%;text-align: center;"><a id="remove_word1">x</a></th>
                             </tr>
                         {{/each}}
@@ -69,7 +63,7 @@
                                 <td  id="eachWord2" style="background-color: #ffffff;border-bottom-color: #ffffff;text-align: center">{{findCount}}</td>
                                 <td  id="eachWord2" style="text-align: center" >{{word}}</td>
                                 <td  id="eachWord2" style="text-align: center">{{date}}</td>
-                                <td style="text-align: start ; white-space:nowrap;  text-overflow:ellipsis; overflow:hidden" ><a href="/article/{{article_id}}" style="color: black">{{titles2}}</a></td>
+                                <td style="text-align: start ; white-space:nowrap;  text-overflow:ellipsis; overflow:hidden" ><a href="/article/{{article_id2}}" style="color: black">{{titles2}}</a></td>
                                 <th scope="col" style="width: 5%;text-align: center;"><a id="remove_word2">x</a></th>
                             </tr>
                         {{/each}}

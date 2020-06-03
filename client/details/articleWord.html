@@ -5,57 +5,57 @@
     </div>
 
     <div id="articleWord_show">
-    <hr color="black">
-    <div class="container" id="invisible">
-    <div class="word_save" style="padding-bottom: 30px; padding-top: 15px">
-        <!--단어 저장 버튼(중요한 단어, 어려운 단어)-->
-        <button type="button" id="btn-wordSave1" class="btn btn-default" style="background-color: #725ae6; float:left; width: 48%; color:#313131"><b>{{wordSave1}}</b></button>
-        <button type="button" id="btn-wordSave2" class="btn btn-default" style="background-color: #8de59a; float:right; width: 48%; color:#323232"><b>{{wordSave2}}</b></button>
-    </div>
+        <hr color="black">
+        <div class="container" id="invisible">
+            <div class="word_save" style="padding-bottom: 30px; padding-top: 15px">
+                <!--단어 저장 버튼(중요한 단어, 어려운 단어)-->
+                <button type="button" id="btn-wordSave1" class="btn btn-default" style="background-color: #725ae6; float:left; width: 48%; color:#313131"><b>{{wordSave1}}</b></button>
+                <button type="button" id="btn-wordSave2" class="btn btn-default" style="background-color: #8de59a; float:right; width: 48%; color:#323232"><b>{{wordSave2}}</b></button>
+            </div>
 
-    <body>
-    <br>
-    <div style = "font-size:20px; padding-top: 10px; margin-bottom: -15px;">사전 검색결과</div>
-    <div class="word_dictionary" style="border:1px solid lightgray;margin-top: 20px;">
-        <div class="input-group">
-            <div style = "font-size:25px;"><b>{{{searchWord}}}</b></div>
-            <!--tts-->
-            <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
-            <label for="test"></label><input type="hidden" id="test" style.display='block;' value="{{searchWord}}">
-            <button class="btn" type="button" onclick="responsiveVoice.speak(document.getElementById('test').value,'US English Female');">
+            <body>
+            <br>
+            <div style = "font-size:20px; padding-top: 10px; margin-bottom: -15px;">사전 검색결과</div>
+            <div class="word_dictionary" style="border:1px solid lightgray;margin-top: 20px;">
+                <div class="input-group">
+                    <div style = "font-size:25px;"><b>{{{searchWord}}}</b></div>
+                    <!--tts-->
+                    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+                    <label for="test"></label><input type="hidden" id="test" style.display='block;' value="{{searchWord}}">
+                    <button class="btn" type="button" onclick="responsiveVoice.speak(document.getElementById('test').value,'US English Female');">
                 <span aria-hidden="true">
                    <i class="fas fa-volume-up"></i>
                 </span>
-            </button>
+                    </button>
 
-            <!-- 단어 저장(즐겨찾기) 버튼 -->
+                    <!-- 단어 저장(즐겨찾기) 버튼 -->
+                </div>
+                <div style = "font-size:13px;">◈ 뜻</div>
+                <div class = "container">
+                    <div style = "font-size:12px;">{{meaning}}</div>
+                </div>
+                <!--        <hr color="gray" width="300px">-->
+                <div style = "font-size:13px;">◈ 예문</div>
+                <div class = "container">
+                    <div style = "font-size:12px;">{{example1}}</div>
+                    <div style = "font-size:12px;">{{example2}}</div>
+                </div>
+            </div>
+            </body>
+
+            <div style = "font-size:20px; padding-top: 30px; margin-bottom: -15px;">추가한 단어 목록</div>
+            <div class="word_add" style="border:1px solid lightgray;margin-top: 20px;">
+                {{#each wordList}}
+                    <!--            {{word}}       {{date}} <a id="word_delete" style="background-color: #ffffff; color: black">x</a><br>-->
+                    <span style="background-color: #7759ff;">{{word}}<button id="word_delete1" value={{word}} style="background-color: transparent; border-color: transparent;">X</button></span>
+                    <br>
+                {{/each}}
+                {{#each wordList2}}
+                    <!--            {{word}}       {{date}} <a id="word_delete" style="background-color: #ffffff; color: black">x</a><br>-->
+                    <span style="background-color: #8ee69b;">{{word}}<button id="word_delete2" value={{word}} style="background-color: transparent; border-color: transparent;">X</button></span>
+                    <br>
+                {{/each}}
+            </div>
         </div>
-            <div style = "font-size:13px;">◈ 뜻</div>
-            <div class = "container">
-                <div style = "font-size:12px;">{{meaning}}</div>
-            </div>
-<!--        <hr color="gray" width="300px">-->
-            <div style = "font-size:13px;">◈ 예문</div>
-            <div class = "container">
-                <div style = "font-size:12px;">{{example1}}</div>
-                <div style = "font-size:12px;">{{example2}}</div>
-            </div>
-    </div>
-    </body>
-
-    <div style = "font-size:20px; padding-top: 30px; margin-bottom: -15px;">추가한 단어 목록</div>
-    <div class="word_add" style="border:1px solid lightgray;margin-top: 20px;">
-        {{#each wordList}}
-            <!--            {{word}}       {{date}} <a id="word_delete" style="background-color: #ffffff; color: black">x</a><br>-->
-            <span style="background-color: #7759ff;">{{word}}<button id="word_delete" value={{word}} style="background-color: transparent; border-color: transparent;">X</button></span>
-            <br>
-        {{/each}}
-        {{#each wordList2}}
-            <!--            {{word}}       {{date}} <a id="word_delete" style="background-color: #ffffff; color: black">x</a><br>-->
-            <span style="background-color: #8ee69b;">{{word}}<button id="word_delete" value={{word}} style="background-color: transparent; border-color: transparent;">X</button></span>
-            <br>
-        {{/each}}
-    </div>
-    </div>
     </div>
 </template>

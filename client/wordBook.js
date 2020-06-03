@@ -22,6 +22,14 @@ Template.wordBook.helpers({
         // });
         // return words_list2;
     },
+    article_id1:function(){
+        var a = DB_WORDS.findOne({user_id:Meteor.user()._id,word:this.word,form:1});
+        return a.article_id[a.article_id.length-1];
+    },
+    article_id2:function(){
+        var a = DB_WORDS.findOne({user_id:Meteor.user()._id,word:this.word,form:2});
+        return a.article_id[a.article_id.length-1];
+    },
     titles1:function (titleid) {
         // s = DB_ALL_ARTICLES.findOne({_id:titleid}).title;
         var a = DB_WORDS.findOne({user_id:Meteor.user()._id,word:this.word,form:1});
@@ -42,26 +50,7 @@ Template.wordBook.helpers({
         }
         return s;
     },
-    math: function(lvalue, operator, rvalue) { //index 1부터 시작하게 도와주는 함수
-        lvalue = parseInt(lvalue);
-        rvalue = parseInt(rvalue);
 
-        return { "+": lvalue + rvalue, "/": lvalue / rvalue }[operator];
-    },
-    article_title:function () {
-        var a = DB_WORDS.findOne({user_id:Meteor.user()._id,word:this.word,form:2});
-        return DB_ALL_ARTICLES.findOne({_id:a.article_id[a.article_id.length-1]}).title;
-
-
-
-
-    }
-    // article_location:function () {
-    //     // var listlist=new Array();
-    //     return  DB_WORDS.findAll({word:this.word,user_id: Meteor.user()._id,form:1}).article_id[0];
-    //
-    //
-    // }
 });
 
 Template.wordBook.events({
