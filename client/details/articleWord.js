@@ -1,7 +1,6 @@
 Template.articleWord.onRendered(function(){
     Session.set('searchWord', '');
     Session.set('tag_arr', []); // 저장 단어 배열
-    $("#articleWord_show").hide(); // 단어 검색 전 articleWord 숨김
 });
 
 Template.articleWord.helpers({
@@ -75,11 +74,6 @@ Template.articleWord.events({
         if(!Meteor.user()) {
             alert("로그인해주세요.");
             return;
-        }
-        // input 창에 단어 입력시 articleWord 보여짐
-        var wordlen = document.getElementById('inp-wordSearch').value;
-        if(wordlen.length != null) {
-            $("#articleWord_show").show();
         }
 
         if(evt.which === 13) {
@@ -199,7 +193,7 @@ Template.articleWord.events({
             {
                 if(conect_word.article_id[i]===article_id)
                 {
-                   return 'g';
+                    return '다시 누르면 삭제';
                 }
                 else{
 
@@ -227,8 +221,24 @@ Template.articleWord.events({
             // alert(dec().toString())
 
 
-            if(dec()==='g') {   //같은 기사에서 중요한 단어라고 클릭한 단어를 다시 눌러서 삭제할때
-                DB_WORDS.remove({_id: conect_word._id});
+            if(dec()==='다시 누르면 삭제') {   //같은 기사에서 중요한 단어라고 클릭한 단어를 다시 눌러서 삭제할때
+                var remove_id=FlowRouter.getParam('_id');
+                var arr_length = conect_word.article_id.length;
+
+                // alert(b)
+                var res = new Array();
+                for(i=0,j=0;i<arr_length;i++)
+                {
+                    // alert(article_id.length)
+                    if(conect_word.article_id[i]===remove_id){
+                        // alert(conect_word.article_id[i])
+                    }
+                    else{
+                        res[j]=conect_word.article_id[i];
+                        j++;
+                    }
+                }
+                DB_WORDS.update({_id: conect_word._id},{$set:{article_id:res}});
                 alert('삭제')
             }
             else{
