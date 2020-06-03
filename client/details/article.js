@@ -38,6 +38,11 @@ Template.article.helpers({
             return '스크랩 취소'
         }
     },
+    admire:function () {
+        var email = Meteor.user().emails[0].address;
+        if(email == 'admire@gmail.com')
+            return true;
+    },
 
     // viewadd:function () {
     //     var title=DB_ARTICLES_10.findOne({_id:_id}).title;
@@ -84,4 +89,10 @@ Template.article.events({
             alert('스크랩 취소');
         }
     },
+    'click #btn-remove-article':function () {
+        var _id = FlowRouter.getParam('_id');
+        DB_ALL_ARTICLES.remove({_id:_id});
+        location.href="/";
+
+    }
 });

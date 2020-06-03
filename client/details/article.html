@@ -34,11 +34,16 @@
         </div>
 
 
+        {{#if admire}}
+            <button id="btn-remove-article" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">기사 삭제</button>
+        {{else}}
+            <div class="go_nextpage" style="float:right;margin-top: 150px;">
+                <button id="btn-gohome" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Go home</button>
+                <button id="btn-goquiz" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Quiz</button>
 
-        <div class="go_nextpage" style="float:right;margin-top: 150px;">
-            <button id="btn-gohome" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Go home</button>
-            <button id="btn-goquiz" class="btn" type="button" style="border-radius:1em;background-color: #a3a3a3; color: white">Quiz</button>
+            </div>
+        {{/if}}
 
-        </div>
+
     </div>
 </template>
