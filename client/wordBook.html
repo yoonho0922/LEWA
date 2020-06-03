@@ -19,9 +19,9 @@
                             <th colspan="5" style="font-size: 18px;background-color: #725ae6;color: white;border-radius: 20px 20px 0px 0px">Important</th>
                         </tr>
                         <tr>
-                            <th scope="col" style="width: 7%; text-align: center">번호</th>
-                            <th scope="col" style="width: 15%;text-align: center;">영단어</th>
-                            <th scope="col" style="width: 15%;text-align: center;">등록날짜</th>
+                            <th scope="col" style="width: 7%; text-align: center">횟수</th>
+                            <th scope="col" style="width: 12%;text-align: center;">영단어</th>
+                            <th scope="col" style="width: 17%;text-align: center;">최근등록날짜</th>
                             <th scope="col" style="width: 25%;text-align: center;">기사제목</th>
                             <th scope="col" style="width: 7%;text-align: center;">삭제</th>
                         </tr>
@@ -29,10 +29,24 @@
                         <tbody>
                         {{#each words1}}
                             <tr>
-                                <td  id="eachWord1" style="background-color: #ffffff;border-bottom-color: #ffffff;text-align: center">{{math @index "+" 1}}</td>
+                                <td  id="eachWord1" style="background-color: #ffffff;border-bottom-color: #ffffff;text-align: center">{{findCount}}</td>
                                 <td  id="eachWord1" style="text-align: center;text-align: center" >{{word}}</td>
                                 <td  id="eachWord1" style="text-align: center;text-align: center">{{date}}</td>
-                                <td style= "text-align: start ; white-space:nowrap;  text-overflow:ellipsis; overflow:hidden"><a href="/article/{{article_id}}" style="color: black;">{{titles article_id}}</a></td>
+                                <td style= "text-align:center;">
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                        Link
+                                        </button>
+
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="/article/{{article_id}}">{{titles article_id}}</a>
+                                        </div>
+
+                                    </div>
+
+
+                                </td>
+<!--                                <td style= "text-align: start ; white-space:nowrap;  text-overflow:ellipsis; overflow:hidden"><a href="/article/{{article_id}}" style="color: black;">{{titles article_id}}</a></td>-->
                                 <th scope="col" style="width: 5%;text-align: center;"><a id="remove_word1">x</a></th>
                             </tr>
                         {{/each}}

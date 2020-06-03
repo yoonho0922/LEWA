@@ -2,15 +2,15 @@ FlowRouter.template('/wordBook', 'wordBook');
 
 Template.wordBook.helpers({
     words1: function () {
-        // var word_count=DB_SEARCH_COUNT.findAll({user_id:Meteor.user()._id, word:this.word}).count;
-        // return DB_WORDS.findAll({user_id: Meteor.user()._id,form:1},{sort:{word_count:-1}});
+        var word_count=DB_SEARCH_COUNT.findAll({user_id:Meteor.user()._id, word:this.word}).count;
+        return DB_WORDS.findAll({user_id: Meteor.user()._id,form:1},{sort:{findCount:-1}});
 
-        var words_list1 = new Array();
-        var listed1 = DB_WORDS.findAll({user_id: Meteor.user()._id,form:1},{});
-        listed1.forEach(function (element) {
-            words_list1.push(DB_WORDS.findOne({word: element.word}));
-        });
-        return words_list1;
+        // var words_list1 = new Array();
+        // var listed1 = DB_WORDS.findAll({user_id: Meteor.user()._id,form:1},{});
+        // listed1.forEach(function (element) {
+        //     words_list1.push(DB_WORDS.findOne({word: element.word}));
+        // });
+        // return words_list1;
     },
     words2: function () {
 
@@ -35,7 +35,13 @@ Template.wordBook.helpers({
         rvalue = parseInt(rvalue);
 
         return { "+": lvalue + rvalue, "/": lvalue / rvalue }[operator];
-    }
+    },
+    // article_location:function () {
+    //     // var listlist=new Array();
+    //     return  DB_WORDS.findAll({word:this.word,user_id: Meteor.user()._id,form:1}).article_id[0];
+    //
+    //
+    // }
 });
 
 Template.wordBook.events({

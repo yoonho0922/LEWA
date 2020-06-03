@@ -183,6 +183,19 @@ Template.articleWord.events({
         //     return arti_id;
         //
         // }
+        function dec() {
+            for(i=0;i<100;i++)
+            {
+                if(conect_word.article_id[i]===article_id)
+                {
+                   return 'g';
+                }
+                else{
+
+                }
+            }
+
+        }
 
         if(!conect_word){   //null인 경우 - 단어가 저장되지 않았을경우
             DB_WORDS.insert({
@@ -200,7 +213,10 @@ Template.articleWord.events({
         }else{  //DB에 이미 있는 경우 - 삭제
             // alert(conect_word.article_id)
             // alert(article_id)
-            if(conect_word.article_id===article_id) {
+            // alert(dec().toString())
+
+
+            if(dec()==='g') {
                 DB_WORDS.remove({_id: conect_word._id});
                 alert('삭제')
             }
