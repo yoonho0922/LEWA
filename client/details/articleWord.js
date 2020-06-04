@@ -1,6 +1,7 @@
 Template.articleWord.onRendered(function(){
     Session.set('searchWord', '');
     Session.set('tag_arr', []); // 저장 단어 배열
+    $("#articleWord_show").hide(); // 단어 검색 전 articleWord 숨김
 });
 
 Template.articleWord.helpers({
@@ -71,7 +72,11 @@ Template.articleWord.events({
             alert("로그인해주세요.");
             return;
         }
-
+        // input 창에 단어 입력시 articleWord 보여짐
+        var wordlen = document.getElementById('inp-wordSearch').value;
+        if(wordlen.length != null) {
+            $("#articleWord_show").show();
+        }
         if(evt.which === 13) {
             var searchWord = $('#inp-wordSearch').val();
             var user_id=Meteor.user()._id;
