@@ -2,25 +2,10 @@ FlowRouter.template('/wordBook', 'wordBook');
 
 Template.wordBook.helpers({
     words1: function () {
-        var word_count=DB_SEARCH_COUNT.findAll({user_id:Meteor.user()._id, word:this.word}).count;
         return DB_WORDS.findAll({user_id: Meteor.user()._id,form:1},{sort:{findCount:-1}});
-
-        // var words_list1 = new Array();
-        // var listed1 = DB_WORDS.findAll({user_id: Meteor.user()._id,form:1},{});
-        // listed1.forEach(function (element) {
-        //     words_list1.push(DB_WORDS.findOne({word: element.word}));
-        // });
-        // return words_list1;
     },
     words2: function () {
         return DB_WORDS.findAll({user_id: Meteor.user()._id,form:2},{sort:{findCount:-1}});
-        // var words_list2 = new Array();
-        //
-        // var listed2 = DB_WORDS.findAll({user_id: Meteor.user()._id,form:2});
-        // listed2.forEach(function (element) {
-        //     words_list2.push(DB_WORDS.findOne({word: element.word}));
-        // });
-        // return words_list2;
     },
     article_id1:function(){
         var a = DB_WORDS.findOne({user_id:Meteor.user()._id,word:this.word,form:1});
@@ -31,7 +16,6 @@ Template.wordBook.helpers({
         return a.article_id[a.article_id.length-1];
     },
     titles1:function (titleid) {
-        // s = DB_ALL_ARTICLES.findOne({_id:titleid}).title;
         var a = DB_WORDS.findOne({user_id:Meteor.user()._id,word:this.word,form:1});
         var s =  DB_ALL_ARTICLES.findOne({_id:a.article_id[a.article_id.length-1]}).title;
 
@@ -41,7 +25,6 @@ Template.wordBook.helpers({
         return s;
     },
     titles2:function (titleid) {
-        // s = DB_ALL_ARTICLES.findOne({_id:titleid}).title;
         var a = DB_WORDS.findOne({user_id:Meteor.user()._id,word:this.word,form:2});
         var s =  DB_ALL_ARTICLES.findOne({_id:a.article_id[a.article_id.length-1]}).title;
 
