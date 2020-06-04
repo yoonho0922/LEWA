@@ -110,7 +110,7 @@ Template.articleWord.events({
                     Session.set('data1', result);
                     // console.log(Session.get('data'));
                 }
-            })
+            });
             var exampleWord = $('#inp-wordSearch').val();
             Session.set('exampleWord', exampleWord);
             // callback 함수를 이용해서 Meteor.call() 호출
@@ -185,8 +185,6 @@ Template.articleWord.events({
                     DB_WORDS.update({_id: connect_word._id}, {$pull: {article_id: article_id}});
                     DB_WORDS.update({_id: connect_word._id}, {$inc: {findCount: -1}});
                     alert('취소되었습니다.')
-                    //DB_WORDS.update({_id: connect_word._id}, {$pop: {date: 1}});
-                    //DB_WORDS.update({_id: connect_word._id}, {$set:{date:getToday().toString()}});//날짜 처리!!!
                 }
             } else { //2. 다른 기사
                 DB_WORDS.update({_id: connect_word._id}, {$push: {article_id: article_id}});
@@ -196,7 +194,6 @@ Template.articleWord.events({
                 DB_WORDS.update({_id:connect_word._id},{$set:{date:getToday().toString()}});
                 // 최신검색날짜 update
                 alert('중요한 단어로 등록되었습니다.')
-                //DB_WORDS.update({_id: connect_word._id}, {$push: {date: getToday().toString()}});//날짜 처리!!!
 
             }//remove는 selector가 무조건 _id여야 함
         }
@@ -251,8 +248,6 @@ Template.articleWord.events({
                     DB_WORDS.update({_id: connect_word2._id}, {$pull: {article_id: article_id}});
                     DB_WORDS.update({_id: connect_word2._id}, {$inc: {findCount: -1}});
                     alert('취소되었습니다.')
-                    //DB_WORDS.update({_id: connect_word._id}, {$pop: {date: 1}});
-                    //DB_WORDS.update({_id: connect_word._id}, {$set:{date:getToday().toString()}});//날짜 처리!!!
                 }
             } else { //2. 다른 기사
                 DB_WORDS.update({_id: connect_word2._id}, {$push: {article_id: article_id}});
@@ -262,71 +257,11 @@ Template.articleWord.events({
                 DB_WORDS.update({_id: connect_word2._id}, {$set: {date: getToday().toString()}});
                 // 최신검색날짜 update
                 alert('중요한 단어로 등록되었습니다.')
-                //DB_WORDS.update({_id: connect_word._id}, {$push: {date: getToday().toString()}});//날짜 처리!!!
+
             }
         }//remove는 selector가 무조건 _id여야 함
 
     },
-    
-    //단어목록에 삭제버튼에 대한 함수
-    'click #word_delete1': function(evt) {
-        // // var tag_update = Session.get('tag_arr');
-        // // tag_update.splice(tag_update.indexOf($(evt.target).attr('value')), 1);
-        // // Session.set('tag_arr', tag_update);
-        // DB_WORDS.remove({_id: this._id});
-        // alert('삭제 되었습니다.');
-        var searchWord = Session.get('searchWord');   //현재 검색된 단어 가져오기
-        var user_id = Meteor.user()._id;//유저의 _id 가져오기
-        var connect_word=DB_WORDS.findOne({word:searchWord,user_id:user_id,form:1});
-
-        var remove_id=FlowRouter.getParam('_id');//현재 기사 _id 가져오기
-        var arr_length = connect_word.article_id.length;//들어가있는 article_id 배열 길이 가져오기
-        var res = new Array();//새로 넣어줄 배열 만들어 주기
-        for(i=0,j=0;i<arr_length;i++)
-        {
-            if(connect_word.article_id[i]!==remove_id){
-                res[j]=connect_word.article_id[i];
-                j++;
-            }
-
-        }
-        DB_WORDS.update({_id: connect_word._id},{$set:{article_id:res}});
-        DB_WORDS.update({_id:connect_word._id},{$inc:{findCount: -1}});
-
-        if(connect_word.findCount===1){//예외처리
-            var wordbook_remove_id=DB_WORDS.findOne({_id:connect_word._id,findCount:0})._id;
-            DB_WORDS.remove({_id:wordbook_remove_id});
-        }
-        alert('취소되었습니다.')
-
-    },
-    'click #word_delete2': function(evt) {
-
-        var searchWord = Session.get('searchWord');   //현재 검색된 단어 가져오기
-        var user_id = Meteor.user()._id;//유저의 _id 가져오기
-        var connect_word2=DB_WORDS.findOne({word:searchWord,user_id:user_id,form:2});
-
-        var remove_id=FlowRouter.getParam('_id');//현재 기사 _id 가져오기
-        var arr_length = connect_word2.article_id.length;//들어가있는 article_id 배열 길이 가져오기
-        var res = new Array();//새로 넣어줄 배열 만들어 주기
-        for(i=0,j=0;i<arr_length;i++)
-        {
-            if(connect_word2.article_id[i]!==remove_id){
-                res[j]=connect_word2.article_id[i];
-                j++;
-            }
-
-        }
-        DB_WORDS.update({_id: connect_word2._id},{$set:{article_id:res}});
-        DB_WORDS.update({_id:connect_word2._id},{$inc:{findCount: -1}});
-
-        if(connect_word2.findCount===1){//예외처리
-            var wordbook_remove_id=DB_WORDS.findOne({_id:connect_word2._id,findCount:0})._id;
-            DB_WORDS.remove({_id:wordbook_remove_id});
-        }
-        alert('취소되었습니다.')
-    }
-
 });
 
 
