@@ -54,11 +54,39 @@ Template.wordBook.helpers({
 });
 
 Template.wordBook.events({
-    'click #eachWord1': function(){
-        swal("사전뜻 넣어주세용");
+    'click #eachWord1': function(evt){
+        var searchWord = $(evt.target).attr('value');
+        console.log(searchWord)
+        // callback 함수를 이용해서 Meteor.call() 호출
+        Meteor.call('word_searching', searchWord, function (error, result){
+            if (error) {
+                alert('Error');
+            } else {
+                result=result[0];
+                result = result.replace(/<b>/g, '');
+                result = result.replace(/<\/b>/g, '');
+                Session.set('data1', result);
+                console.log(result);
+                swal(result);
+            }
+        })
     },
-    'click #eachWord2': function(){
-        swal("사전뜻 넣어주세용");
+    'click #eachWord2': function(evt){
+        var searchWord = $(evt.target).attr('value');
+        console.log(searchWord)
+        // callback 함수를 이용해서 Meteor.call() 호출
+        Meteor.call('word_searching', searchWord, function (error, result){
+            if (error) {
+                alert('Error');
+            } else {
+                result=result[0];
+                result = result.replace(/<b>/g, '');
+                result = result.replace(/<\/b>/g, '');
+                Session.set('data1', result);
+                console.log(result);
+                swal(result);
+            }
+        })
     },
     'click #remove_word1':function () {
         var word_id = DB_WORDS.findOne({word:this.word,form:1})._id;
