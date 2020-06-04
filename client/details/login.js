@@ -1,4 +1,5 @@
 FlowRouter.template('/', 'login');
+document.title = "LEWA'";
 
 Template.login.onRendered(function() {
     // 화면 로드 시 스크린 사이즈 전체를 활용하기 위한 설정
