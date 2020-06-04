@@ -58,7 +58,7 @@ Template.article.helpers({
 
 Template.article.events({
     'click #btn-gohome': function() {
-    location.href="/";
+    location.href="/main";
 },
     'click #btn-goquiz': function() {
         var _id = FlowRouter.getParam('_id')
@@ -92,7 +92,7 @@ Template.article.events({
     'click #btn-remove-article':function () {
         var _id = FlowRouter.getParam('_id');
         DB_ALL_ARTICLES.remove({_id:_id});
-        location.href="/";
+        location.href="/main";
 
     },
 
