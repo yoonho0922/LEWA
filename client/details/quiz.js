@@ -94,7 +94,7 @@ Template.quiz.events({
         $('#inp-word').val('');
     },
     'click #btn-main':function () {
-        location.href='/';
+        location.href="/main";
     },
     'click #btn-gotowordbook':function () {
         location.href=" /wordBook";

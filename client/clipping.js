@@ -10,10 +10,6 @@ Template.clipping.helpers({
         });
         return clip_articles;
     },
-    image_link: function() {
-        // 저장 된 이미지 링크를 반환
-        return DB_FILES.findOne({_id: this.image}).link();
-    },
 });
 
 Template.clipping.events({

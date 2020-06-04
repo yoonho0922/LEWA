@@ -17,23 +17,19 @@
         <div class="table-responsive" style="padding-top: 30px">
             <table class="table table-hover">  <!--table table-striped table-sm-->
 
-                <thead class = "thread-light"> <!--조큼더 생각-->
+                <thead class = "thread-light">
                 <tr>
                     <th scope="col" style="text-align: center;">순서</th>
-<!--                    <th scope="col">썸네일</th>-->
                     <th scope="col">제목</th>
                     <th scope="col" style="text-align: center">등록한 날짜</th>
                     <th scope="col" style="text-align: center;">조회수</th>
-                    <!--단어검색횟수추가?-->
-                    <!--...? 신문읽었오 확인용 <th scope="col">신문사</th>-->
                 </tr>
                 </thead>
                 <tbody>
 
                 {{#each articleDate}}
                     <tr>
-                        <th scope="row" style="text-align: center">{{math @index "+" 1}} </th> <!--순서 어떻게 갖고올건지-->
-<!--                        <td style="">{{image_link}}</td>-->
+                        <th scope="row" style="text-align: center">{{math @index "+" 1}} </th>
                         <td> <a href="/article/{{_id}}" style="color:black;">{{title}}</a><br></td>
                         <td style="text-align: center;">{{searchingDate}}</td>
                         <td style="text-align: center;">{{viewCount}}</td>

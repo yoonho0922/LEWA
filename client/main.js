@@ -4,29 +4,17 @@ FlowRouter.template('/main', 'main');
 Template.main.helpers({
 
     dateString: function() { //이거 오래 걸림
-      // return DB_ALL_ARTICLES.findOne({},{sort:{createdAt:-1}}).date;
         return DB_ALL_ARTICLES.findOne({},{sort:{createdAt:-1}}).date[0]+'. '+DB_ALL_ARTICLES.findOne({},{sort:{createdAt:-1}}).date[1]+'. '+DB_ALL_ARTICLES.findOne({},{sort:{createdAt:-1}}).date[2];
     },
 
-    articles: function () { //하고 싶었던거: 1. dataString에 [0]번째(가장최신)기사 date : dateString
+    articles: function () { //1. dataString에 [0]번째(가장최신)기사 date : dateString
     //2. dateString에 해당되는거, 조회순으로 sort하기
       var today_date=DB_ALL_ARTICLES.findOne({},{sort:{createdAt:-1}}).date;
 
       return DB_ALL_ARTICLES.findAll({date:today_date}, {sort: {viewCount: -1},limit: 10});
 
-    //기사 타이틀은 조회수!!의 내림차순, 10개 return
+    //기사 타이틀은 조회수의 내림차순, 10개 return
   },
-    warn:function(){
-        alert('로그인 후 이용가능합니다.')
-        location.href="/";
-
-    },
-
-
-  // image_link: function() {
-  //   // 저장 된 이미지 링크를 반환
-  //   return DB_FILES.findOne({_id: this.image}).link();
-  // },
 
   articles2:function () {
     var today_date=DB_ALL_ARTICLES.findOne({},{sort:{createdAt:-1}}).date;
@@ -49,10 +37,5 @@ Template.main.helpers({
 });
 
 Template.main.events({
-  // 'click #go_article': function () {
-  //   var view = DB_ARTICLES.findOne({_id: _id});
-  //   view.viewCount+=1;
-
-  // }
 
 });

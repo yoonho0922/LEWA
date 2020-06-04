@@ -2,10 +2,6 @@ FlowRouter.template('/article/:_id', 'article');
 
 Template.article.onCreated(function() {
     var _id = FlowRouter.getParam('_id')
-    // DB_ARTICLES_10.update({_id: _id}, {
-    //     $inc: {viewCount: 1}  //조회수 1 증가 업데이트
-    // });
-    // var article_id=DB_ARTICLES_10.findOne({_id:_id}).article_id;
     DB_ALL_ARTICLES.update({_id:_id}, {
         $inc: {viewCount: 1}  //조회수 1 증가 업데이트
 
@@ -44,16 +40,6 @@ Template.article.helpers({
             return true;
     },
 
-    // viewadd:function () {
-    //     var title=DB_ARTICLES_10.findOne({_id:_id}).title;
-    //     alert(title);
-    //     DB_ALL_ARTICLES.update({title:title}, {
-    //         $inc: {viewCount: 1}  //조회수 1 증가 업데이트
-    //
-    //     });
-    //
-    // }
-
 });
 
 Template.article.events({
@@ -73,7 +59,6 @@ Template.article.events({
         var post_id = FlowRouter.getParam('_id');
         var user_id = Meteor.user()._id;
         var clip = DB_CLIPS.findOne({post_id : post_id, user_id : user_id});
-        // var articles = DB_ARTICLES_10.findOne({_id : post_id});
         var articles = DB_ALL_ARTICLES.findOne({_id : post_id});
 
         if(!clip){

@@ -52,7 +52,6 @@ Template.posting.events({
 
         function getToday(){
             var date = new Date();
-            // return (date.getMonth()+1).toString()+"-"+date.getDate().toString();
             var arrDate = new Array();
             arrDate = [date.getFullYear().toString(), (date.getMonth()+1).toString(), date.getDate().toString()];
             return arrDate;
@@ -70,18 +69,6 @@ Template.posting.events({
             viewCount: 0,
 
         });//이건 전체 DB에 넣는거
-        var article_id=DB_ALL_ARTICLES.findOne({title:title})._id;
-
-        // DB_ARTICLES_10.insert({
-        //     title: title,
-        //     image: image,   //DB_FILES에 있는 이미지의 _id 저장
-        //     content: html,
-        //     date: getToday(),
-        //     createdAt: new Date(),
-        //     viewCount: 0,
-        //     article_id:article_id,
-        //
-        // });//이건 최근 10개 기사에 넣는거
 
         alert('저장하였습니다.');
         //화면에 입력된 값 초기화
