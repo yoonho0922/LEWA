@@ -27,6 +27,7 @@ meteor
 * [페이지 구성](/docs/client_structure.md)
 * [DB 구조](/docs/DB_collection.md)
 * [추가한 package](/docs/npm_install.md)
+* [참조](/docs/reference.md)
 
 ## Project Structure
 * Client : 화면 구성 모음
