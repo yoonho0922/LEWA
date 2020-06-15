@@ -1,25 +1,20 @@
-## Reference
+[Git - Documentation - Book](https://git-scm.com/book/ko/v2)
 
-### Git
+[Meteor- guide](https://guide.meteor.com/)
 
-[버전관리란?]
+[Meteor - API docs](https://docs.meteor.com/)
 
-[깃 기초 ]
+[Tutorialpoint - Meteor](https://www.tutorialspoint.com/meteor)
+
+[TCP School](http://tcpschool.com/css/css_intro_basic)
+
+[npm](https://www.npmjs.com/)
+
+[mongodb - docs](https://docs.mongodb.com/)
+
+[bootstrap - docs](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
+
+[Sweet alert - guide](https://sweetalert.js.org/guides/)
 
 
 
-### Meteor Base
-
-[meteor.js in 50m]https://youtu.be/vSFH1T3SnBY
-
-[웹서버와 웹 브라우저의 통신]https://www.youtube.com/watch?v=gde0uNwMSa4
-
-[미티어란 무엇인가]https://rkjun.wordpress.com/2012/06/04/meteor-js-preview-0-3-6-intro/
-
-
-
-#### NPM
-
-[about npm]https://docs.npmjs.com/about-npm/
-
-[meteor npm]https://guide.meteor.com/using-npm-packages.html
