@@ -1,11 +1,4 @@
-2020년 1학기 상명대학교 스터디 상생플러스의 개발 프로젝트 repository입니다.   
-Javascript 기반 Web/Mobile application 개발 플랫폼 Meteor를 이용하여 영어기사를 보며 영단어를 학습할 수 있는 웹사이트 개발   
-<br/><br/>
-[Meteor](https://www.meteor.com/)
-<br/>
-html, css, javascript  
-Node.js, npm  
-mongoDB  
+Javascript 기반 Web/Mobile application 개발 플랫폼 Meteor를 이용하여 영어기사를 보며 영단어를 학습할 수 있는 웹사이트 개발
 
 ## Run Project
 #### install meteor
