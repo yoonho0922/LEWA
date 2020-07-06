@@ -1,5 +1,8 @@
 Javascript 기반 Web/Mobile application 개발 플랫폼 Meteor를 이용하여 영어기사를 보며 영단어를 학습할 수 있는 웹사이트 개발
 
+[Meteor](https://www.meteor.com/)
+[Codeasy](https://github.com/codeasy-org/codeasy)
+
 ## Run Project
 #### install meteor
 * [미티어 설치](https://www.meteor.com/install)
