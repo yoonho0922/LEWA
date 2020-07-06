@@ -1,7 +1,19 @@
-Javascript 기반 Web/Mobile application 개발 플랫폼 Meteor를 이용하여 영어기사를 보며 영단어를 학습할 수 있는 웹사이트 개발
+Javascript 기반 application 개발 플랫폼 Meteor를 사용하여 영어기사를 보며 영단어를 학습할 수 있는 웹 애플리케이션 개발
 
-[Meteor](https://www.meteor.com/)
+[Meteor](https://www.meteor.com/)   
 [Codeasy](https://github.com/codeasy-org/codeasy)
+
+## Application Sample
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/login_capture.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/main_capture.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/articlelist_capture.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/autoupload_capture.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/uploadsuc_capture.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/post01_capture.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/post02_capture.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/quiz01_capture.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/quiz02_capture.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/wordbook_capture.png" width="70%" height="70%"></p>
 
 ## Run Project
 #### install meteor
