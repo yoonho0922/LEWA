@@ -3,12 +3,21 @@ Javascript 기반 application 개발 플랫폼 Meteor를 사용하여 영어기�
 [Meteor](https://www.meteor.com/)   
 [Codeasy](https://github.com/codeasy-org/codeasy)
 
+## Contributer
+* [201910787youngseo](https://github.com/201910787youngseo) 
+* [ChaeheePark](https://github.com/ChaeheePark) 
+* [hhz2000](https://github.com/hhz2000) 
+* [limjustin](https://github.com/limjustin) 
+* [polyn00](https://github.com/polyn00) 
+* [yoonho0922](https://github.com/yoonho0922) 
+
 ## Application Sample
-<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/main_capture.png" width="70%" height="70%"></p>
-<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/uploadsuc_capture.png" width="70%" height="70%"></p>
-<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/post01_capture.png" width="70%" height="70%"></p>
-<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/quiz01_capture.png" width="70%" height="70%"></p>
-<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/wordbook_capture.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/main_capture.png" width="90%" height="90%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/autoupload_capture.png" width="90%" height="90%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/uploadsuc_capture.png" width="90%" height="90%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/post01_capture.png" width="90%" height="90%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/quiz01_capture.png" width="90%" height="90%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/wordbook_capture.png" width="90%" height="90%"></p>
 
 ## Run Project
 #### install meteor
