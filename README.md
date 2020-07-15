@@ -4,11 +4,11 @@ Javascript 기반 application 개발 플랫폼 Meteor를 사용하여 영어기�
 [Codeasy](https://github.com/codeasy-org/codeasy)
 
 ## Application Sample
-<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/main_capture.png" width="70%" height="70%"></p>
-<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/uploadsuc_capture.png" width="70%" height="70%"></p>
-<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/post01_capture.png" width="70%" height="70%"></p>
-<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/quiz01_capture.png" width="70%" height="70%"></p>
-<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/wordbook_capture.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/main_capture.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/uploadsuc_capture.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/post01_capture.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/quiz01_capture.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/yoonho0922/LEWA/blob/master/public/capture/wordbook_capture.png" width="70%" height="70%"></p>
 
 ## Run Project
 #### install meteor
