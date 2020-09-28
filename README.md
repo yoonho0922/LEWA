@@ -3,7 +3,7 @@ Javascript 기반 application 개발 플랫폼 Meteor를 사용하여 영어기�
 [Meteor](https://www.meteor.com/)   
 [Codeasy](https://github.com/codeasy-org/codeasy)
 
-## Contributer
+## Contributor
 * [201910787youngseo](https://github.com/201910787youngseo) 
 * [ChaeheePark](https://github.com/ChaeheePark) 
 * [hhz2000](https://github.com/hhz2000) 
