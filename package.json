@@ -16,7 +16,7 @@
     "meteor-node-stubs": "^0.4.1",
     "moment": "^2.26.0",
     "request": "^2.88.2",
-    "sanitize-html": "^1.25.0"
+    "sanitize-html": "^2.3.2"
   },
   "meteor": {
     "mainModule": {},
